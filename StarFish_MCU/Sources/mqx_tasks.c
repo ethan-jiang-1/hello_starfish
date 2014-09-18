@@ -74,56 +74,8 @@ void Init_Task(uint32_t task_init_data)
 	
 	  trace_init();
 	 show_version_information();
-//  LDD_TError Error;
-//  byte Data;
-//  
-//  Configure(); /* TSS init */
-//#if CONSOLE_IO_SUPPORT
-//  printf("Project description:\n");
-//  printf("I2C example of communication with external accelerometer.\n");
-//  printf("PWM is used for dimming the RGB LED in dependence on tilt of the board.\n");
-//  printf("\n");
-//#endif
-//  I2C_DeviceData = I2C_Init(&DataState);
-//#if CONSOLE_IO_SUPPORT
-//  printf("Description:\n");
-//  printf("1) Initialization of MMA8451Q accelerometer... ");
-//#endif
-//  Error = !ReadAccRegs(I2C_DeviceData, &DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
-//  if (!Error) {
-//    Data = 0x00; /* Set active mode bit and fast read mode bit */
-//    Error = !WriteAccRegs(I2C_DeviceData, &DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
-//    Data = (F_READ_BIT_MASK); /* Set active mode bit and fast read mode bit */
-//    Error = !WriteAccRegs(I2C_DeviceData, &DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
-//    Data = (ACTIVE_BIT_MASK | F_READ_BIT_MASK); /* Set active mode bit and fast read mode bit */
-//    Error = !WriteAccRegs(I2C_DeviceData, &DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
-//  }
-//  if (!Error) {
-//    Data = 0;
-//    Error = !ReadAccRegs(I2C_DeviceData, &DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
-//    if (!Error) {
-//      if (Data != (ACTIVE_BIT_MASK | F_READ_BIT_MASK)) {
-//        Error = TRUE;
-//      }
-//    }
-//  }
-//#if CONSOLE_IO_SUPPORT  
-//   /* Initialization passed? */
-//  if (!Error) {
-//    printf("PASSED.\n");
-//  } else {
-//    printf("FAILED.\n");
-//  }
-//   
-//  if (!Error) {
-// 	  printf("2) Tilt your Freedom Board to change the RGB LED colors.\n");
-//    printf("3) Swipe the slider to change blink rate.\n");
-//  }
-//#endif   
-//  PWMTimerRGB_DeviceData = PWMTimerRGB_Init(NULL);
-//  PeriodicTimer = BlinkRateCounter_Init(NULL);
-//  _task_create_at(0, COLORTASK_TASK, 0, ColorTask_task_stack, COLORTASK_TASK_STACK_SIZE);
-//  _task_create_at(0, TSS_TRIGGER_TASK, 0, TSS_Trigger_task_stack, TSS_TRIGGER_TASK_STACK_SIZE);
+	 _task_create_at(0, SHELL_TASK, 0, shell_task_stack, SHELL_TASK_STACK_SIZE);
+
 }
 
 

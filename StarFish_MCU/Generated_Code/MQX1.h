@@ -81,9 +81,7 @@ void _pend_svc(void);
 
 /* Task stacks declarations */
 extern uint8_t Init_Task_task_stack[INIT_TASK_TASK_STACK_SIZE];
-extern uint8_t TSS_Trigger_task_stack[TSS_TRIGGER_TASK_STACK_SIZE];
-extern uint8_t ColorTask_task_stack[COLORTASK_TASK_STACK_SIZE];
-
+extern uint8_t shell_task_stack[SHELL_TASK_STACK_SIZE];
 /* MQX Lite init structure and task template list */
 extern const MQXLITE_INITIALIZATION_STRUCT       MQX_init_struct;
 extern const TASK_TEMPLATE_STRUCT                MQX_template_list[];
@@ -107,7 +105,7 @@ extern INTERRUPT_TABLE_STRUCT          mqx_static_isr_table[MQX_INTERRUPT_TABLE_
 extern uint8_t mqx_system_stack[];
 
 /* Task ready queue */
-#define MQX_IDLE_TASK_PRIORITY         (10)
+#define MQX_IDLE_TASK_PRIORITY         (32)
 #define MQX_READY_QUEUE_ITEMS          (MQX_IDLE_TASK_PRIORITY + 1)
 extern READY_Q_STRUCT                  mqx_static_ready_queue[MQX_READY_QUEUE_ITEMS];
 

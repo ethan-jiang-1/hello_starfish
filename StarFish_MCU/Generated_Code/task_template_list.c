@@ -24,6 +24,7 @@
 
 #include "task_template_list.h"
 #include "mqx_tasks.h"
+#include "app_shell.h"
 
 #define TASK_TEMPLATE_LIST_END         {0, 0, 0, 0, 0, 0, 0}
 
@@ -40,13 +41,13 @@ const TASK_TEMPLATE_STRUCT MQX_template_list[] =
   /* Task attributes                  */  (MQX_AUTO_START_TASK),
   /* Task parameter                   */  (uint32_t)(0)
   },
-  /* Task: ColorTask */
+	/* Task: SHELL task */
   {
-  /* Task number                      */  COLORTASK_TASK,
-  /* Entry point                      */  (TASK_FPTR)ColorTask,
-  /* Stack size                       */  COLORTASK_TASK_STACK_SIZE,
-  /* Task priority                    */  9U,
-  /* Task name                        */  "colortask",
+  /* Task number                      */  SHELL_TASK,
+  /* Entry point                      */  (TASK_FPTR)shell_task,
+  /* Stack size                       */  SHELL_TASK_STACK_SIZE,
+  /* Task priority                    */  30U,
+  /* Task name                        */  "shell",
   /* Task attributes                  */  (0),
   /* Task parameter                   */  (uint32_t)(0)
   },

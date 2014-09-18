@@ -51,3 +51,14 @@
 .\uv4build\task_template_list.o: .\Generated_Code\IO_Map.h
 .\uv4build\task_template_list.o: .\common\PDD\TPM_PDD.h
 .\uv4build\task_template_list.o: .\Generated_Code\PE_LDD.h
+.\uv4build\task_template_list.o: .\APP\app_shell.h
+.\uv4build\task_template_list.o: .\common\shell\shell.h
+.\uv4build\task_template_list.o: .\common\shell\shell_cfg.h
+.\uv4build\task_template_list.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\uv4build\task_template_list.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\uv4build\task_template_list.o: .\APP\app_trace.h
+.\uv4build\task_template_list.o: .\common\drivers\uart.h
+.\uv4build\task_template_list.o: .\Generated_Code\IO_Map.h
+.\uv4build\task_template_list.o: .\common\PDD\UART0_PDD.h
+.\uv4build\task_template_list.o: .\common\PDD\UART_PDD.h
+.\uv4build\task_template_list.o: .\MQXLITE\psp\cortex_m\psp_prv.h

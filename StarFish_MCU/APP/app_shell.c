@@ -26,7 +26,7 @@
 #include <stdlib.h>
 
 
-// to do uint8_t shell_task_stack[SHELL_TASK_STACK_SIZE];
+uint8_t shell_task_stack[SHELL_TASK_STACK_SIZE];
 
 #define  SHELL_HEADER       "app_"
 

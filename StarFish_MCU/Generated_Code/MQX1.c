@@ -36,14 +36,11 @@
 
 /* Task stacks definition */
 uint8_t Init_Task_task_stack[INIT_TASK_TASK_STACK_SIZE];
-uint8_t TSS_Trigger_task_stack[TSS_TRIGGER_TASK_STACK_SIZE];
-uint8_t ColorTask_task_stack[COLORTASK_TASK_STACK_SIZE];
 
 /* Task stacks array of pointers */
 const uint8_t * mqx_task_stack_pointers[] = {
 /* "Init_Task" task                    */  Init_Task_task_stack,
-/* "TSS_Trigger" task                  */  TSS_Trigger_task_stack,
-/* "ColorTask" task                    */  ColorTask_task_stack,
+	/* "shell" task                        */  shell_task_stack,
 /* Stack array end                     */  NULL
 };
 
