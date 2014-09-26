@@ -24,6 +24,7 @@
 
 #include "task_template_list.h"
 #include "mqx_tasks.h"
+#include "app_mma8451.h"
 #include "app_shell.h"
 
 #define TASK_TEMPLATE_LIST_END         {0, 0, 0, 0, 0, 0, 0}
@@ -39,6 +40,16 @@ const TASK_TEMPLATE_STRUCT MQX_template_list[] =
   /* Task priority                    */  9U,
   /* Task name                        */  "init_task",
   /* Task attributes                  */  (MQX_AUTO_START_TASK),
+  /* Task parameter                   */  (uint32_t)(0)
+  },
+		/* Task: MMA8451 control task */
+  {
+  /* Task number                      */  MMA8415_TASK,
+  /* Entry point                      */  (TASK_FPTR)app_mma8451_control_task,
+  /* Stack size                       */  MMA8451_TASK_STACK_SIZE,
+  /* Task priority                    */  9U,
+  /* Task name                        */  "MMA8451",
+  /* Task attributes                  */  (0),
   /* Task parameter                   */  (uint32_t)(0)
   },
 	/* Task: SHELL task */

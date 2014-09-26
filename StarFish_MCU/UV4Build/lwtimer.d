@@ -55,3 +55,5 @@
 .\uv4build\lwtimer.o: .\MQXLITE\psp\cortex_m\psp_comp.h
 .\uv4build\lwtimer.o: .\MQXLITE\psp\cortex_m\compiler\uv4\comp.h
 .\uv4build\lwtimer.o: .\MQXLITE\psp\cortex_m\psp_prv.h
+.\uv4build\lwtimer.o: .\MQXLITE\include\lwtimer.h
+.\uv4build\lwtimer.o: .\MQXLITE\include\lwtimer_prv.h

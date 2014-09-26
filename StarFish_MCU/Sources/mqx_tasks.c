@@ -27,6 +27,7 @@
 #include "Common.h"
 #include "MMA845xQ.h"
 #include "app_trace.h"
+#include "app_mma8451.h"
 
 
 LDD_TDeviceData *I2C_DeviceData = NULL;
@@ -75,7 +76,7 @@ void Init_Task(uint32_t task_init_data)
 	  trace_init();
 	 show_version_information();
 	 _task_create_at(0, SHELL_TASK, 0, shell_task_stack, SHELL_TASK_STACK_SIZE);
-
+	 _task_create_at(0, MMA8415_TASK, 0, mma8451_task_stack, MMA8451_TASK_STACK_SIZE);
 }
 
 

@@ -38,7 +38,7 @@
 #define MQX_USE_LWEVENTS               0
 #define MQX_USE_MUTEXES                1
 #define MQX_USE_LWMSGQ                 1
-#define MQX_USE_LWTIMER                0
+#define MQX_USE_LWTIMER                1
 #define MQX_KERNEL_LOGGING             0
 
 /* Idle task settings */

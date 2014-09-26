@@ -63,3 +63,4 @@
 .\uv4build\mqx_tasks.o: .\Generated_Code\IO_Map.h
 .\uv4build\mqx_tasks.o: .\common\PDD\UART0_PDD.h
 .\uv4build\mqx_tasks.o: .\common\PDD\UART_PDD.h
+.\uv4build\mqx_tasks.o: .\APP\app_mma8451.h

@@ -82,6 +82,7 @@ void _pend_svc(void);
 /* Task stacks declarations */
 extern uint8_t Init_Task_task_stack[INIT_TASK_TASK_STACK_SIZE];
 extern uint8_t shell_task_stack[SHELL_TASK_STACK_SIZE];
+extern uint8_t mma8451_task_stack[MMA8451_TASK_STACK_SIZE];
 /* MQX Lite init structure and task template list */
 extern const MQXLITE_INITIALIZATION_STRUCT       MQX_init_struct;
 extern const TASK_TEMPLATE_STRUCT                MQX_template_list[];
@@ -96,7 +97,7 @@ extern const TASK_TEMPLATE_STRUCT                MQX_template_list[];
 /* The first interrupt vector that the application wants to have a 'C' ISR for.    */
 #define FIRST_INTERRUPT_VECTOR_USED    (INT_SysTick)
 /* The last interrupt vector that the application wants to handle. */
-#define LAST_INTERRUPT_VECTOR_USED     (INT_TSI0)
+#define LAST_INTERRUPT_VECTOR_USED     (INT_PORTC_PORTD)
 #define MQX_INTERRUPT_TABLE_ITEMS      (LAST_INTERRUPT_VECTOR_USED - FIRST_INTERRUPT_VECTOR_USED + 1)
 /* The table of 'C' handlers for interrupts. */
 extern INTERRUPT_TABLE_STRUCT          mqx_static_isr_table[MQX_INTERRUPT_TABLE_ITEMS];
