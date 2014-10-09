@@ -21,6 +21,7 @@
 #include "mqxlite_prv.h"
 #include "mutex.h"
 #include "lwmsgq.h"
+#include "acos.h"
 
 #include "app_trace.h"
 #include <string.h>
@@ -61,6 +62,34 @@ void    init_PTA14_interrupt(void)
     set_irq_priority(30, 2);
 }
 
+/*
++1000 --> 75 degree
+-1000 --> 105 degree=180-75.
++3999--->angle 0
++34---> angle 90 
+*/
+uint_8 angle_calculation(int accel_z, byte sign_bit)
+{
+	byte angle=0;
+	accel_z=abs(accel_z);
+	if (accel_z>3999)
+			accel_z=3999;
+	for(angle=0;angle<89;angle++)
+	{
+		if(accel_z<=acos_array[angle]&&accel_z>acos_array[angle+1])
+		{
+			if (sign_bit==1)
+			return (angle+1);
+			else
+				return (180-angle);
+		}
+	}
+		/*if angle=89, jump the above loop. so it is must be 90.*/
+			if(angle==89)
+				return (angle+1);
+			return -1; // return error code.
+	
+}
 
 static void mma8451_getdata(void)
 {
@@ -69,6 +98,8 @@ static void mma8451_getdata(void)
 		byte Color[192];
 		signed short accel_x, accel_y, accel_z=0;
 		int i,j=0;
+		uint_8 sign_bit=0;
+		uint_8 angle=0;
     // Determine source of interrupt by reading the system interrupt
     ret = ReadAccRegs(g_I2C_DeviceData,
                       &g_DataState,
@@ -96,8 +127,12 @@ static void mma8451_getdata(void)
 					
 					accel_z   = Color[j+5] | (Color[j+4]<<8);
 					accel_z >>= 2;
-						
-					APP_TRACE("x=%05d,y=%05d,z=%05d\r\n", accel_x, accel_y, accel_z);
+					if(accel_z>=0)
+						sign_bit=1;
+					else
+						sign_bit=0;
+					angle=angle_calculation(accel_z,sign_bit);	
+					APP_TRACE("tilt %d,y=%05d,z=%05d\r\n", angle, accel_y, accel_z);
 					}
         }
     }

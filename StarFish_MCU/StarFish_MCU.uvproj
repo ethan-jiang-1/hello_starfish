@@ -827,6 +827,16 @@
               <FileType>1</FileType>
               <FilePath>.\APP\app_trace.c</FilePath>
             </File>
+            <File>
+              <FileName>app_mma8451.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\app_mma8451.c</FilePath>
+            </File>
+            <File>
+              <FileName>acos.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\acos.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -63,5 +63,6 @@
 .\uv4build\app_mma8451.o: .\MQXLITE\include\lwtimer.h
 .\uv4build\app_mma8451.o: .\MQXLITE\psp\cortex_m\psp_prv.h
 .\uv4build\app_mma8451.o: .\common\drivers\nvic.h
+.\uv4build\app_mma8451.o: APP\acos.h
 .\uv4build\app_mma8451.o: APP\app_trace.h
 .\uv4build\app_mma8451.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
