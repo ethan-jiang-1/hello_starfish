@@ -5703,17 +5703,27 @@ typedef struct SMC_MemMap {
 
 /** SPI - Peripheral register structure */
 typedef struct SPI_MemMap {
-  uint8_t S;                                       /**< SPI status register, offset: 0x0 */
-  uint8_t BR;                                      /**< SPI baud rate register, offset: 0x1 */
-  uint8_t C2;                                      /**< SPI control register 2, offset: 0x2 */
-  uint8_t C1;                                      /**< SPI control register 1, offset: 0x3 */
-  uint8_t ML;                                      /**< SPI match register low, offset: 0x4 */
-  uint8_t MH;                                      /**< SPI match register high, offset: 0x5 */
-  uint8_t DL;                                      /**< SPI data register low, offset: 0x6 */
-  uint8_t DH;                                      /**< SPI data register high, offset: 0x7 */
+//  uint8_t C1;                                      /**< SPI control register 1, offset: 0x0 */
+//  uint8_t C2;                                      /**< SPI control register 2, offset: 0x1 */
+//  uint8_t BR;                                      /**< SPI baud rate register, offset: 0x2 */
+//  uint8_t S;                                       /**< SPI status register, offset: 0x3 */
+//  uint8_t RESERVED_0[1];
+//  uint8_t D;                                       /**< SPI data register, offset: 0x5 */
+//  uint8_t RESERVED_1[1];
+//  uint8_t M;                                       /**< SPI match register, offset: 0x7 */
+	
+	uint8_t S;                                  /**< SPI status register, offset: 0x0 */
+  uint8_t BR;                                 /**< SPI baud rate register, offset: 0x1 */
+  uint8_t C2;                                 /**< SPI control register 2, offset: 0x2 */
+  uint8_t C1;                                 /**< SPI control register 1, offset: 0x3 */
+  uint8_t ML;                                 /**< SPI match register low, offset: 0x4 */
+  uint8_t MH;                                 /**< SPI match register high, offset: 0x5 */
+  uint8_t DL;                                 /**< SPI data register low, offset: 0x6 */
+  uint8_t DH;                                 /**< SPI data register high, offset: 0x7 */
   uint8_t RESERVED_0[2];
-  uint8_t CI;                                      /**< SPI clear interrupt register, offset: 0xA */
-  uint8_t C3;                                      /**< SPI control register 3, offset: 0xB */
+  uint8_t CI;                                 /**< SPI clear interrupt register, offset: 0xA */
+  uint8_t C3;                                 /**< SPI control register 3, offset: 0xB */
+	
 } volatile *SPI_MemMapPtr;
 
 /* ----------------------------------------------------------------------------
@@ -5727,16 +5737,22 @@ typedef struct SPI_MemMap {
 
 
 /* SPI - Register accessors */
-#define SPI_S_REG(base)                          ((base)->S)
-#define SPI_BR_REG(base)                         ((base)->BR)
-#define SPI_C2_REG(base)                         ((base)->C2)
+//#define SPI_C1_REG(base)                         ((base)->C1)
+//#define SPI_C2_REG(base)                         ((base)->C2)
+//#define SPI_BR_REG(base)                         ((base)->BR)
+//#define SPI_S_REG(base)                          ((base)->S)
+//#define SPI_D_REG(base)                          ((base)->D)
+//#define SPI_M_REG(base)                          ((base)->M)
 #define SPI_C1_REG(base)                         ((base)->C1)
-#define SPI_ML_REG(base)                         ((base)->ML)
-#define SPI_MH_REG(base)                         ((base)->MH)
-#define SPI_DL_REG(base)                         ((base)->DL)
-#define SPI_DH_REG(base)                         ((base)->DH)
-#define SPI_CI_REG(base)                         ((base)->CI)
+#define SPI_C2_REG(base)                         ((base)->C2)
 #define SPI_C3_REG(base)                         ((base)->C3)
+#define SPI_CI_REG(base)                         ((base)->CI)
+#define SPI_BR_REG(base)                         ((base)->BR)
+#define SPI_S_REG(base)                          ((base)->S)
+#define SPI_DL_REG(base)                         ((base)->DL)
+#define SPI_ML_REG(base)                         ((base)->ML)
+#define SPI_DH_REG(base)                         ((base)->DH)
+#define SPI_MH_REG(base)                         ((base)->MH)
 
 /**
  * @}
@@ -5882,25 +5898,40 @@ typedef struct SPI_MemMap {
 
 /* SPI - Register instance definitions */
 /* SPI0 */
-#define SPI0_S                                   SPI_S_REG(SPI0_BASE_PTR)
-#define SPI0_BR                                  SPI_BR_REG(SPI0_BASE_PTR)
-#define SPI0_C2                                  SPI_C2_REG(SPI0_BASE_PTR)
+//#define SPI0_C1                                  SPI_C1_REG(SPI0_BASE_PTR)
+//#define SPI0_C2                                  SPI_C2_REG(SPI0_BASE_PTR)
+//#define SPI0_BR                                  SPI_BR_REG(SPI0_BASE_PTR)
+//#define SPI0_S                                   SPI_S_REG(SPI0_BASE_PTR)
+//#define SPI0_D                                   SPI_D_REG(SPI0_BASE_PTR)
+//#define SPI0_M                                   SPI_M_REG(SPI0_BASE_PTR)
+///* SPI1 */
+//#define SPI1_C1                                  SPI_C1_REG(SPI1_BASE_PTR)
+//#define SPI1_C2                                  SPI_C2_REG(SPI1_BASE_PTR)
+//#define SPI1_BR                                  SPI_BR_REG(SPI1_BASE_PTR)
+//#define SPI1_S                                   SPI_S_REG(SPI1_BASE_PTR)
+//#define SPI1_D                                   SPI_D_REG(SPI1_BASE_PTR)
+//#define SPI1_M                                   SPI_M_REG(SPI1_BASE_PTR)
 #define SPI0_C1                                  SPI_C1_REG(SPI0_BASE_PTR)
-#define SPI0_ML                                  SPI_ML_REG(SPI0_BASE_PTR)
-#define SPI0_MH                                  SPI_MH_REG(SPI0_BASE_PTR)
+#define SPI0_C2                                  SPI_C2_REG(SPI0_BASE_PTR)
+#define SPI0_C3                                  SPI_C3_REG(SPI0_BASE_PTR)
+#define SPI0_CI                                  SPI_CI_REG(SPI0_BASE_PTR)
+#define SPI0_BR                                  SPI_BR_REG(SPI0_BASE_PTR)
+#define SPI0_S                                   SPI_S_REG(SPI0_BASE_PTR)
 #define SPI0_DL                                  SPI_DL_REG(SPI0_BASE_PTR)
+#define SPI0_ML                                  SPI_ML_REG(SPI0_BASE_PTR)
 #define SPI0_DH                                  SPI_DH_REG(SPI0_BASE_PTR)
+#define SPI0_MH                                  SPI_MH_REG(SPI0_BASE_PTR)
 /* SPI1 */
-#define SPI1_S                                   SPI_S_REG(SPI1_BASE_PTR)
-#define SPI1_BR                                  SPI_BR_REG(SPI1_BASE_PTR)
-#define SPI1_C2                                  SPI_C2_REG(SPI1_BASE_PTR)
 #define SPI1_C1                                  SPI_C1_REG(SPI1_BASE_PTR)
-#define SPI1_ML                                  SPI_ML_REG(SPI1_BASE_PTR)
-#define SPI1_MH                                  SPI_MH_REG(SPI1_BASE_PTR)
-#define SPI1_DL                                  SPI_DL_REG(SPI1_BASE_PTR)
-#define SPI1_DH                                  SPI_DH_REG(SPI1_BASE_PTR)
-#define SPI1_CI                                  SPI_CI_REG(SPI1_BASE_PTR)
+#define SPI1_C2                                  SPI_C2_REG(SPI1_BASE_PTR)
 #define SPI1_C3                                  SPI_C3_REG(SPI1_BASE_PTR)
+#define SPI1_CI                                  SPI_CI_REG(SPI1_BASE_PTR)
+#define SPI1_BR                                  SPI_BR_REG(SPI1_BASE_PTR)
+#define SPI1_S                                   SPI_S_REG(SPI1_BASE_PTR)
+#define SPI1_DL                                  SPI_DL_REG(SPI1_BASE_PTR)
+#define SPI1_ML                                  SPI_ML_REG(SPI1_BASE_PTR)
+#define SPI1_DH                                  SPI_DH_REG(SPI1_BASE_PTR)
+#define SPI1_MH                                  SPI_MH_REG(SPI1_BASE_PTR)
 
 /**
  * @}

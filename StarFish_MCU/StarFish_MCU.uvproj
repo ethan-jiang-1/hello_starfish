@@ -351,7 +351,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Generated_Code;.\Project_Settings\Startup_Code;.\Sources;.\Sources\TSS;.\MQXLITE\include;.\MQXLITE\kernel;.\MQXLITE\psp\cortex_m;.\MQXLITE\psp\cortex_m\compiler\uv4;.\MQXLITE\psp\cortex_m\core\M0;.\common\PDD;.\APP;.\common\shell;.\common\drivers</IncludePath>
+              <IncludePath>.\Generated_Code;.\Project_Settings\Startup_Code;.\Sources;.\Sources\TSS;.\MQXLITE\include;.\MQXLITE\kernel;.\MQXLITE\psp\cortex_m;.\MQXLITE\psp\cortex_m\compiler\uv4;.\MQXLITE\psp\cortex_m\core\M0;.\common\PDD;.\APP;.\common\shell;.\common\drivers;.\common\drivers\spi;.\common\drivers\W25Q32</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -811,6 +811,16 @@
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\common\drivers\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>MKL_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\common\drivers\spi\MKL_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>w25x32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\common\drivers\W25Q32\w25x32.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -49,6 +49,8 @@
 ".\uv4build\dispatch.o"
 ".\uv4build\nvic.o"
 ".\uv4build\uart.o"
+".\uv4build\mkl_spi.o"
+".\uv4build\w25x32.o"
 ".\uv4build\app_shell.o"
 ".\uv4build\app_trace.o"
 ".\uv4build\app_mma8451.o"

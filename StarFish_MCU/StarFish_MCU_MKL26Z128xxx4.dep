@@ -2197,6 +2197,8 @@ I (D:\starfish\StarFish_MCU\common\PDD\TPM_PDD.h)(0x524925EA)
 I (D:\starfish\StarFish_MCU\common\PDD\UART0_PDD.h)(0x524925EA)
 I (D:\starfish\StarFish_MCU\common\PDD\UART_PDD.h)(0x524925EA)
 I (D:\starfish\StarFish_MCU\common\drivers\nvic.h)(0x532C43BC)
+F (.\common\drivers\spi\MKL_spi.c)(0x543736B0)()
+F (.\common\drivers\W25Q32\w25x32.c)(0x543736CD)()
 F (.\APP\app_shell.c)(0x541A9FDA)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\app_shell.o --omf_browse .\uv4build\app_shell.crf --depend .\uv4build\app_shell.d)
 I (D:\starfish\StarFish_MCU\APP\app_shell.h)(0x54126E35)
 I (D:\starfish\StarFish_MCU\common\shell\shell.h)(0x532C453C)
@@ -2307,7 +2309,7 @@ I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 I (D:\starfish\StarFish_MCU\MQXLITE\psp\cortex_m\psp_prv.h)(0x524925EC)
 I (C:\Keil\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
 I (D:\starfish\StarFish_MCU\MQXLITE\include\mutex.h)(0x524925EC)
-F (.\APP\app_mma8451.c)(0x5424DE11)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\app_mma8451.o --omf_browse .\uv4build\app_mma8451.crf --depend .\uv4build\app_mma8451.d)
+F (.\APP\app_mma8451.c)(0x543644A7)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\app_mma8451.o --omf_browse .\uv4build\app_mma8451.crf --depend .\uv4build\app_mma8451.d)
 I (D:\starfish\StarFish_MCU\APP\app_mma8451.h)(0x532C4315)
 I (D:\starfish\StarFish_MCU\Generated_Code\PE_Types.h)(0x524925EC)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
@@ -2363,9 +2365,11 @@ I (D:\starfish\StarFish_MCU\MQXLITE\include\lwmsgq.h)(0x524925EC)
 I (D:\starfish\StarFish_MCU\MQXLITE\include\lwtimer.h)(0x524925EC)
 I (D:\starfish\StarFish_MCU\MQXLITE\psp\cortex_m\psp_prv.h)(0x524925EC)
 I (D:\starfish\StarFish_MCU\common\drivers\nvic.h)(0x532C43BC)
+I (D:\starfish\StarFish_MCU\APP\acos.h)(0x5434F6B5)
 I (D:\starfish\StarFish_MCU\APP\app_trace.h)(0x532C42DF)
 I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
-F (.\APP\acos.c)(0x5434F6A0)()
+F (.\APP\acos.c)(0x5436450C)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\acos.o --omf_browse .\uv4build\acos.crf --depend .\uv4build\acos.d)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 F (.\common\shell\shell.c)(0x532C4536)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\shell.o --omf_browse .\uv4build\shell.crf --depend .\uv4build\shell.d)
 I (D:\starfish\StarFish_MCU\common\shell\shell.h)(0x532C453C)
 I (D:\starfish\StarFish_MCU\common\shell\shell_cfg.h)(0x532C452F)
