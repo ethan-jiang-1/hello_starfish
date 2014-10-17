@@ -90,7 +90,69 @@ uint_8 angle_calculation(int accel_z, byte sign_bit)
 			return -1; // return error code.
 	
 }
+#define buffer_size 600
+static uint_8 Angle_1s[buffer_size];
+static uint_16 buffer_count=0;
+static uint_8 step=5;
+typedef struct
+{
+	double mean_val;
+	double var_val;
+} measure_type;
+static measure_type s_first, s_last;
 
+double Get_mean(uint_8 *data,uint_8 len)
+{
+	int i=0;
+	double tmp=0.0;
+	for(i=0;i<len;i++)
+		tmp=tmp+data[i];
+ return (tmp/len);
+}
+double Get_var(uint_8 *data, double ava,uint_8 len)
+{
+	int i=0;
+	double tmp=0.0;
+	for(i=0;i<len;i++)
+		tmp=tmp+(data[i]-ava)*(data[i]-ava);
+	return (tmp/(len-1));
+}
+void FindFirstPeak()
+{
+		int i=0;
+	 s_first.mean_val=0.0; 
+	s_first.var_val=0.0;
+	
+		for(i=0;i<buffer_size;i=i+step)
+	{
+			s_first.mean_val=Get_mean(&Angle_1s[i],step);
+			s_first.var_val=Get_var(&Angle_1s[i],s_first.mean_val,step);
+		if(s_first.mean_val>10&&s_first.var_val<0.5)
+		{
+			APP_TRACE("first mean=%08f,first var=%08f pos=%d \r\n", s_first.mean_val,s_first.var_val,i);
+			break;
+		}
+	}
+	
+}
+void FindLastPeak()
+{
+		int i,j=0;
+	  s_last.mean_val=0.0;
+	s_last.var_val=0.0;
+
+		for(i=(buffer_size-step);i>=0;i=i-step)
+	{
+			s_last.mean_val=Get_mean(&Angle_1s[i],step);
+			s_last.var_val=Get_var(&Angle_1s[i],s_last.mean_val,step);
+		if(s_last.mean_val>10&&s_last.var_val<0.5)
+		{
+			APP_TRACE("last mean=%08f,last var=%08f pos=%d \r\n", s_last.mean_val,s_last.var_val,i);
+			break;
+		}
+	}
+	
+}
 static void mma8451_getdata(void)
 {
     byte            Data;
@@ -100,6 +162,7 @@ static void mma8451_getdata(void)
 		int i,j=0;
 		uint_8 sign_bit=0;
 		uint_8 angle=0;
+		MQX_TICK_STRUCT ttt;
     // Determine source of interrupt by reading the system interrupt
     ret = ReadAccRegs(g_I2C_DeviceData,
                       &g_DataState,
@@ -131,7 +194,21 @@ static void mma8451_getdata(void)
 						sign_bit=1;
 					else
 						sign_bit=0;
-					angle=angle_calculation(accel_z,sign_bit);	
+					angle=angle_calculation(accel_z,sign_bit);
+						Angle_1s[buffer_count]=angle;
+					buffer_count++;
+					if(buffer_count==buffer_size)
+					{
+						buffer_count=0;
+		_time_get_elapsed_ticks(&ttt);
+    APP_TRACE("high tick %d, low first st%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
+						FindFirstPeak();
+								_time_get_elapsed_ticks(&ttt);
+    APP_TRACE("high tick %d, low last end%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
+						FindLastPeak();
+								_time_get_elapsed_ticks(&ttt);
+    APP_TRACE("high tick %d, low last end%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
+					}
 					APP_TRACE("tilt %d,y=%05d,z=%05d\r\n", angle, accel_y, accel_z);
 					}
         }
@@ -176,10 +253,10 @@ void    app_mma8451_control_task(uint32_t task_init_data)
      * Put the device into Standby Mode
      * Register 0x2A CTRL_REG1
      */
-    // Set the device in 100 Hz ODR, Standby
+    // Set the device in 12.5 Hz ODR, Standby
     // 0001 1000
-    // 0x18
-    Data = 0x18;
+    // 0x28
+    Data = 0x28;
     ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
     if (!ret)
     {
@@ -193,7 +270,7 @@ void    app_mma8451_control_task(uint32_t task_init_data)
                       CTRL_REG_1,
                       ACC_REG_SIZE,
                       &Data);
-    if (Data != 0x18)
+    if (Data != 0x28)
     {
         APP_TRACE("MMA8451 [0x%.2X] error[0x%.2X != 0x18]\r\n", CTRL_REG_1, Data);
     }

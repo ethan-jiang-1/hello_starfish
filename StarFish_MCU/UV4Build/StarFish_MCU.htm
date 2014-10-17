@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\UV4Build\StarFish_MCU.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\UV4Build\StarFish_MCU.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Fri Oct 10 09:40:13 2014
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Fri Oct 17 09:54:47 2014
 <BR><P>
-<H3>Maximum Stack Usage =        360 bytes + Unknown(Functions without stacksize, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        488 bytes + Unknown(Functions without stacksize, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-app_mma8451_control_task &rArr; mma8451_getdata &rArr; app_traceInfo_output &rArr; _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
+app_mma8451_control_task &rArr; mma8451_getdata &rArr; FindLastPeak &rArr; Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 <P>
 <H3>
 Functions with no stack information
@@ -18,19 +18,19 @@ Functions with no stack information
  <LI><a href="#[98]">_sched_run_internal</a>
  <LI><a href="#[64]">_sched_check_scheduler_internal</a>
  <LI><a href="#[48]">_sched_execute_scheduler_internal</a>
- <LI><a href="#[e8]">_mqx_api_call</a>
+ <LI><a href="#[f0]">_mqx_api_call</a>
  <LI><a href="#[66]">_task_block</a>
  <LI><a href="#[7]">_int_kernel_isr</a>
  <LI><a href="#[b7]">_psp_exception_return</a>
  <LI><a href="#[89]">_mem_test_and_set</a>
  <LI><a href="#[9b]">__get_PSP</a>
- <LI><a href="#[12d]">__get_MSP</a>
- <LI><a href="#[12e]">__get_PSR</a>
- <LI><a href="#[12f]">__enable_interrupt</a>
- <LI><a href="#[130]">__disable_interrupt</a>
- <LI><a href="#[131]">__get_LR</a>
- <LI><a href="#[132]">__get_PC</a>
- <LI><a href="#[133]">__get_CONTROL</a>
+ <LI><a href="#[135]">__get_MSP</a>
+ <LI><a href="#[136]">__get_PSR</a>
+ <LI><a href="#[137]">__enable_interrupt</a>
+ <LI><a href="#[138]">__disable_interrupt</a>
+ <LI><a href="#[139]">__get_LR</a>
+ <LI><a href="#[13a]">__get_PC</a>
+ <LI><a href="#[13b]">__get_CONTROL</a>
  <LI><a href="#[e]">_int_kernel_isr_epilog</a>
 </UL>
 </UL>
@@ -80,25 +80,25 @@ Global Symbols
 <P><STRONG><a name="[2]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_arm_cc.o(.emb_text)
 </UL>
-<P><STRONG><a name="[f3]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry4.o(.ARM.Collect$$$$00000003))
+<P><STRONG><a name="[fa]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry4.o(.ARM.Collect$$$$00000003))
 
 <P><STRONG><a name="[1c]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[e6]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<P><STRONG><a name="[ef]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[f4]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[fb]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[f5]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[fc]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[f6]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[fd]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[f7]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[fe]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[f8]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[ff]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[1b]"></a>__thumb_startup</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_arm_cc.o(.emb_text))
 <BR><BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__boot
@@ -167,7 +167,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadAccRegs
 </UL>
 
-<P><STRONG><a name="[f9]"></a>I2C_SelectSlaveDevice</STRONG> (Thumb, 146 bytes, Stack size 12 bytes, i2c.o(.text), UNUSED)
+<P><STRONG><a name="[100]"></a>I2C_SelectSlaveDevice</STRONG> (Thumb, 146 bytes, Stack size 12 bytes, i2c.o(.text), UNUSED)
 
 <P><STRONG><a name="[2c]"></a>I2C_GetError</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, i2c.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
@@ -227,7 +227,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_GetTicsPerSecond
 </UL>
 
-<P><STRONG><a name="[fa]"></a>SystemTimer1_SetPeriodTicks</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, systemtimer1.o(.text), UNUSED)
+<P><STRONG><a name="[101]"></a>SystemTimer1_SetPeriodTicks</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, systemtimer1.o(.text), UNUSED)
 
 <P><STRONG><a name="[31]"></a>SystemTimer1_GetPeriodTicks</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, systemtimer1.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_GetTicsPerSecond
@@ -239,11 +239,11 @@ Global Symbols
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 
-<P><STRONG><a name="[fb]"></a>SystemTimer1_GetCounterValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, systemtimer1.o(.text), UNUSED)
+<P><STRONG><a name="[102]"></a>SystemTimer1_GetCounterValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, systemtimer1.o(.text), UNUSED)
 
-<P><STRONG><a name="[fc]"></a>PWMTimerRGB_Init</STRONG> (Thumb, 140 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
+<P><STRONG><a name="[103]"></a>PWMTimerRGB_Init</STRONG> (Thumb, 140 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
 
-<P><STRONG><a name="[fd]"></a>PWMTimerRGB_Deinit</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
+<P><STRONG><a name="[104]"></a>PWMTimerRGB_Deinit</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
 
 <P><STRONG><a name="[43]"></a>PWMTimerRGB_Enable</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
@@ -253,13 +253,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlinkRateCounter_OnCounterRestart
 </UL>
 
-<P><STRONG><a name="[fe]"></a>PWMTimerRGB_GetCounterValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
+<P><STRONG><a name="[105]"></a>PWMTimerRGB_GetCounterValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
 
 <P><STRONG><a name="[45]"></a>PWMTimerRGB_SetOffsetTicks</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, pwmtimerrgb.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
 </UL>
 
-<P><STRONG><a name="[ff]"></a>PWMTimerRGB_GetOffsetTicks</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, pwmtimerrgb.o(.text), UNUSED)
+<P><STRONG><a name="[106]"></a>PWMTimerRGB_GetOffsetTicks</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, pwmtimerrgb.o(.text), UNUSED)
 
 <P><STRONG><a name="[36]"></a>BlinkRateCounter_OnCounterRestart</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, events.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWMTimerRGB_Disable
@@ -290,7 +290,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
 <LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 </UL>
 
 <P><STRONG><a name="[3a]"></a>WriteAccRegs</STRONG> (Thumb, 82 bytes, Stack size 40 bytes, mma845xq.o(.text))
@@ -384,24 +384,28 @@ Global Symbols
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 
-<P><STRONG><a name="[54]"></a>_time_get_elapsed_ticks</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
+<P><STRONG><a name="[54]"></a>_time_get_elapsed_ticks</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, time_ticks.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = _time_get_elapsed_ticks &rArr; _psp_normalize_ticks &rArr; __aeabi_uidivmod
+</UL>
+<BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 </UL>
 
 <P><STRONG><a name="[56]"></a>_time_get_elapsed_ticks_fast</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
 </UL>
 
-<P><STRONG><a name="[100]"></a>_time_get_hwticks</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, time_ticks.o(.text), UNUSED)
+<P><STRONG><a name="[107]"></a>_time_get_hwticks</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, time_ticks.o(.text), UNUSED)
 
 <P><STRONG><a name="[57]"></a>_time_get_ticks</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_add_ticks
 </UL>
 
-<P><STRONG><a name="[101]"></a>_time_get_hwticks_per_tick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
+<P><STRONG><a name="[108]"></a>_time_get_hwticks_per_tick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
 
-<P><STRONG><a name="[102]"></a>_time_init_ticks</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, time_ticks.o(.text), UNUSED)
+<P><STRONG><a name="[109]"></a>_time_init_ticks</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, time_ticks.o(.text), UNUSED)
 
 <P><STRONG><a name="[2e]"></a>_time_notify_kernel</STRONG> (Thumb, 354 bytes, Stack size 24 bytes, time_ticks.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = _time_notify_kernel &rArr; _psp_normalize_ticks &rArr; __aeabi_uidivmod
@@ -415,13 +419,13 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_subtract_ticks
 </UL>
 
-<P><STRONG><a name="[103]"></a>_time_set_timer_vector</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
+<P><STRONG><a name="[10a]"></a>_time_set_timer_vector</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
 
-<P><STRONG><a name="[104]"></a>_time_set_hwtick_function</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
+<P><STRONG><a name="[10b]"></a>_time_set_hwtick_function</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
 
-<P><STRONG><a name="[105]"></a>_time_set_hwticks_per_tick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
+<P><STRONG><a name="[10c]"></a>_time_set_hwticks_per_tick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
 
-<P><STRONG><a name="[106]"></a>_time_get_ticks_per_sec</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
+<P><STRONG><a name="[10d]"></a>_time_get_ticks_per_sec</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
 
 <P><STRONG><a name="[9]"></a>_mqx_idle_task</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, idletask.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _mqx_idle_task
@@ -503,7 +507,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> int.o(.text)
 </UL>
-<P><STRONG><a name="[107]"></a>_int_get_default_isr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, int.o(.text), UNUSED)
+<P><STRONG><a name="[10e]"></a>_int_get_default_isr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, int.o(.text), UNUSED)
 
 <P><STRONG><a name="[5a]"></a>_int_get_exception_handler</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, int.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _int_get_exception_handler
@@ -527,7 +531,7 @@ Global Symbols
 <LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Init
 </UL>
 
-<P><STRONG><a name="[108]"></a>_int_get_isr_depth</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, int.o(.text), UNUSED)
+<P><STRONG><a name="[10f]"></a>_int_get_isr_depth</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, int.o(.text), UNUSED)
 
 <P><STRONG><a name="[5d]"></a>_int_install_default_isr</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, int.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_unexpected_isr
@@ -648,7 +652,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy_internal
 </UL>
 
-<P><STRONG><a name="[109]"></a>_lwsem_poll</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, lwsem.o(.text), UNUSED)
+<P><STRONG><a name="[110]"></a>_lwsem_poll</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, lwsem.o(.text), UNUSED)
 
 <P><STRONG><a name="[6c]"></a>_lwsem_post</STRONG> (Thumb, 210 bytes, Stack size 16 bytes, lwsem.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
@@ -710,7 +714,7 @@ Global Symbols
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 </UL>
 
-<P><STRONG><a name="[10a]"></a>_mqx_get_kernel_data</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
+<P><STRONG><a name="[111]"></a>_mqx_get_kernel_data</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
 
 <P><STRONG><a name="[74]"></a>_mqx_fatal_error</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, mqx_utils.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _mqx_fatal_error
@@ -720,19 +724,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_exception_isr
 </UL>
 
-<P><STRONG><a name="[10b]"></a>_mqx_get_cpu_type</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
+<P><STRONG><a name="[112]"></a>_mqx_get_cpu_type</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
 
 <P><STRONG><a name="[7c]"></a>_mqx_set_cpu_type</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mqx_utils.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
 </UL>
 
-<P><STRONG><a name="[10c]"></a>_mqx_get_initialization</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
+<P><STRONG><a name="[113]"></a>_mqx_get_initialization</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
 
-<P><STRONG><a name="[10d]"></a>_mqx_get_exit_handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
+<P><STRONG><a name="[114]"></a>_mqx_get_exit_handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
 
-<P><STRONG><a name="[10e]"></a>_mqx_set_exit_handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
+<P><STRONG><a name="[115]"></a>_mqx_set_exit_handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
 
-<P><STRONG><a name="[10f]"></a>_mqx_get_system_task_id</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
+<P><STRONG><a name="[116]"></a>_mqx_get_system_task_id</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
 
 <P><STRONG><a name="[76]"></a>_mqx_init_kernel_data_internal</STRONG> (Thumb, 240 bytes, Stack size 24 bytes, mqx_utils.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _mqx_init_kernel_data_internal &rArr; _psp_set_kernel_disable_level
@@ -819,7 +823,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
 </UL>
 
-<P><STRONG><a name="[110]"></a>_mutatr_destroy</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[117]"></a>_mutatr_destroy</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
 <P><STRONG><a name="[87]"></a>_mutex_lock</STRONG> (Thumb, 738 bytes, Stack size 32 bytes, mutex.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72 + Unknown Stack Size
@@ -846,13 +850,13 @@ Global Symbols
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
 </UL>
 
-<P><STRONG><a name="[111]"></a>_mutatr_get_wait_protocol</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[118]"></a>_mutatr_get_wait_protocol</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[112]"></a>_mutatr_get_priority_ceiling</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[119]"></a>_mutatr_get_priority_ceiling</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[113]"></a>_mutatr_get_sched_protocol</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[11a]"></a>_mutatr_get_sched_protocol</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[114]"></a>_mutatr_get_spin_limit</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[11b]"></a>_mutatr_get_spin_limit</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
 <P><STRONG><a name="[8d]"></a>_mutex_init</STRONG> (Thumb, 190 bytes, Stack size 48 bytes, mutex.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = _mutex_init &rArr; _mutex_create_component
@@ -865,13 +869,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trace_init
 </UL>
 
-<P><STRONG><a name="[115]"></a>_mutatr_set_wait_protocol</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[11c]"></a>_mutatr_set_wait_protocol</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[116]"></a>_mutatr_set_priority_ceiling</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[11d]"></a>_mutatr_set_priority_ceiling</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[117]"></a>_mutatr_set_sched_protocol</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[11e]"></a>_mutatr_set_sched_protocol</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[118]"></a>_mutatr_set_spin_limit</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[11f]"></a>_mutatr_set_spin_limit</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
 <P><STRONG><a name="[8f]"></a>_mutex_test</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, mutex.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_queue_test
@@ -889,7 +893,7 @@ Global Symbols
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 
-<P><STRONG><a name="[119]"></a>_mutex_get_priority_ceiling</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[120]"></a>_mutex_get_priority_ceiling</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
 <P><STRONG><a name="[92]"></a>_mutex_get_wait_count</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, mutex.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
@@ -903,9 +907,9 @@ Global Symbols
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_test
 </UL>
 
-<P><STRONG><a name="[11a]"></a>_sched_get_max_priority</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, sched.o(.text), UNUSED)
+<P><STRONG><a name="[121]"></a>_sched_get_max_priority</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, sched.o(.text), UNUSED)
 
-<P><STRONG><a name="[11b]"></a>_sched_get_min_priority</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sched.o(.text), UNUSED)
+<P><STRONG><a name="[122]"></a>_sched_get_min_priority</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sched.o(.text), UNUSED)
 
 <P><STRONG><a name="[88]"></a>_sched_yield</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, sched.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
@@ -1171,7 +1175,7 @@ Global Symbols
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
 </UL>
 
-<P><STRONG><a name="[11c]"></a>_task_get_id_from_td</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
+<P><STRONG><a name="[123]"></a>_task_get_id_from_td</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
 
 <P><STRONG><a name="[a8]"></a>_task_get_index_from_id</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
@@ -1237,17 +1241,17 @@ Global Symbols
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 
-<P><STRONG><a name="[11d]"></a>_task_check_stack</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, task.o(.text), UNUSED)
+<P><STRONG><a name="[124]"></a>_task_check_stack</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, task.o(.text), UNUSED)
 
-<P><STRONG><a name="[11e]"></a>_task_get_creator</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
+<P><STRONG><a name="[125]"></a>_task_get_creator</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
 
-<P><STRONG><a name="[11f]"></a>_task_get_error</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
+<P><STRONG><a name="[126]"></a>_task_get_error</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
 
-<P><STRONG><a name="[120]"></a>_task_get_error_ptr</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
+<P><STRONG><a name="[127]"></a>_task_get_error_ptr</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
 
-<P><STRONG><a name="[121]"></a>_task_get_id</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
+<P><STRONG><a name="[128]"></a>_task_get_id</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
 
-<P><STRONG><a name="[122]"></a>_task_exiting_function_internal</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
+<P><STRONG><a name="[129]"></a>_task_exiting_function_internal</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
 
 <P><STRONG><a name="[94]"></a>_task_sync_priority_internal</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, task.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
@@ -1282,7 +1286,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
 </UL>
 
-<P><STRONG><a name="[123]"></a>_int_get_vector_table</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, int_vtab.o(.text), UNUSED)
+<P><STRONG><a name="[12a]"></a>_int_get_vector_table</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, int_vtab.o(.text), UNUSED)
 
 <P><STRONG><a name="[5]"></a>_int_exception_isr</STRONG> (Thumb, 144 bytes, Stack size 40 bytes, int_xcpt.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
@@ -1376,7 +1380,7 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart2
 </UL>
 
-<P><STRONG><a name="[124]"></a>disable_irq</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, nvic.o(.text), UNUSED)
+<P><STRONG><a name="[12b]"></a>disable_irq</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, nvic.o(.text), UNUSED)
 
 <P><STRONG><a name="[bd]"></a>set_irq_priority</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, nvic.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = set_irq_priority
@@ -1501,7 +1505,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_version_information
 <LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
 <LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_cmd_tbl_add
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_mqxlite_status
@@ -1536,15 +1542,66 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
 </UL>
 
-<P><STRONG><a name="[d1]"></a>angle_calculation</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[dd]"></a>angle_calculation</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, app_mma8451.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = angle_calculation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 </UL>
 
-<P><STRONG><a name="[12]"></a>app_mma8451_control_task</STRONG> (Thumb, 492 bytes, Stack size 16 bytes, app_mma8451.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
-<LI>Call Chain = app_mma8451_control_task &rArr; mma8451_getdata &rArr; app_traceInfo_output &rArr; _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
+<P><STRONG><a name="[d0]"></a>Get_mean</STRONG> (Thumb, 74 bytes, Stack size 40 bytes, app_mma8451.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = Get_mean &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+</UL>
+
+<P><STRONG><a name="[d4]"></a>Get_var</STRONG> (Thumb, 126 bytes, Stack size 64 bytes, app_mma8451.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+</UL>
+
+<P><STRONG><a name="[d8]"></a>FindFirstPeak</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, app_mma8451.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
+<LI>Call Chain = FindFirstPeak &rArr; Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+</UL>
+
+<P><STRONG><a name="[db]"></a>FindLastPeak</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, app_mma8451.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
+<LI>Call Chain = FindLastPeak &rArr; Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+</UL>
+
+<P><STRONG><a name="[12]"></a>app_mma8451_control_task</STRONG> (Thumb, 804 bytes, Stack size 16 bytes, app_mma8451.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 488 + Unknown Stack Size
+<LI>Call Chain = app_mma8451_control_task &rArr; mma8451_getdata &rArr; FindLastPeak &rArr; Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create
@@ -1554,7 +1611,7 @@ Global Symbols
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadAccRegs
 <LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_template_list.o(.constdata)
@@ -1562,7 +1619,7 @@ Global Symbols
 <P><STRONG><a name="[cb]"></a>Shell_Init</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Shell_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdClr
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdClr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
 </UL>
@@ -1570,8 +1627,8 @@ Global Symbols
 <P><STRONG><a name="[c9]"></a>Shell_Exec</STRONG> (Thumb, 142 bytes, Stack size 72 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = Shell_Exec &rArr; Shell_CmdSearch &rArr; Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Scanner
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdSearch
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Scanner
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdSearch
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
@@ -1580,20 +1637,20 @@ Global Symbols
 <P><STRONG><a name="[c7]"></a>Shell_CmdTblAdd</STRONG> (Thumb, 218 bytes, Stack size 64 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = Shell_CmdTblAdd &rArr; Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdNameGet
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdNameGet
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_cmd_tbl_add
 </UL>
 
-<P><STRONG><a name="[d9]"></a>Shell_CmdTblRem</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, shell.o(.text), UNUSED)
+<P><STRONG><a name="[e5]"></a>Shell_CmdTblRem</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, shell.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdClr
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdClr
 </UL>
 
-<P><STRONG><a name="[125]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[12c]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[32]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
@@ -1601,10 +1658,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_GetTicsPerSecond
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[126]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
+<P><STRONG><a name="[12d]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[44]"></a>__aeabi_idivmod</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
@@ -1622,28 +1679,28 @@ Global Symbols
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
 </UL>
 
-<P><STRONG><a name="[127]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[12e]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[d4]"></a>strncpy</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, strncpy.o(.text))
+<P><STRONG><a name="[e0]"></a>strncpy</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, strncpy.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strncpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdNameGet
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdNameGet
 </UL>
 
-<P><STRONG><a name="[d7]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
+<P><STRONG><a name="[e3]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
 </UL>
 
 <P><STRONG><a name="[c5]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strcmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblRem
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdSearch
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblRem
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdSearch
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_mqxlite_status
 </UL>
 
-<P><STRONG><a name="[d8]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
+<P><STRONG><a name="[e4]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
 </UL>
 
@@ -1652,105 +1709,158 @@ Global Symbols
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_id_from_name
 </UL>
 
-<P><STRONG><a name="[da]"></a>__aeabi_uldivmod</STRONG> (Thumb, 96 bytes, Stack size 48 bytes, uldiv.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+<P><STRONG><a name="[d2]"></a>__aeabi_dadd</STRONG> (Thumb, 326 bytes, Stack size 48 bytes, dadd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lasr
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-
-<P><STRONG><a name="[128]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, iusefp.o(.text), UNUSED)
-
-<P><STRONG><a name="[dd]"></a>__aeabi_dadd</STRONG> (Thumb, 326 bytes, Stack size 48 bytes, dadd.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lasr
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-</UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[e1]"></a>__aeabi_dsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<P><STRONG><a name="[d5]"></a>__aeabi_dsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
 </UL>
 
-<P><STRONG><a name="[e2]"></a>__aeabi_drsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<P><STRONG><a name="[ea]"></a>__aeabi_drsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[e3]"></a>__aeabi_dmul</STRONG> (Thumb, 202 bytes, Stack size 72 bytes, dmul.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<P><STRONG><a name="[d6]"></a>__aeabi_dmul</STRONG> (Thumb, 202 bytes, Stack size 72 bytes, dmul.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-
-<P><STRONG><a name="[e4]"></a>__aeabi_ddiv</STRONG> (Thumb, 234 bytes, Stack size 40 bytes, ddiv.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
-</UL>
-<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[e5]"></a>__aeabi_d2ulz</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, dfixul.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+<P><STRONG><a name="[d3]"></a>__aeabi_ddiv</STRONG> (Thumb, 234 bytes, Stack size 40 bytes, ddiv.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = __aeabi_ddiv &rArr; _double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[ee]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdrcmple.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<P><STRONG><a name="[d7]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __aeabi_i2d &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+</UL>
+
+<P><STRONG><a name="[d1]"></a>__aeabi_ui2d</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, dfltui.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __aeabi_ui2d &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+</UL>
+
+<P><STRONG><a name="[12f]"></a>__aeabi_cdcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cdcmple.o(.text), UNUSED)
+
+<P><STRONG><a name="[da]"></a>__aeabi_cdcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+</UL>
+
+<P><STRONG><a name="[d9]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdrcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+</UL>
+
+<P><STRONG><a name="[eb]"></a>__aeabi_uldivmod</STRONG> (Thumb, 96 bytes, Stack size 48 bytes, uldiv.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+</UL>
+
+<P><STRONG><a name="[e6]"></a>__aeabi_llsl</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, llshl.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_llsl
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
+</UL>
+
+<P><STRONG><a name="[130]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
+
+<P><STRONG><a name="[e7]"></a>__aeabi_lasr</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, llsshr.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_lasr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+
+<P><STRONG><a name="[131]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
+
+<P><STRONG><a name="[132]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, iusefp.o(.text), UNUSED)
+
+<P><STRONG><a name="[e9]"></a>_double_round</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, depilogue.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _double_round
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+</UL>
+
+<P><STRONG><a name="[e8]"></a>_double_epilogue</STRONG> (Thumb, 166 bytes, Stack size 48 bytes, depilogue.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_clz
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+
+<P><STRONG><a name="[ee]"></a>__aeabi_d2ulz</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, dfixul.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[1d]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
+<BR><BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[129]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[133]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[dc]"></a>__aeabi_llsl</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
+<P><STRONG><a name="[ec]"></a>__aeabi_llsr</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, llushr.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_llsr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[12a]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
-
-<P><STRONG><a name="[db]"></a>__aeabi_llsr</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
-</UL>
-
-<P><STRONG><a name="[12b]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
-
-<P><STRONG><a name="[de]"></a>__aeabi_lasr</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-</UL>
-
-<P><STRONG><a name="[12c]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
-
-<P><STRONG><a name="[e0]"></a>_double_round</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, depilogue.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-</UL>
-
-<P><STRONG><a name="[df]"></a>_double_epilogue</STRONG> (Thumb, 166 bytes, Stack size 48 bytes, depilogue.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_clz
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
-</UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-</UL>
+<P><STRONG><a name="[134]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
 
 <P><STRONG><a name="[82]"></a>_sched_start_internal</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
 <BR><BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite
@@ -1791,10 +1901,10 @@ Global Symbols
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
 </UL>
 
-<P><STRONG><a name="[e8]"></a>_mqx_api_call</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_api_call
+<P><STRONG><a name="[f0]"></a>_mqx_api_call</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_api_call
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_api_call
+<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_api_call
 </UL>
 
 <P><STRONG><a name="[66]"></a>_task_block</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
@@ -1818,25 +1928,25 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
 </UL>
 
-<P><STRONG><a name="[12d]"></a>__get_MSP</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
+<P><STRONG><a name="[135]"></a>__get_MSP</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
 
-<P><STRONG><a name="[12e]"></a>__get_PSR</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
+<P><STRONG><a name="[136]"></a>__get_PSR</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
 
-<P><STRONG><a name="[12f]"></a>__enable_interrupt</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
+<P><STRONG><a name="[137]"></a>__enable_interrupt</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
 
-<P><STRONG><a name="[130]"></a>__disable_interrupt</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
+<P><STRONG><a name="[138]"></a>__disable_interrupt</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
 
-<P><STRONG><a name="[131]"></a>__get_LR</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
+<P><STRONG><a name="[139]"></a>__get_LR</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
 
-<P><STRONG><a name="[132]"></a>__get_PC</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
+<P><STRONG><a name="[13a]"></a>__get_PC</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
 
-<P><STRONG><a name="[133]"></a>__get_CONTROL</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
+<P><STRONG><a name="[13b]"></a>__get_CONTROL</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
 
-<P><STRONG><a name="[e9]"></a>__0snprintf$8</STRONG> (Thumb, 38 bytes, Stack size 32 bytes, printf8.o(i.__0snprintf$8), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[f1]"></a>__0snprintf$8</STRONG> (Thumb, 38 bytes, Stack size 32 bytes, printf8.o(i.__0snprintf$8), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[134]"></a>__1snprintf$8</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, printf8.o(i.__0snprintf$8), UNUSED)
+<P><STRONG><a name="[13c]"></a>__1snprintf$8</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, printf8.o(i.__0snprintf$8), UNUSED)
 
 <P><STRONG><a name="[3f]"></a>__2snprintf</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, printf8.o(i.__0snprintf$8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __2snprintf
@@ -1846,13 +1956,13 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
 </UL>
 
-<P><STRONG><a name="[eb]"></a>__0vsnprintf</STRONG> (Thumb, 32 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[f3]"></a>__0vsnprintf</STRONG> (Thumb, 32 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[135]"></a>__1vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
+<P><STRONG><a name="[13d]"></a>__1vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
 
-<P><STRONG><a name="[136]"></a>__2vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
+<P><STRONG><a name="[13e]"></a>__2vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
 
 <P><STRONG><a name="[cd]"></a>__c89vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __c89vsnprintf
@@ -1861,10 +1971,10 @@ Global Symbols
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;traceInfo_output
 </UL>
 
-<P><STRONG><a name="[137]"></a>vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
+<P><STRONG><a name="[13f]"></a>vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
 
-<P><STRONG><a name="[e7]"></a>__ARM_clz</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, depilogue.o(i.__ARM_clz), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<P><STRONG><a name="[ed]"></a>__ARM_clz</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, depilogue.o(i.__ARM_clz))
+<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
 <P><STRONG><a name="[b8]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, mem_zero.o(i.__ARM_common_switch8))
@@ -1874,11 +1984,11 @@ Global Symbols
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_zero
 </UL>
 
-<P><STRONG><a name="[138]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[140]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[139]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[141]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[13a]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[142]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 <P>
 <H3>
 Local Symbols
@@ -1966,92 +2076,95 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_mma8451.o(.text)
 </UL>
-<P><STRONG><a name="[d0]"></a>mma8451_getdata</STRONG> (Thumb, 188 bytes, Stack size 240 bytes, app_mma8451.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
-<LI>Call Chain = mma8451_getdata &rArr; app_traceInfo_output &rArr; _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
+<P><STRONG><a name="[dc]"></a>mma8451_getdata</STRONG> (Thumb, 282 bytes, Stack size 248 bytes, app_mma8451.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 472 + Unknown Stack Size
+<LI>Call Chain = mma8451_getdata &rArr; FindLastPeak &rArr; Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
+<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_elapsed_ticks
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadAccRegs
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angle_calculation
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angle_calculation
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
 </UL>
 
-<P><STRONG><a name="[d2]"></a>Shell_ModuleCmdClr</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, shell.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblRem
+<P><STRONG><a name="[de]"></a>Shell_ModuleCmdClr</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, shell.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblRem
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Init
 </UL>
 
-<P><STRONG><a name="[d3]"></a>Shell_ModuleCmdNameGet</STRONG> (Thumb, 116 bytes, Stack size 48 bytes, shell.o(.text))
+<P><STRONG><a name="[df]"></a>Shell_ModuleCmdNameGet</STRONG> (Thumb, 116 bytes, Stack size 48 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdSearch
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdSearch
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
 </UL>
 
-<P><STRONG><a name="[d5]"></a>Shell_CmdSearch</STRONG> (Thumb, 172 bytes, Stack size 56 bytes, shell.o(.text))
+<P><STRONG><a name="[e1]"></a>Shell_CmdSearch</STRONG> (Thumb, 172 bytes, Stack size 56 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = Shell_CmdSearch &rArr; Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdNameGet
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdNameGet
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
 </UL>
 
-<P><STRONG><a name="[d6]"></a>Shell_Scanner</STRONG> (Thumb, 108 bytes, Stack size 36 bytes, shell.o(.text))
+<P><STRONG><a name="[e2]"></a>Shell_Scanner</STRONG> (Thumb, 108 bytes, Stack size 36 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Shell_Scanner
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
 </UL>
 
-<P><STRONG><a name="[ea]"></a>_printf_core</STRONG> (Thumb, 1072 bytes, Stack size 104 bytes, printf8.o(i._printf_core), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<P><STRONG><a name="[f2]"></a>_printf_core</STRONG> (Thumb, 1072 bytes, Stack size 104 bytes, printf8.o(i._printf_core), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0snprintf$8
-</UL>
-
-<P><STRONG><a name="[f0]"></a>_printf_post_padding</STRONG> (Thumb, 32 bytes, Stack size 24 bytes, printf8.o(i._printf_post_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0snprintf$8
 </UL>
 
-<P><STRONG><a name="[ef]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 40 bytes, printf8.o(i._printf_pre_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[f7]"></a>_printf_post_padding</STRONG> (Thumb, 32 bytes, Stack size 24 bytes, printf8.o(i._printf_post_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+</UL>
+
+<P><STRONG><a name="[f6]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 40 bytes, printf8.o(i._printf_pre_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[f]"></a>_snputc</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, printf8.o(i._snputc))
 <BR>[Address Reference Count : 1]<UL><LI> printf8.o(i.__0snprintf$8)
 </UL>
-<P><STRONG><a name="[ed]"></a>_fp_digits</STRONG> (Thumb, 314 bytes, Stack size 56 bytes, printfa.o(i._fp_digits), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<P><STRONG><a name="[f5]"></a>_fp_digits</STRONG> (Thumb, 314 bytes, Stack size 56 bytes, printfa.o(i._fp_digits), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[ec]"></a>_printf_core</STRONG> (Thumb, 1766 bytes, Stack size 128 bytes, printfa.o(i._printf_core), UNUSED)
+<P><STRONG><a name="[f4]"></a>_printf_core</STRONG> (Thumb, 1766 bytes, Stack size 128 bytes, printfa.o(i._printf_core), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0vsnprintf
-</UL>
-
-<P><STRONG><a name="[f2]"></a>_printf_post_padding</STRONG> (Thumb, 32 bytes, Stack size 24 bytes, printfa.o(i._printf_post_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0vsnprintf
 </UL>
 
-<P><STRONG><a name="[f1]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 40 bytes, printfa.o(i._printf_pre_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[f9]"></a>_printf_post_padding</STRONG> (Thumb, 32 bytes, Stack size 24 bytes, printfa.o(i._printf_post_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+</UL>
+
+<P><STRONG><a name="[f8]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 40 bytes, printfa.o(i._printf_pre_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[10]"></a>_snputc</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, printfa.o(i._snputc))
