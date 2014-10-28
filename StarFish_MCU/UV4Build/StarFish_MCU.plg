@@ -7,22 +7,3 @@ D:\starfish\StarFish_MCU\StarFish_MCU.uvproj
 Project File Date:  10/10/2014
 
 <h2>Output:</h2>
-Build target 'MKL26Z128xxx4'
-compiling app_mma8451.c...
-APP\acos.h(2): warning:  #1-D: last line of file ends without a newline
-APP\app_mma8451.c(90): warning:  #68-D: integer conversion resulted in a change of sign
-APP\app_mma8451.c(140): warning:  #177-D: variable "j" was declared but never referenced
-APP\app_mma8451.c(225): warning:  #177-D: variable "ths" was declared but never referenced
-linking...
-.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
-Program Size: Code=28308 RO-data=1152 RW-data=92 ZI-data=10452  
-After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
-After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
-".\UV4Build\StarFish_MCU.axf" - 0 Errors, 5 Warning(s).
-Build target 'MKL26Z128xxx4'
-linking...
-.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
-Program Size: Code=28308 RO-data=1152 RW-data=92 ZI-data=10452  
-After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
-After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
-".\UV4Build\StarFish_MCU.axf" - 0 Errors, 1 Warning(s).

@@ -2317,7 +2317,7 @@ I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 I (D:\starfish\StarFish_MCU\MQXLITE\psp\cortex_m\psp_prv.h)(0x524925EC)
 I (C:\Keil\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
 I (D:\starfish\StarFish_MCU\MQXLITE\include\mutex.h)(0x524925EC)
-F (.\APP\app_mma8451.c)(0x543B6622)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\app_mma8451.o --omf_browse .\uv4build\app_mma8451.crf --depend .\uv4build\app_mma8451.d)
+F (.\APP\app_mma8451.c)(0x544076A7)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\app_mma8451.o --omf_browse .\uv4build\app_mma8451.crf --depend .\uv4build\app_mma8451.d)
 I (D:\starfish\StarFish_MCU\APP\app_mma8451.h)(0x532C4315)
 I (D:\starfish\StarFish_MCU\Generated_Code\PE_Types.h)(0x524925EC)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
