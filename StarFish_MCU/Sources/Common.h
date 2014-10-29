@@ -37,4 +37,15 @@ typedef struct {
   volatile bool Received;
 } TDataState;
 
+  typedef enum {
+      VLPSMODE = 0,
+      ACTIVE_STILL = 1,
+      ACTIVE_OPEN = 2,
+  }SYSTEM_STATUS;
+	typedef enum {
+				ACC_RUNNING=0,
+				ACC_STILL=1,
+				ACC_MOTION=2,
+				ACC_STANDBY=3,
+	}ACC_STATUS;
 #endif /* COMMON_H_ */

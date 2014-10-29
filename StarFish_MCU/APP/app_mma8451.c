@@ -32,6 +32,24 @@ uint8_t mma8451_task_stack[MMA8451_TASK_STACK_SIZE];
 static TDataState       g_DataState;
 static LDD_TDeviceData *g_I2C_DeviceData = NULL;
 static LWSEM_STRUCT     g_mma8451_int_sem;
+//add for lptmgr init
+
+uint_8 accStatus=0;
+uint_16 z_angle_tmp=0;
+void putmma8451standby();
+void putmma8451detect();
+void putmma8451running();
+
+uint_8 GetAccStatus()
+{
+	return accStatus;
+}
+void SetAccStatus(uint_8 acc)
+{
+	accStatus=acc;
+} 
+
+///////////end init
 
 
 static void MMA8451_INT1_isr_service(void* p_arg);
@@ -195,6 +213,13 @@ static void mma8451_getdata(void)
 					else
 						sign_bit=0;
 					angle=angle_calculation(accel_z,sign_bit);
+					//put status in still mode or not?
+						if(angle<15&&(abs(angle-z_angle_tmp))<1)
+					{
+						SetAccStatus(ACC_STILL);
+					}
+					z_angle_tmp=angle;
+					///////////end sti
 						Angle_1s[buffer_count]=angle;
 					buffer_count++;
 					if(buffer_count==buffer_size)
@@ -217,7 +242,68 @@ static void mma8451_getdata(void)
 //    _lwsem_post(&g_mma8451_alarm_sem);
 
 }
+void putmma8451standby()
+{
+	byte Data;
+	LDD_TError      ret;
+	    /*
+     * Put the device into Standby Mode
+     * Register 0x2A CTRL_REG1
+     */
+    // Set the device in 100 Hz ODR, Standby
+    // 0001 1000
+    // 0x18
+    Data = 0x28;
+    ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
+    if (!ret)
+    {
+        APP_TRACE("write MMA8451 [0x%.2X] error\r\n", CTRL_REG_1);
+    }
 
+    // read the 0x2A register again
+    Data = 0;
+    ret = ReadAccRegs(g_I2C_DeviceData,
+                      &g_DataState,
+                      CTRL_REG_1,
+                      ACC_REG_SIZE,
+                      &Data);
+    if (Data != 0x28)
+    {
+        APP_TRACE("MMA8451 [0x%.2X] error[0x%.2X != 0x18]\r\n", CTRL_REG_1, Data);
+    }
+	SetAccStatus(ACC_STANDBY);
+}
+
+void putmma8451running()
+{
+		byte Data;
+	LDD_TError      ret;
+	 // Put the device in Active Mode
+    ret = ReadAccRegs(g_I2C_DeviceData,
+                      &g_DataState,
+                      CTRL_REG_1,
+                      ACC_REG_SIZE,
+                      &Data);
+    if (ret)
+    {
+        Data |= 0x01;
+        ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
+        if (!ret)
+        {
+            APP_TRACE("write MMA8451 [0x%.2X] error\r\n", CTRL_REG_1);
+        }
+    }
+    else
+    {
+        APP_TRACE("Put the device in Active Mode error\r\n", CTRL_REG_5, Data);
+    }
+		SetAccStatus(ACC_RUNNING);
+}
+void putmma8451detect()
+{
+	
+	
+}
 void    app_mma8451_control_task(uint32_t task_init_data)
 {
     LDD_TError      ret;

@@ -64,3 +64,9 @@
 .\uv4build\mqx_tasks.o: .\common\PDD\UART0_PDD.h
 .\uv4build\mqx_tasks.o: .\common\PDD\UART_PDD.h
 .\uv4build\mqx_tasks.o: .\APP\app_mma8451.h
+.\uv4build\mqx_tasks.o: .\common\drivers\lptmr\lptmr.h
+.\uv4build\mqx_tasks.o: .\common\drivers\adc\adc.h
+.\uv4build\mqx_tasks.o: .\common\drivers\smc\smc.h
+.\uv4build\mqx_tasks.o: .\common\drivers\dma\DMA1.H
+.\uv4build\mqx_tasks.o: .\Generated_Code\io_map.h
+.\uv4build\mqx_tasks.o: .\common\drivers\nvic.h

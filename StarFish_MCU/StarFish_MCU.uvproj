@@ -351,7 +351,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Generated_Code;.\Project_Settings\Startup_Code;.\Sources;.\Sources\TSS;.\MQXLITE\include;.\MQXLITE\kernel;.\MQXLITE\psp\cortex_m;.\MQXLITE\psp\cortex_m\compiler\uv4;.\MQXLITE\psp\cortex_m\core\M0;.\common\PDD;.\APP;.\common\shell;.\common\drivers;.\common\drivers\spi;.\common\drivers\W25Q32</IncludePath>
+              <IncludePath>.\Generated_Code;.\Project_Settings\Startup_Code;.\Sources;.\Sources\TSS;.\MQXLITE\include;.\MQXLITE\kernel;.\MQXLITE\psp\cortex_m;.\MQXLITE\psp\cortex_m\compiler\uv4;.\MQXLITE\psp\cortex_m\core\M0;.\common\PDD;.\APP;.\common\shell;.\common\drivers;.\common\drivers\spi;.\common\drivers\W25Q32;.\common\drivers\adc;.\common\drivers\dma;.\common\drivers\lptmr;.\common\drivers\smc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -821,6 +821,26 @@
               <FileName>w25x32.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\common\drivers\W25Q32\w25x32.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\common\drivers\adc\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>DMA1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\common\drivers\dma\DMA1.c</FilePath>
+            </File>
+            <File>
+              <FileName>lptmr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\common\drivers\lptmr\lptmr.c</FilePath>
+            </File>
+            <File>
+              <FileName>smc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\common\drivers\smc\smc.c</FilePath>
             </File>
           </Files>
         </Group>
