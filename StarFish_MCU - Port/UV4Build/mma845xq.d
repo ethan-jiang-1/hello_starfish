@@ -1,0 +1,12 @@
+.\uv4build\mma845xq.o: ./Sources/MMA845xQ.c
+.\uv4build\mma845xq.o: ./Sources/MMA845xQ.h
+.\uv4build\mma845xq.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\uv4build\mma845xq.o: .\Generated_Code\Cpu.h
+.\uv4build\mma845xq.o: .\Generated_Code\PE_Types.h
+.\uv4build\mma845xq.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\mma845xq.o: .\Generated_Code\PE_Error.h
+.\uv4build\mma845xq.o: .\Generated_Code\PE_Const.h
+.\uv4build\mma845xq.o: .\Generated_Code\IO_Map.h
+.\uv4build\mma845xq.o: ./Sources/Common.h
+.\uv4build\mma845xq.o: .\Generated_Code\I2C.h
+.\uv4build\mma845xq.o: .\Generated_Code\IO_Map.h

@@ -1,0 +1,13 @@
+.\uv4build\smc.o: common\drivers\smc\smc.c
+.\uv4build\smc.o: common\drivers\smc\smc.h
+.\uv4build\smc.o: .\Generated_Code\io_map.h
+.\uv4build\smc.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\smc.o: .\Generated_Code\SystemTimer1.h
+.\uv4build\smc.o: .\Generated_Code\PE_Types.h
+.\uv4build\smc.o: .\Generated_Code\PE_Error.h
+.\uv4build\smc.o: .\Generated_Code\PE_Const.h
+.\uv4build\smc.o: .\Generated_Code\IO_Map.h
+.\uv4build\smc.o: .\common\PDD\SysTick_PDD.h
+.\uv4build\smc.o: .\common\PDD\PDD_Types.h
+.\uv4build\smc.o: .\Generated_Code\Cpu.h
+.\uv4build\smc.o: .\Generated_Code\IO_Map.h
