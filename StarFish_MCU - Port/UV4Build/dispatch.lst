@@ -4422,7 +4422,7 @@ Symbol: _mqx_kernel_data
       At line 47 in file MQXLITE\\psp\\cortex_m\\core\\M0\\psp_prv.inc
       At line 51 in file MQXLITE\\psp\\cortex_m\\core\\M0\\dispatch.S
    Uses
-      At line 157 in macro `Á¯(w¯ATA
+      At line 157 in macro ÿÿT_KERNEL_DATA
       at line 89 in file MQXLITE\\psp\\cortex_m\\core\\M0\\dispatch.S
 Warning: _mqx_kernel_data multiply definedComment: _mqx_kernel_data used once
 _mqx_system_stack 00000000

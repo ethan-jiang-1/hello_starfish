@@ -74,6 +74,50 @@ void    uart_init(UART_MemMapPtr uartch, int sysclk, int baud)
 
 }
 
+/**
+  * @brief: init UART1 with RX interruput feature
+  * @note:  PET22 --- UART0_TX
+  *         PET23 --- UART0_RX
+  *
+  * @retval: none
+  */
+void    init_uart1(INT_ISR_FPTR isr_handle)
+{
+    /* SIM_SCGC4: UART0=1 */
+    SIM_SCGC4 |= SIM_SCGC4_UART1_MASK;
+
+    // PTE0 -- UART1_RX
+    // PET1 -- UART1_TX
+    // ALT3
+    /* PORTE_PCR22: ISF=0, MUX=2 */
+    PORTE_PCR0 = (uint32_t)((PORTE_PCR0 & (uint32_t)~(uint32_t)(
+                               PORT_PCR_ISF_MASK |
+                               PORT_PCR_MUX(0x02)
+                               )) | (uint32_t)(
+                               PORT_PCR_MUX(0x03)
+                               ));
+
+    /* PORTE_PCR23: ISF=0, MUX=2 */
+    PORTE_PCR1 = (uint32_t)((PORTE_PCR1 & (uint32_t)~(uint32_t)(
+                               PORT_PCR_ISF_MASK |
+                               PORT_PCR_MUX(0x02)
+                               )) | (uint32_t)(
+                               PORT_PCR_MUX(0x03)
+                               ));
+
+    //UART clock frequency will equal half the PLL frequency
+    uart_init(UART1_BASE_PTR, 48000/2, 115200);
+
+    if (isr_handle)
+    {
+        UART_PDD_EnableInterrupt(UART1_BASE_PTR, UART_C2_RIE_MASK);
+        _int_install_isr(LDD_ivIndex_INT_UART1, isr_handle, NULL);
+        // ENABLE UART1 RX interrupt ---44-LDD_ivIndex_INT_UART1=13;
+        enable_irq(13);
+        set_irq_priority(13, 2);
+    }
+
+}
 
 /**
   * @brief: init UART2 with RX interruput feature

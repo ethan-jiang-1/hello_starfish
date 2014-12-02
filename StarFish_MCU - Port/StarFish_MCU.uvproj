@@ -12,14 +12,14 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>MKL26Z128xxx4</Device>
+          <Device>MKL16Z256xxx4</Device>
           <Vendor>Freescale Semiconductor</Vendor>
-          <Cpu>IRAM(0x1FFFF000-0x1FFFFFFF) IRAM2(0x20000000-0x20002FFF) IROM(0x0-0x1FFFF) CLOCK(8000000) CPUTYPE("Cortex-M0+") ELITTLE</Cpu>
+          <Cpu>IRAM(0x1FFFE000-0x1FFFFFFF) IRAM2(0x20000000-0x20005FFF) IROM(0x0-0x3FFFF) CLOCK(8000000) CPUTYPE("Cortex-M0+") ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\Freescale\Kinetis\startup_MKL26Z4.s" ("Freescale MKL26Zxxxxxx4 Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O2510 -S0 -C0 -FO15 -FD20000000 -FC800 -FN1 -FF0MK_P128_48MHZ -FS00 -FL020000)</FlashDriverDll>
-          <DeviceId>6835</DeviceId>
-          <RegisterFile>MKL26Z4.H</RegisterFile>
+          <StartupFile>"STARTUP\Freescale\Kinetis\startup_MKL16Z4.s" ("Freescale MKL16Zxxxxxx4 Startup Code")</StartupFile>
+          <FlashDriverDll>UL2CM3(-O2510 -S0 -C0 -FO15 -FD20000000 -FC800 -FN1 -FF0MK_P256_48MHZ -FS00 -FL040000)</FlashDriverDll>
+          <DeviceId>6831</DeviceId>
+          <RegisterFile>MKL16Z4.H</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -29,7 +29,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\Freescale\Kinetis\MKL26Z4.sfr</SFDFile>
+          <SFDFile>SFD\Freescale\Kinetis\MKL16Z4.sfr</SFDFile>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
@@ -267,13 +267,13 @@
               </Ocm6>
               <IRAM>
                 <Type>0</Type>
-                <StartAddress>0x1ffff000</StartAddress>
-                <Size>0x1000</Size>
+                <StartAddress>0x1fffe000</StartAddress>
+                <Size>0x2000</Size>
               </IRAM>
               <IROM>
                 <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x20000</Size>
+                <Size>0x40000</Size>
               </IROM>
               <XRAM>
                 <Type>0</Type>
@@ -298,7 +298,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x20000</Size>
+                <Size>0x40000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -322,13 +322,13 @@
               </OCR_RVCT8>
               <OCR_RVCT9>
                 <Type>0</Type>
-                <StartAddress>0x1ffff000</StartAddress>
-                <Size>0x1000</Size>
+                <StartAddress>0x1fffe000</StartAddress>
+                <Size>0x2000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0x3000</Size>
+                <Size>0x6000</Size>
               </OCR_RVCT10>
             </OnChipMemories>
             <RvctStartVector></RvctStartVector>
