@@ -17,7 +17,7 @@
 #include "psp_prv.h"
 
 
-void    uart0_irq_handler(void* p_arg);
+void    uart1_irq_handler(void* p_arg);
 void    shell_task(uint32_t task_init_data);
 
 

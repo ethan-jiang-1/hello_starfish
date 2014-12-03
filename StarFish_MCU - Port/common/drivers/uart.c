@@ -126,7 +126,7 @@ void    init_uart1(INT_ISR_FPTR isr_handle)
   *
   * @retval: none
   */
-void    init_uart2(INT_ISR_FPTR isr_handle)
+void    init_uart2_fortest(INT_ISR_FPTR isr_handle)
 {
     /* SIM_SCGC4: UART0=1 */
     SIM_SCGC4 |= SIM_SCGC4_UART0_MASK;

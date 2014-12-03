@@ -45,7 +45,8 @@ void app_traceInfo_output(const char* fmt, ...)
     vsnprintf((char*)output_msg, sizeof(output_msg), fmt, ap);
     va_end(ap);
 
-    uart0_send_string(output_msg);
+    //uart0_send_string(output_msg);
+		uart_send_string(UART1_BASE_PTR, output_msg);
     err = _mutex_unlock(&g_trace_mutex);
     ASSERT_PARAM(MQX_EOK == err);
 }
@@ -63,7 +64,8 @@ void traceInfo_output(const char* fmt, ...)
     vsnprintf((char*)isr_output_msg, sizeof(isr_output_msg), fmt, ap);
     va_end(ap);
 
-    uart0_send_string(isr_output_msg);
+   // uart0_send_string(isr_output_msg);
+		uart_send_string(UART1_BASE_PTR, isr_output_msg);
 }
 
 
@@ -87,9 +89,11 @@ void    DumpData(uint8_t* pbData, uint32_t ulDataLen)
 		{
 			for (i = 0; i < 16; i++)
 			{
-				uart0_send_data(word[i]);
+				//uart0_send_data(word[i]);
+				uart_send_data(UART1_BASE_PTR, word[i]);
 			}
-			uart0_send_string("\r\n");
+			//uart0_send_string("\r\n");
+			uart_send_string(UART1_BASE_PTR, "\r\n");
 		}
 
 		if (pbData[ulIdx] > 31 && pbData[ulIdx] < 127)
@@ -102,7 +106,8 @@ void    DumpData(uint8_t* pbData, uint32_t ulDataLen)
 		}
 
 		snprintf((char*)vl_buf, sizeof(vl_buf), "%02X ", pbData[ulIdx]);
-		uart0_send_string(vl_buf);
+		//uart0_send_string(vl_buf);
+		uart_send_string(UART1_BASE_PTR, vl_buf);
 	}
 
 	if ((ulIdx % 16) == 0)
@@ -112,10 +117,12 @@ void    DumpData(uint8_t* pbData, uint32_t ulDataLen)
 
 	for (i = 0; i < ulIdx; i++)
 	{
-		uart0_send_data(word[i]);
+		//uart0_send_data(word[i]);
+		uart_send_data(UART1_BASE_PTR, word[i]);
 	}
 
-	uart0_send_string("\r\n");
+//	uart0_send_string("\r\n");
+	uart_send_string(UART1_BASE_PTR, "\r\n");
 }
 
 
@@ -130,7 +137,8 @@ void trace_init(void)
     err = _mutex_init(&g_trace_mutex, NULL);
     ASSERT_PARAM(err == MQX_EOK);
 
-    init_uart0(uart0_irq_handler);
+   // init_uart0(uart0_irq_handler);
+	init_uart1(uart1_irq_handler);
 }
 
 

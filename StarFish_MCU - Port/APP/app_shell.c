@@ -336,19 +336,31 @@ void    shell_task(uint32_t task_init_data)
 }
 
 
-void    uart0_irq_handler(void* p_arg)
+//void    uart0_irq_handler(void* p_arg)
+//{
+//    _mqx_uint       ret;
+//    _mqx_max_type   msg;
+
+//    if (UART0_PDD_ReadInterruptStatusReg(UART0_BASE_PTR) & UART0_S1_RDRF_MASK)
+//    {
+//        msg = UART0_PDD_GetChar8(UART0_BASE_PTR);
+
+//        ret = _lwmsgq_send(g_uart2_rx_queue, &msg, 0);
+//        ASSERT_PARAM(MQX_OK == ret);
+//    }
+//}
+
+void    uart1_irq_handler(void* p_arg)
 {
     _mqx_uint       ret;
     _mqx_max_type   msg;
 
-    if (UART0_PDD_ReadInterruptStatusReg(UART0_BASE_PTR) & UART0_S1_RDRF_MASK)
+    if (UART_PDD_ReadInterruptStatusReg(UART1_BASE_PTR) & UART_S1_RDRF_MASK)
     {
-        msg = UART0_PDD_GetChar8(UART0_BASE_PTR);
+        msg = UART_PDD_GetChar8(UART1_BASE_PTR);
 
         ret = _lwmsgq_send(g_uart2_rx_queue, &msg, 0);
         ASSERT_PARAM(MQX_OK == ret);
     }
 }
-
-
 

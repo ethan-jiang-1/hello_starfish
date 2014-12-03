@@ -3,7 +3,44 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-D:\starfish\StarFish_MCU - Port\StarFish_MCU.uvproj
-Project File Date:  12/02/2014
+E:\Starfish\starfish\StarFish_MCU - Port\StarFish_MCU.uvproj
+Project File Date:  12/03/2014
 
 <h2>Output:</h2>
+Build target 'MKL26Z128xxx4'
+compiling task_template_list.c...
+compiling mqx_tasks.c...
+./Sources/mqx_tasks.c(47): warning:  #1295-D: Deprecated declaration putmma8451standby - give arg types
+./Sources/mqx_tasks.c(48): warning:  #1295-D: Deprecated declaration putmma8451detect - give arg types
+./Sources/mqx_tasks.c(49): warning:  #1295-D: Deprecated declaration putmma8451running - give arg types
+./Sources/mqx_tasks.c(119): warning:  #550-D: variable "mqx_ret" was set but never used
+compiling uart.c...
+compiling DMA1.c...
+compiling lptmr.c...
+common\drivers\lptmr\lptmr.c(9): warning:  #1295-D: Deprecated declaration dma_setup - give arg types
+common\drivers\lptmr\lptmr.c(15): warning:  #1295-D: Deprecated declaration GetSysStatus - give arg types
+common\drivers\lptmr\lptmr.c(17): warning:  #1295-D: Deprecated declaration GetAccStatus - give arg types
+compiling app_shell.c...
+compiling app_trace.c...
+APP\app_trace.c(141): error:  #20: identifier "uart1_irq_handler" is undefined
+compiling app_mma8451.c...
+APP\acos.h(2): warning:  #1-D: last line of file ends without a newline
+APP\app_mma8451.c(39): warning:  #1295-D: Deprecated declaration putmma8451standby - give arg types
+APP\app_mma8451.c(40): warning:  #1295-D: Deprecated declaration putmma8451detect - give arg types
+APP\app_mma8451.c(41): warning:  #1295-D: Deprecated declaration putmma8451running - give arg types
+APP\app_mma8451.c(108): warning:  #68-D: integer conversion resulted in a change of sign
+APP\app_mma8451.c(158): warning:  #177-D: variable "j" was declared but never referenced
+APP\app_mma8451.c(311): warning:  #177-D: variable "ths" was declared but never referenced
+compiling shell.c...
+".\UV4Build\StarFish_MCU.axf" - 1 Errors, 14 Warning(s).
+Target not created
+Build target 'MKL26Z128xxx4'
+compiling task_template_list.c...
+compiling app_shell.c...
+compiling app_trace.c...
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=31156 RO-data=1160 RW-data=108 ZI-data=10484  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 1 Warning(s).

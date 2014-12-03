@@ -28,7 +28,7 @@
 
 
 void    init_uart0(INT_ISR_FPTR isr_handle);
-void    init_uart2(INT_ISR_FPTR isr_handle);
+void    init_uart1(INT_ISR_FPTR isr_handle);
 
 void    uart_send_data(UART_MemMapPtr uartch, uint8 ch);
 void    uart_send_string(UART_MemMapPtr uartch, uint8* p_str);
