@@ -52,6 +52,17 @@ const TASK_TEMPLATE_STRUCT MQX_template_list[] =
   /* Task attributes                  */  (0),
   /* Task parameter                   */  (uint32_t)(0)
   },
+	 /* Task: wifi control task */
+  {
+  /* Task number                      */  WIFI_TASK,
+  /* Entry point                      */  (TASK_FPTR)app_wifi_control_task,
+  /* Stack size                       */  WIFI_TASK_STACK_SIZE,
+  /* Task priority                    */  9U,
+  /* Task name                        */  "WIFI",
+  /* Task attributes                  */  (0),
+  /* Task parameter                   */  (uint32_t)(0)
+  },
+  /* Task: wifi control task */
 	/* Task: SHELL task */
   {
   /* Task number                      */  SHELL_TASK,

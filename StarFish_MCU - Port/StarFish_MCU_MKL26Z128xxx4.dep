@@ -297,12 +297,12 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_mma8451.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Sources\MMA845xQ.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Sources\Common.h)(0x5450F2DA)
-I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_shell.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_shell.h)(0x547EE9B7)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\shell\shell.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\shell\shell_cfg.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_trace.h)(0x542D0E4A)
-I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x547EE554)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\UART0_PDD.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\UART_PDD.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\MQXLITE\psp\cortex_m\psp_prv.h)(0x542D0E4A)
@@ -485,7 +485,7 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\Sources\Common.h)(0x5450F2DA)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Sources\MMA845xQ.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_trace.h)(0x542D0E4A)
-I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x547EE554)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\UART0_PDD.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\UART_PDD.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_mma8451.h)(0x542D0E4A)
@@ -2154,11 +2154,11 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\Sources\common.h)(0x5450F2DA)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Types.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\IO_Map.h)(0x543A668A)
-F (.\common\drivers\uart.c)(0x547EDA26)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32 -I.\common\drivers\adc -I.\common\drivers\dma -I.\common\drivers\lptmr -I.\common\drivers\smc-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\uart.o --omf_browse .\uv4build\uart.crf --depend .\uv4build\uart.d)
+F (.\common\drivers\uart.c)(0x547EE8B5)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32 -I.\common\drivers\adc -I.\common\drivers\dma -I.\common\drivers\lptmr -I.\common\drivers\smc-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\uart.o --omf_browse .\uv4build\uart.crf --depend .\uv4build\uart.d)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Sources\common.h)(0x5450F2DA)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Types.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
-I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x547EE554)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Error.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Const.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\IO_Map.h)(0x543A668A)
@@ -2221,7 +2221,7 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\dma\DMA1.h)(0x544C7AD
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\io_map.h)(0x543A668A)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_trace.h)(0x542D0E4A)
-I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x547EE554)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Types.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Error.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Const.h)(0x542D0E4A)
@@ -2271,7 +2271,7 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\lptmr\lptmr.h)(0x5446
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\io_map.h)(0x543A668A)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_trace.h)(0x542D0E4A)
-I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x547EE554)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Types.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Error.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Const.h)(0x542D0E4A)
@@ -2327,14 +2327,14 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Const.h)(0x542D0E4
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\SysTick_PDD.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\PDD_Types.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\Cpu.h)(0x542D0E4A)
-F (.\APP\app_shell.c)(0x542D0E4A)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32 -I.\common\drivers\adc -I.\common\drivers\dma -I.\common\drivers\lptmr -I.\common\drivers\smc-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\app_shell.o --omf_browse .\uv4build\app_shell.crf --depend .\uv4build\app_shell.d)
-I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_shell.h)(0x542D0E4A)
+F (.\APP\app_shell.c)(0x547EE9BA)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32 -I.\common\drivers\adc -I.\common\drivers\dma -I.\common\drivers\lptmr -I.\common\drivers\smc-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\app_shell.o --omf_browse .\uv4build\app_shell.crf --depend .\uv4build\app_shell.d)
+I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_shell.h)(0x547EE9B7)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\shell\shell.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\shell\shell_cfg.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_trace.h)(0x542D0E4A)
-I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x547EE554)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Types.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Error.h)(0x542D0E4A)
@@ -2382,9 +2382,9 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\UART_PDD.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\MQXLITE\psp\cortex_m\psp_prv.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\MQXLITE\include\mutex.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\MQXLITE\include\lwmsgq.h)(0x542D0E4A)
-F (.\APP\app_trace.c)(0x542D0E4A)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32 -I.\common\drivers\adc -I.\common\drivers\dma -I.\common\drivers\lptmr -I.\common\drivers\smc-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\app_trace.o --omf_browse .\uv4build\app_trace.crf --depend .\uv4build\app_trace.d)
+F (.\APP\app_trace.c)(0x547EE6AC)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32 -I.\common\drivers\adc -I.\common\drivers\dma -I.\common\drivers\lptmr -I.\common\drivers\smc-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\app_trace.o --omf_browse .\uv4build\app_trace.crf --depend .\uv4build\app_trace.d)
 I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_trace.h)(0x542D0E4A)
-I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x547EE554)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Types.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Error.h)(0x542D0E4A)
@@ -2429,7 +2429,7 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PWMTimerRGB.h)(0x542D
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\TPM_PDD.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\UART0_PDD.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\PDD\UART_PDD.h)(0x542D0E4A)
-I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_shell.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_shell.h)(0x547EE9B7)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\shell\shell.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\shell\shell_cfg.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
@@ -2450,7 +2450,7 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\IO_Map.h)(0x543A668A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Sources\Common.h)(0x5450F2DA)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\I2C.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_es201.h)(0x542D0E4A)
-I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x547EE554)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_LDD.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\MQX1.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\SystemTimer1.h)(0x542D0E4A)
@@ -2498,13 +2498,14 @@ I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_trace.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
 F (.\APP\acos.c)(0x543A668A)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32 -I.\common\drivers\adc -I.\common\drivers\dma -I.\common\drivers\lptmr -I.\common\drivers\smc-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\acos.o --omf_browse .\uv4build\acos.crf --depend .\uv4build\acos.d)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+F (.\APP\app_wifi.c)(0x54805BA5)()
 F (.\common\shell\shell.c)(0x542D0E4A)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork -I.\Generated_Code -I.\Project_Settings\Startup_Code -I.\Sources -I.\Sources\TSS -I.\MQXLITE\include -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -I.\common\PDD -I.\APP -I.\common\shell -I.\common\drivers -I.\common\drivers\spi -I.\common\drivers\W25Q32 -I.\common\drivers\adc -I.\common\drivers\dma -I.\common\drivers\lptmr -I.\common\drivers\smc-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Freescale\Kinetis-o .\uv4build\shell.o --omf_browse .\uv4build\shell.crf --depend .\uv4build\shell.d)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\shell\shell.h)(0x542D0E4A)
 I (E:\Starfish\starfish\StarFish_MCU - Port\common\shell\shell_cfg.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\APP\app_trace.h)(0x542D0E4A)
-I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x542D0E4A)
+I (E:\Starfish\starfish\StarFish_MCU - Port\common\drivers\uart.h)(0x547EE554)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Types.h)(0x542D0E4A)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (E:\Starfish\starfish\StarFish_MCU - Port\Generated_Code\PE_Error.h)(0x542D0E4A)

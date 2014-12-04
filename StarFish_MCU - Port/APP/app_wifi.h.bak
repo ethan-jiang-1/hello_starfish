@@ -1,17 +1,17 @@
 /******************** (C) COPYRIGHT 2014 FRDM **********************************
- * File Name          : app_es201.c
- * Author             : Bruce.zhu
- * Date First Issued  : 2014/03/03
+ * File Name          : app_WIFI.c
+ * Author             : Gang
+ * Date First Issued  : 2014/11/13
  * Description        : This file contains the software implementation for the
  *                      es201 module control unit
  *******************************************************************************
  * History:
  * DATE       | VER   | AUTOR      | Description
- * 2014/03/03 | v1.0  | Bruce.zhu  | initial released
+ * 2014/11/13 | v1.0  | Gang       | initial released
  *******************************************************************************/
 
-#ifndef _APP_ES201_H_
-#define _APP_ES201_H_
+#ifndef _APP_WIFI_H_
+#define _APP_WIFI_H_
 
 #include "uart.h"
 #include "MQX1.h"

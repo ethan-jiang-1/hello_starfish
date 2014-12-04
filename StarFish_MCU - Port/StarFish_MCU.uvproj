@@ -867,6 +867,11 @@
               <FileType>1</FileType>
               <FilePath>.\APP\acos.c</FilePath>
             </File>
+            <File>
+              <FileName>app_wifi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\app_wifi.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -59,6 +59,7 @@
 ".\uv4build\app_trace.o"
 ".\uv4build\app_mma8451.o"
 ".\uv4build\acos.o"
+".\uv4build\app_wifi.o"
 ".\uv4build\shell.o"
 --library_type=microlib --strict --scatter ".\Project_Settings\Linker_Files\ProcessorExpert.scf"
 

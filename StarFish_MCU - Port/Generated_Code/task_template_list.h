@@ -30,13 +30,14 @@
 #define INIT_TASK_TASK       1U
 #define SHELL_TASK      2U
 #define MMA8415_TASK            4U
+#define WIFI_TASK								5U
 
 
 /* MQX Lite task stack sizes */
 #define INIT_TASK_TASK_STACK_SIZE (sizeof(TD_STRUCT) + 1024 + PSP_STACK_ALIGNMENT + 1)
 #define SHELL_TASK_STACK_SIZE           (sizeof(TD_STRUCT) + 768 + PSP_STACK_ALIGNMENT + 1)
 #define MMA8451_TASK_STACK_SIZE         (sizeof(TD_STRUCT) + 768 + PSP_STACK_ALIGNMENT + 1)
-
+#define WIFI_TASK_STACK_SIZE         (sizeof(TD_STRUCT) + 768 + PSP_STACK_ALIGNMENT + 1)
 #endif /* __task_template_list_h__ */
 
 /*!
