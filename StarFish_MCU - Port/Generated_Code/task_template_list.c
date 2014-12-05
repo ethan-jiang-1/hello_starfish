@@ -26,6 +26,7 @@
 #include "mqx_tasks.h"
 #include "app_mma8451.h"
 #include "app_shell.h"
+#include "app_wifi.h"
 
 #define TASK_TEMPLATE_LIST_END         {0, 0, 0, 0, 0, 0, 0}
 

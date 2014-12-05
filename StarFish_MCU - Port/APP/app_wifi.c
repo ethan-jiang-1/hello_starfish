@@ -10,11 +10,11 @@
 #include "app_rgb_led.h"
 
 
-#define ES201_MSG_NUMBER        64
-#define ES201_MSG_SIZE          1
-static uint_32  g_uart0_rx_queue[sizeof(LWMSGQ_STRUCT)/sizeof(uint_32) + ES201_MSG_NUMBER* ES201_MSG_SIZE];
+#define WIFI_MSG_NUMBER        64
+#define WIFI_MSG_SIZE          1
+static uint_32  g_uart0_rx_queue[sizeof(LWMSGQ_STRUCT)/sizeof(uint_32) + WIFI_MSG_NUMBER* WIFI_MSG_SIZE];
 
-#define WIFI_RECV_BUF_SIZE     512
+#define WIFI_RECV_BUF_SIZE     512  /*This is maxium buffer size*/
 static uint8_t  g_wifi_com_recv_buf[WIFI_RECV_BUF_SIZE + 1];
 
 static es201_dev_info_t         g_es201_gps_dev;
@@ -37,6 +37,9 @@ static LWSEM_STRUCT             g_at_cmd_send_sem;
 #define OPEN_GPS_POWER          "AT+GPS=1"
 #define GET_GPS_POWER_STATE     "AT+GPS?"
 #define ES201_AT_CSQ_CMD        "AT+CSQ"
+//////////////////////WIFI CMD
+#define WIFI_HEADER_CMD				"B1Q,"
+#define	WIFI_IMAGE_CMD				"B1Q,3000,"
 
 ///---------------------------------------------
 // sms send
@@ -57,42 +60,46 @@ static void uart0_irq_handler(void* p_arg);
 static void send_at_command(char* p_cmd);
 
 
+
 /**
-  * 122.07391,37.52375,53.87,6,0.00,110.7,140215220304,3
-  *
-  * OK
+*--------------------------------------------------------------
+  * WIFI picture cmd:
+	* %B1Q,ID,length, terminate flag, binary data.
+	* length means how many byte of binary data
+	*	terminate flag means it is the last frame image or not.
+	* %B1Q,IMAGE,1000,1,0015609326......  
+  *--------------------------------------------------------------
   */
-static int  do_gps_singal_cmd(char* p_str)
+static int  do_wifi_image_cmd(char* p_str)
 {
     char* delims = ",";
     char* p_result;
     es201_gps_handle v;
-    int   i = 0;
+    int   i,length, lastframe= 0;
 
     // first, get es201 device instance
     v = get_es201_gps_instance();
 
-    // 1. longitude
+    // 1. length
     p_result = strtok(p_str, (char*)delims);
     if (p_result)
     {
-        v->longitude = atof(p_result);
+        length = atoi(p_result);
     }
     else
     {
-        v->gps_signal = GPS_POWER_ON;
         return -1;
     }
 
-    // 2. latitude
+    // 2. last frame flag
     p_result = strtok( NULL, (char*)delims);
     if (p_result)
     {
-        v->latitude = atof(p_result);
+        lastframe = atoi(p_result);
     }
     else
     {
-        v->gps_signal = GPS_POWER_ON;
+			
         return -2;
     }
 
@@ -217,6 +224,7 @@ static int  do_sms_cmd(char* p_str)
 }
 
 
+
 /**
   * @brief: deal with the recviced data
   * @param: length, reception character length
@@ -224,15 +232,9 @@ static int  do_sms_cmd(char* p_str)
   * @note:
   * AT command example:
   * 1) GPS data packetage information
-  *--------------------------------------------------------------
-  * at+gpsinfo?
-  * +GPSINFO: 122.07391,37.52375,53.87,6,0.00,110.7,140215220304,3
-  *
-  * OK
-  *--------------------------------------------------------------
   *
   */
-void    do_cmd_data(uint8_t length)
+void    do_cmd_wifidata(uint8_t length)
 {
     char*               p;
     int                 ret;
@@ -245,26 +247,13 @@ void    do_cmd_data(uint8_t length)
 
     APP_TRACE((const char*)g_wifi_com_recv_buf);
     //return;
-
-    v = get_es201_gps_instance();
-
-    // GPS no signal
-    // +GPSINFO: GPS NO SINGAL
-    p = strstr((const char*)g_wifi_com_recv_buf, GPS_NO_SIGNAL_CMD);
-    if (p)
-    {
-        v->gps_signal = GPS_POWER_ON;
-        return;
-    }
-
-    // GPS information
-    // +GPSINFO:
-    p = strstr((const char*)g_wifi_com_recv_buf, GPS_HEADER_CMD);
-    if (p)
-    {
-        // skip to GPS data content
+		//start parsing wifi data
+		p = strstr((const char*)g_wifi_com_recv_buf, WIFI_IMAGE_CMD);
+		if(p)
+		{
+			 // skip to GPS data content
         p += strlen(GPS_HEADER_CMD);
-        ret = do_gps_singal_cmd(p);
+        ret = do_wifi_image_cmd(p);
         if (ret == 0)
         {
             APP_TRACE("%.5f, %.5f, %.5f, %.5f, %d, %s, %d\r\n",
@@ -283,7 +272,20 @@ void    do_cmd_data(uint8_t length)
         }
 
         return;
+		}
+	
+	//end of wifi parsing
+    v = get_es201_gps_instance();
+
+    // GPS no signal
+    // +GPSINFO: GPS NO SINGAL
+    p = strstr((const char*)g_wifi_com_recv_buf, GPS_NO_SIGNAL_CMD);
+    if (p)
+    {
+        v->gps_signal = GPS_POWER_ON;
+        return;
     }
+
 
     // send sms ind
     p = strstr((const char*)g_wifi_com_recv_buf, ES201_SMS_SEND_IND);
@@ -384,7 +386,7 @@ void    send_sms_alarm_command(char* p_phone)
     if (ret != MQX_OK)
     {
         APP_TRACE("SMS wait '>' error!\r\n");
-        set_rgb_led_state(RGB_GREEN_LED | RGB_RED_LED);
+//        set_rgb_led_state(RGB_GREEN_LED | RGB_RED_LED);
     }
     else
     {
@@ -441,11 +443,6 @@ void    get_gps_information(void)
         send_at_command(ES201_GPS_INFO_AT_CMD);
     }
 
-    // update led show state
-    if (v->gps_signal == GPS_POWER_ON)
-        set_rgb_led_state(RGB_RED_LED);
-    else if (v->gps_signal > GPS_POWER_ON)
-        set_rgb_led_state(RGB_GREEN_LED);
 }
 
 static void send_at_command(char* p_cmd)
@@ -470,7 +467,7 @@ void    app_es201_send_task(uint32_t task_init_data)
 
     APP_TRACE("app_es201_send_task...\r\n");
 
-    set_rgb_led_state(RGB_BLUE_LED);
+   // set_rgb_led_state(RGB_BLUE_LED);
     v = get_es201_gps_instance();
 
     // delay 5 seconds...
@@ -501,7 +498,7 @@ void    app_es201_send_task(uint32_t task_init_data)
                 APP_TRACE("ES201 POWER ON!\r\n");
 
                 // set RGB to purple
-                set_rgb_led_state(RGB_RED_LED | RGB_BLUE_LED);
+            //    set_rgb_led_state(RGB_RED_LED | RGB_BLUE_LED);
                 // delay 7 seconds to wait ES201 ready
                 _time_delay_ticks(200*7);
                 break;
@@ -532,7 +529,7 @@ void    app_es201_send_task(uint32_t task_init_data)
     _time_delay_ticks(200);
 
     // ---------------------------- GPS ----------------------------
-    set_rgb_led_state(RGB_RED_LED);
+ //   set_rgb_led_state(RGB_RED_LED);
 
     // check GPS state
     for (i = 0; i < 5; i++)
@@ -580,15 +577,15 @@ void    app_wifi_control_task(uint32_t task_init_data)
     _task_id            id;
 
     // create recv msg queue
-    ret = _lwmsgq_init(g_uart0_rx_queue, ES201_MSG_NUMBER, ES201_MSG_SIZE);
+    ret = _lwmsgq_init(g_uart0_rx_queue, WIFI_MSG_NUMBER, WIFI_MSG_SIZE);
     ASSERT_PARAM(MQX_OK == ret);
 
-    // create send AT command sem
-    ret = _lwsem_create(&g_at_cmd_send_sem, 0);
-    ASSERT_PARAM(MQX_OK == ret);
+//    // create send AT command sem
+//    ret = _lwsem_create(&g_at_cmd_send_sem, 0);
+//    ASSERT_PARAM(MQX_OK == ret);
 
-    ret = _lwsem_create(&g_mma8451_alarm_sem, 0);
-    ASSERT_PARAM(MQX_OK == ret);
+//    ret = _lwsem_create(&g_mma8451_alarm_sem, 0);
+//    ASSERT_PARAM(MQX_OK == ret);
 
     // init UART0 to communication with ES201
     init_uart0(uart0_irq_handler);
@@ -598,14 +595,16 @@ void    app_wifi_control_task(uint32_t task_init_data)
     memset(v, 0x00, sizeof(es201_dev_info_t));
 
     // start ES201 at command send task
-    id = _task_create_at(0, ES201_SEND_TASK, 0, es201_send_task_stack, ES201_SEND_TASK_STACK_SIZE);
+   // id = _task_create_at(0, ES201_SEND_TASK, 0, es201_send_task_stack, ES201_SEND_TASK_STACK_SIZE);
     ASSERT_PARAM(MQX_NULL_TASK_ID != id);
 
     APP_TRACE("app_es201_control_task start...\r\n");
 
     for (;;)
     {
-        // wait 5*5=25ms
+        /* wait 5*5=25ms
+				Adopt the easiest and stupid way to receive one complete message based on time out mechansim instead of finding "terminating" symbol.
+			*/
         ret = _lwmsgq_receive(g_uart0_rx_queue, &msg, LWMSGQ_RECEIVE_BLOCK_ON_EMPTY, 5, NULL);
         switch (ret)
         {
@@ -625,7 +624,7 @@ void    app_wifi_control_task(uint32_t task_init_data)
             case LWMSGQ_TIMEOUT:
                 if (pos)
                 {
-                    do_cmd_data(pos);
+                    do_cmd_wifidata(pos);
                     // clear buffer, to reload next data reception
                     pos = 0;
                 }

@@ -241,33 +241,36 @@ void    init_uart0(INT_ISR_FPTR isr_handle)
     // PET21 -- UART0_RX
     // ALT4
     /* PORTE_PCR20: ISF=0, MUX=2 */
-//    PORTE_PCR20 = (uint32_t)((PORTE_PCR20 & (uint32_t)~(uint32_t)(
-//                               PORT_PCR_ISF_MASK |
-//                               PORT_PCR_MUX(0x03)
-//                               )) | (uint32_t)(
-//                               PORT_PCR_MUX(0x04)
-//                               ));
+	//For Bowhead board
+    PORTE_PCR20 = (uint32_t)((PORTE_PCR20 & (uint32_t)~(uint32_t)(
+                               PORT_PCR_ISF_MASK |
+                               PORT_PCR_MUX(0x03)
+                               )) | (uint32_t)(
+                               PORT_PCR_MUX(0x04)
+                               ));
 
-//    /* PORTE_PCR21: ISF=0, MUX=2 */
-//    PORTE_PCR21 = (uint32_t)((PORTE_PCR21 & (uint32_t)~(uint32_t)(
-//                               PORT_PCR_ISF_MASK |
-//                               PORT_PCR_MUX(0x03)
-//                               )) | (uint32_t)(
-//                               PORT_PCR_MUX(0x04)
-//                               ));
-PORTA_PCR1 = (uint32_t)((PORTA_PCR1 & (uint32_t)~(uint32_t)(
-                PORT_PCR_ISF_MASK |
-                PORT_PCR_MUX(0x05)
-               )) | (uint32_t)(
-                PORT_PCR_MUX(0x02)
-               ));                                                  
-  /* PORTA_PCR2: ISF=0,MUX=2 */
-  PORTA_PCR2 = (uint32_t)((PORTA_PCR2 & (uint32_t)~(uint32_t)(
-                PORT_PCR_ISF_MASK |
-                PORT_PCR_MUX(0x05)
-               )) | (uint32_t)(
-                PORT_PCR_MUX(0x02)
-               ));      
+    /* PORTE_PCR21: ISF=0, MUX=2 */
+    PORTE_PCR21 = (uint32_t)((PORTE_PCR21 & (uint32_t)~(uint32_t)(
+                               PORT_PCR_ISF_MASK |
+                               PORT_PCR_MUX(0x03)
+                               )) | (uint32_t)(
+                               PORT_PCR_MUX(0x04)
+                               ));
+
+//For KL26 EVB
+//PORTE_PCR1 = (uint32_t)((PORTA_PCR1 & (uint32_t)~(uint32_t)(
+//                PORT_PCR_ISF_MASK |
+//                PORT_PCR_MUX(0x05)
+//               )) | (uint32_t)(
+//                PORT_PCR_MUX(0x02)
+//               ));                                                  
+//  /* PORTA_PCR2: ISF=0,MUX=2 */
+//  PORTA_PCR2 = (uint32_t)((PORTA_PCR2 & (uint32_t)~(uint32_t)(
+//                PORT_PCR_ISF_MASK |
+//                PORT_PCR_MUX(0x05)
+//               )) | (uint32_t)(
+//                PORT_PCR_MUX(0x02)
+//               ));      
 
     UART0_PDD_EnableTransmitter(UART0_BASE_PTR, PDD_DISABLE); /* Disable transmitter. */
     UART0_PDD_EnableReceiver(UART0_BASE_PTR, PDD_DISABLE); /* Disable receiver. */

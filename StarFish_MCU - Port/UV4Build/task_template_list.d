@@ -65,3 +65,7 @@
 .\uv4build\task_template_list.o: .\common\PDD\UART0_PDD.h
 .\uv4build\task_template_list.o: .\common\PDD\UART_PDD.h
 .\uv4build\task_template_list.o: .\MQXLITE\psp\cortex_m\psp_prv.h
+.\uv4build\task_template_list.o: .\APP\app_wifi.h
+.\uv4build\task_template_list.o: .\MQXLITE\include\mutex.h
+.\uv4build\task_template_list.o: .\MQXLITE\include\lwmsgq.h
+.\uv4build\task_template_list.o: .\MQXLITE\include\lwtimer.h
