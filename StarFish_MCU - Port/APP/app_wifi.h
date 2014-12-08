@@ -15,7 +15,12 @@
 #include "psp_prv.h"
 
 
-
+typedef struct 
+	{
+		uint_32	m_lDataLen;
+		uint_32	m_lEndFlag;
+		uint_32	m_dwCheckSum;
+	} wifi_image_info;
 typedef enum
 {
     GPS_POWER_OFF,          /* 0 GPS in power off(default)  */

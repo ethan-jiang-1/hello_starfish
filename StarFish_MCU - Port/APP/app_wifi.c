@@ -15,7 +15,7 @@
 static uint_32  g_uart0_rx_queue[sizeof(LWMSGQ_STRUCT)/sizeof(uint_32) + WIFI_MSG_NUMBER* WIFI_MSG_SIZE];
 
 #define WIFI_RECV_BUF_SIZE     512  /*This is maxium buffer size*/
-static uint8_t  g_wifi_com_recv_buf[WIFI_RECV_BUF_SIZE + 1];
+static uint_8  g_wifi_com_recv_buf[WIFI_RECV_BUF_SIZE];
 
 static es201_dev_info_t         g_es201_gps_dev;
 
@@ -38,8 +38,10 @@ static LWSEM_STRUCT             g_at_cmd_send_sem;
 #define GET_GPS_POWER_STATE     "AT+GPS?"
 #define ES201_AT_CSQ_CMD        "AT+CSQ"
 //////////////////////WIFI CMD
-#define WIFI_HEADER_CMD				"B1Q,"
-#define	WIFI_IMAGE_CMD				"B1Q,3000,"
+#define WIFI_HEADER_CMD				"%B1Q,"
+#define WIFI_IMAGE_TAG_HEADER							"%B1Q,300,"	
+#define WIFI_IMAGE_TAG_LEN								(sizeof(WIFI_IMAGE_TAG_HEADER) - 1)
+#define WIFI_IMAGE_CMD_HEADER_LEN						(sizeof("%B1Q,300,1000,1,0123456789") - 1)
 
 ///---------------------------------------------
 // sms send
@@ -59,18 +61,79 @@ static LWSEM_STRUCT             g_at_cmd_send_sem;
 static void uart0_irq_handler(void* p_arg);
 static void send_at_command(char* p_cmd);
 
+bool verifyCheckSum( dword dwTargetCheckSum, uint_8 *pData, dword nDataLen )
+{
 
+		dword dwCheckSum = 0;
+	while (nDataLen--)
+	{
+		dwCheckSum+=*pData++;
+	}
+	return dwCheckSum == dwTargetCheckSum;
+}
 
+static int ParseChecksum(uint_8 * pData, int dwLen)
+	{
+
+		int dwMulti = 1;
+		int dwCheckSum = 0;
+		int i=0;
+		for(i=dwLen; i>0; --i)
+		{
+			dwCheckSum += ((*(pData + i - 1) - '0') * dwMulti);
+			dwMulti *= 10;
+		}
+
+		return dwCheckSum;
+	}
 /**
 *--------------------------------------------------------------
   * WIFI picture cmd:
-	* %B1Q,ID,length, terminate flag, binary data.
+	* %B1Q,ID,length, terminate flag, check sum,binary data.
 	* length means how many byte of binary data
 	*	terminate flag means it is the last frame image or not.
-	* %B1Q,IMAGE,1000,1,0015609326......  
+	* %B1Q,IMAGE_ID(3000),1000,1,0015609326......  
   *--------------------------------------------------------------
   */
-static int  do_wifi_image_cmd(char* p_str)
+static int  do_wifi_image_cmd(uint_8* pData)
+{
+			//"%F1Q,30000,0:00000000,01234567,1,0123456789,"
+//	char szTrasactionID[9] = {0};
+//	char szDataLen[9] = {0};
+//	char szEndFlag[2] = {0};
+//	char szCheckSum[11] = {0};
+//	memcpy(szTrasactionID, 8, pData + 13, 8);
+//	memcpy(szDataLen, 8, pData + 22, 8);
+//	memcpy(szEndFlag, 1, pData + 31, 1);
+//	memcpy(szCheckSum, 10, pData + 33, 10);
+//"%B1Q,300,1000,1,0123456789,"
+	wifi_image_info info;
+	char szDataLen[5] = {0};
+	char szEndFlag[2] = {0};
+	char szCheckSum[11] = {0};
+	memcpy(szDataLen, pData + 9, 4);
+	memcpy(szEndFlag, pData + 14, 1);
+	memcpy(szCheckSum, pData + 16, 10);
+	info.m_lDataLen = atoi(szDataLen);
+	info.m_lEndFlag = atoi(szEndFlag);
+	info.m_dwCheckSum =ParseChecksum((uint_8*)(szCheckSum), strlen(szCheckSum));
+	if(verifyCheckSum(info.m_dwCheckSum, (uint_8 *)(pData+WIFI_IMAGE_CMD_HEADER_LEN), 
+			info.m_lDataLen))
+	{
+		
+		/*start to record spi*/
+		 APP_TRACE((const char*)g_wifi_com_recv_buf[WIFI_IMAGE_CMD_HEADER_LEN]);
+		if(info.m_lEndFlag==1)
+		{
+			/*send all data stored in flash to eink*/
+		}
+		
+	}
+
+	return 1;
+	
+}
+static int  do_wifi_xxx_cmd(char* p_str)
 {
     char* delims = ",";
     char* p_result;
@@ -248,111 +311,118 @@ void    do_cmd_wifidata(uint8_t length)
     APP_TRACE((const char*)g_wifi_com_recv_buf);
     //return;
 		//start parsing wifi data
-		p = strstr((const char*)g_wifi_com_recv_buf, WIFI_IMAGE_CMD);
-		if(p)
-		{
-			 // skip to GPS data content
-        p += strlen(GPS_HEADER_CMD);
-        ret = do_wifi_image_cmd(p);
-        if (ret == 0)
-        {
-            APP_TRACE("%.5f, %.5f, %.5f, %.5f, %d, %s, %d\r\n",
-                      v->longitude,
-                      v->latitude,
-                      v->altitude,
-                      v->speed,
-                      v->satellite_num,
-                      v->utc_time,
-                      (int)v->gps_signal);
-        }
-        else
-        {
-            APP_TRACE("get GPS signal error[%d]\r\n", ret);
-            APP_TRACE("%s", g_wifi_com_recv_buf);
-        }
+		//p = strstr((const char*)g_wifi_com_recv_buf, WIFI_IMAGE_CMD);
+		 if(0 == memcmp(g_wifi_com_recv_buf, WIFI_IMAGE_TAG_HEADER, WIFI_IMAGE_TAG_LEN))
+		 {
+			 do_wifi_image_cmd(g_wifi_com_recv_buf);
+			 
+		 }
+		 /////////////////////////////
+		
+//		if(p)
+//		{
+//			 // skip to GPS data content
+//       // p += strlen(GPS_HEADER_CMD);
+//        ret = do_wifi_image_cmd(p);
+//        if (ret == 0)
+//        {
+//            APP_TRACE("%.5f, %.5f, %.5f, %.5f, %d, %s, %d\r\n",
+//                      v->longitude,
+//                      v->latitude,
+//                      v->altitude,
+//                      v->speed,
+//                      v->satellite_num,
+//                      v->utc_time,
+//                      (int)v->gps_signal);
+//        }
+//        else
+//        {
+//            APP_TRACE("get GPS signal error[%d]\r\n", ret);
+//            APP_TRACE("%s", g_wifi_com_recv_buf);
+//        }
 
-        return;
-		}
-	
-	//end of wifi parsing
-    v = get_es201_gps_instance();
+//        return;
+//		}
+//	
+//	//end of wifi parsing
+//    v = get_es201_gps_instance();
 
-    // GPS no signal
-    // +GPSINFO: GPS NO SINGAL
-    p = strstr((const char*)g_wifi_com_recv_buf, GPS_NO_SIGNAL_CMD);
-    if (p)
-    {
-        v->gps_signal = GPS_POWER_ON;
-        return;
-    }
+//    // GPS no signal
+//    // +GPSINFO: GPS NO SINGAL
+//    p = strstr((const char*)g_wifi_com_recv_buf, GPS_NO_SIGNAL_CMD);
+//    if (p)
+//    {
+//        v->gps_signal = GPS_POWER_ON;
+//        return;
+//    }
 
 
-    // send sms ind
-    p = strstr((const char*)g_wifi_com_recv_buf, ES201_SMS_SEND_IND);
-    if (p)
-    {
-        _lwsem_post(&g_at_cmd_send_sem);
-        return;
-    }
+//    // send sms ind
+//    p = strstr((const char*)g_wifi_com_recv_buf, ES201_SMS_SEND_IND);
+//    if (p)
+//    {
+//        _lwsem_post(&g_at_cmd_send_sem);
+//        return;
+//    }
 
-    /*
-     * @brief: receive a new sms message
-     *
-     * +CMT: "+8613616212725","","14/03/17,20:53:58+32"
-     * ggggggggggg
-     */
-    p = strstr((const char*)g_wifi_com_recv_buf, ES201_RECV_NEW_MSG);
-    if (p)
-    {
-        do_sms_cmd((char*)g_wifi_com_recv_buf);
-    }
+//    /*
+//     * @brief: receive a new sms message
+//     *
+//     * +CMT: "+8613616212725","","14/03/17,20:53:58+32"
+//     * ggggggggggg
+//     */
+//    p = strstr((const char*)g_wifi_com_recv_buf, ES201_RECV_NEW_MSG);
+//    if (p)
+//    {
+//        do_sms_cmd((char*)g_wifi_com_recv_buf);
+//    }
 
-    // ES201 power on information
-    // IIII....
-    p = strstr((const char*)g_wifi_com_recv_buf, ES201_POWER_ON_CMD);
-    if (p)
-    {
-        v->gps_signal = GPS_POWER_OFF;
-        v->gsm_state  = GSM_POWER_ON;
+//    // ES201 power on information
+//    // IIII....
+//    p = strstr((const char*)g_wifi_com_recv_buf, ES201_POWER_ON_CMD);
+//    if (p)
+//    {
+//        v->gps_signal = GPS_POWER_OFF;
+//        v->gsm_state  = GSM_POWER_ON;
 
-        return;
-    }
+//        return;
+//    }
 
-    // ES201 power state information
-    // +GPS: 1      ---> GPS is power on
-    // +GPS: 0      ---> GPS is power off
-    p = strstr((const char*)g_wifi_com_recv_buf, ES201_GPS_POWER_STATE);
-    if (p)
-    {
-        p += strlen(ES201_GPS_POWER_STATE);
-        state = atoi(p);
-        if (state == 1)
-            v->gps_signal = GPS_POWER_ON;
-        else
-            v->gps_signal = GPS_POWER_OFF;
+//    // ES201 power state information
+//    // +GPS: 1      ---> GPS is power on
+//    // +GPS: 0      ---> GPS is power off
+//    p = strstr((const char*)g_wifi_com_recv_buf, ES201_GPS_POWER_STATE);
+//    if (p)
+//    {
+//        p += strlen(ES201_GPS_POWER_STATE);
+//        state = atoi(p);
+//        if (state == 1)
+//            v->gps_signal = GPS_POWER_ON;
+//        else
+//            v->gps_signal = GPS_POWER_OFF;
 
-        return;
-    }
+//        return;
+//    }
 
-    // normal AT cmd information
-    // OK
-    p = strstr((const char*)g_wifi_com_recv_buf, ES201_OK_AT_CMD);
-    if (p)
-    {
-        v->gsm_state = GSM_STATE_OK;
-        return;
-    }
+//    // normal AT cmd information
+//    // OK
+//    p = strstr((const char*)g_wifi_com_recv_buf, ES201_OK_AT_CMD);
+//    if (p)
+//    {
+//        v->gsm_state = GSM_STATE_OK;
+//        return;
+//    }
 
-    // ERROR
-    p = strstr((const char*)g_wifi_com_recv_buf, ES201_ERROR_AT_CMD);
-    if (p)
-    {
-        v->gsm_state = GSM_STATE_ERROR;
-        return;
-    }
+//    // ERROR
+//    p = strstr((const char*)g_wifi_com_recv_buf, ES201_ERROR_AT_CMD);
+//    if (p)
+//    {
+//        v->gsm_state = GSM_STATE_ERROR;
+//        return;
+//    }
 
-    APP_TRACE("\r\n* ES201 data not handle:\r\n");
-    DUMP_DATA(g_wifi_com_recv_buf, length);
+//    APP_TRACE("\r\n* ES201 data not handle:\r\n");
+//    DUMP_DATA(g_wifi_com_recv_buf, length);
 
 }
 
