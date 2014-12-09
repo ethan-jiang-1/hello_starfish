@@ -38,10 +38,10 @@ static LWSEM_STRUCT             g_at_cmd_send_sem;
 #define GET_GPS_POWER_STATE     "AT+GPS?"
 #define ES201_AT_CSQ_CMD        "AT+CSQ"
 //////////////////////WIFI CMD
-#define WIFI_HEADER_CMD				"%B1Q,"
+#define WIFI_TAG_HEADER				"%B1Q"
 #define WIFI_IMAGE_TAG_HEADER							"%B1Q,300,"	
 #define WIFI_IMAGE_TAG_LEN								(sizeof(WIFI_IMAGE_TAG_HEADER) - 1)
-#define WIFI_IMAGE_CMD_HEADER_LEN						(sizeof("%B1Q,300,1000,1,0123456789") - 1)
+#define WIFI_IMAGE_CMD_HEADER_LEN						(sizeof("%B1Q,300,1000,1,0123456789"))
 
 ///---------------------------------------------
 // sms send
@@ -97,17 +97,9 @@ static int ParseChecksum(uint_8 * pData, int dwLen)
   */
 static int  do_wifi_image_cmd(uint_8* pData)
 {
-			//"%F1Q,30000,0:00000000,01234567,1,0123456789,"
-//	char szTrasactionID[9] = {0};
-//	char szDataLen[9] = {0};
-//	char szEndFlag[2] = {0};
-//	char szCheckSum[11] = {0};
-//	memcpy(szTrasactionID, 8, pData + 13, 8);
-//	memcpy(szDataLen, 8, pData + 22, 8);
-//	memcpy(szEndFlag, 1, pData + 31, 1);
-//	memcpy(szCheckSum, 10, pData + 33, 10);
 //"%B1Q,300,1000,1,0123456789,"
 	wifi_image_info info;
+	char szBuf[64] = {0};
 	char szDataLen[5] = {0};
 	char szEndFlag[2] = {0};
 	char szCheckSum[11] = {0};
@@ -122,10 +114,13 @@ static int  do_wifi_image_cmd(uint_8* pData)
 	{
 		
 		/*start to record spi*/
-		 APP_TRACE((const char*)g_wifi_com_recv_buf[WIFI_IMAGE_CMD_HEADER_LEN]);
+		APP_TRACE((const char*)g_wifi_com_recv_buf[WIFI_IMAGE_CMD_HEADER_LEN]);
+		snprintf(szBuf, sizeof(szBuf)-1, "%%B1P,0,0:1");
+    uart0_send_string((uint8_t*)szBuf);
 		if(info.m_lEndFlag==1)
 		{
 			/*send all data stored in flash to eink*/
+			
 		}
 		
 	}
@@ -286,8 +281,18 @@ static int  do_sms_cmd(char* p_str)
     return 0;
 }
 
-
-
+int dispatchMessage(uint_8* pData)
+{
+	
+	return 1;
+}
+bool IsImage()
+{
+	if(0 == memcmp(g_wifi_com_recv_buf, WIFI_IMAGE_TAG_HEADER, WIFI_IMAGE_TAG_LEN))
+		return TRUE;
+	else 
+		return FALSE;
+}
 /**
   * @brief: deal with the recviced data
   * @param: length, reception character length
@@ -309,13 +314,23 @@ void    do_cmd_wifidata(uint8_t length)
     g_wifi_com_recv_buf[length] = 0;
 
     APP_TRACE((const char*)g_wifi_com_recv_buf);
-    //return;
-		//start parsing wifi data
-		//p = strstr((const char*)g_wifi_com_recv_buf, WIFI_IMAGE_CMD);
-		 if(0 == memcmp(g_wifi_com_recv_buf, WIFI_IMAGE_TAG_HEADER, WIFI_IMAGE_TAG_LEN))
+    /*
+		* Image has higher priority than the others message, so handle it firstly.
+		*/
+		 if(IsImage())
 		 {
 			 do_wifi_image_cmd(g_wifi_com_recv_buf);
 			 
+		 }
+		 /*if it is not image related message(photo image and firmware image),
+		 * and then this message must belong to normal case:
+		 * %B1Q,ID, Parameter1, parmater2
+		 * Is it necessary to use terminate flag?
+		 */
+		 p = strstr((const char*)g_wifi_com_recv_buf, WIFI_TAG_HEADER);
+		 if(p)
+		 {
+			 ret=dispatchMessage(p);
 		 }
 		 /////////////////////////////
 		
