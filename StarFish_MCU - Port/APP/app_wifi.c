@@ -281,9 +281,30 @@ static int  do_sms_cmd(char* p_str)
     return 0;
 }
 
-int dispatchMessage(uint_8* pData)
+int handleMessage(char* pData)
 {
-	
+	 char* delims = ",";
+    int id,i= 0;
+		int para[5]={0};
+		char *p_result;
+		char *buf= pData;
+		while((p_result=strtok(buf,(char*)delims))!=NULL) {
+                para[i]=atoi(p_result); 
+								i++;
+                 buf=NULL;
+				}
+				printf("%d,%d,%d\r\n",para[0],para[1],para[2]);
+    id=para[0];
+		switch(id){
+			case 100:
+					 
+					break;
+			case 101:
+					break;
+			default:
+					break;
+		}
+		
 	return 1;
 }
 bool IsImage()
@@ -330,7 +351,8 @@ void    do_cmd_wifidata(uint8_t length)
 		 p = strstr((const char*)g_wifi_com_recv_buf, WIFI_TAG_HEADER);
 		 if(p)
 		 {
-			 ret=dispatchMessage(p);
+			  p += strlen(WIFI_TAG_HEADER);
+			 ret=handleMessage(p);
 		 }
 		 /////////////////////////////
 		
