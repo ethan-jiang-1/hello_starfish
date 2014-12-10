@@ -3,32 +3,71 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-E:\Starfish\starfish\StarFish_MCU - Port\StarFish_MCU.uvproj
-Project File Date:  12/04/2014
+D:\starfish\StarFish_MCU - Port\StarFish_MCU.uvproj
+Project File Date:  12/05/2014
 
 <h2>Output:</h2>
 Build target 'MKL26Z128xxx4'
-compiling task_template_list.c...
-compiling uart.c...
-compiling app_mma8451.c...
-APP\acos.h(2): warning:  #1-D: last line of file ends without a newline
-APP\app_mma8451.c(39): warning:  #1295-D: Deprecated declaration putmma8451standby - give arg types
-APP\app_mma8451.c(40): warning:  #1295-D: Deprecated declaration putmma8451detect - give arg types
-APP\app_mma8451.c(41): warning:  #1295-D: Deprecated declaration putmma8451running - give arg types
-APP\app_mma8451.c(108): warning:  #68-D: integer conversion resulted in a change of sign
-APP\app_mma8451.c(158): warning:  #177-D: variable "j" was declared but never referenced
-APP\app_mma8451.c(311): warning:  #177-D: variable "ths" was declared but never referenced
 compiling app_wifi.c...
 APP\app_wifi.c(136): warning:  #550-D: variable "length" was set but never used
 APP\app_wifi.c(136): warning:  #550-D: variable "lastframe" was set but never used
-APP\app_wifi.c(328): warning:  #550-D: variable "ret" was set but never used
-APP\app_wifi.c(329): warning:  #177-D: variable "v" was declared but never referenced
-APP\app_wifi.c(330): warning:  #177-D: variable "state" was declared but never referenced
+APP\app_wifi.c(297): warning:  #177-D: variable "p" was declared but never referenced
+APP\app_wifi.c(298): warning:  #177-D: variable "ret" was declared but never referenced
+APP\app_wifi.c(299): warning:  #177-D: variable "v" was declared but never referenced
+APP\app_wifi.c(300): warning:  #177-D: variable "state" was declared but never referenced
 APP\app_wifi.c(131): warning:  #177-D: function "do_wifi_xxx_cmd" was declared but never referenced
 APP\app_wifi.c(254): warning:  #177-D: function "do_sms_cmd" was declared but never referenced
 linking...
 .\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
-Program Size: Code=34288 RO-data=1328 RW-data=116 ZI-data=11428  
+Program Size: Code=34116 RO-data=1328 RW-data=116 ZI-data=11428  
 After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
 After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
-".\UV4Build\StarFish_MCU.axf" - 0 Errors, 15 Warning(s).
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 9 Warning(s).
+Build target 'MKL26Z128xxx4'
+compiling app_wifi.c...
+APP\app_wifi.c(136): warning:  #550-D: variable "length" was set but never used
+APP\app_wifi.c(136): warning:  #550-D: variable "lastframe" was set but never used
+APP\app_wifi.c(297): warning:  #177-D: variable "p" was declared but never referenced
+APP\app_wifi.c(298): warning:  #177-D: variable "ret" was declared but never referenced
+APP\app_wifi.c(299): warning:  #177-D: variable "v" was declared but never referenced
+APP\app_wifi.c(300): warning:  #177-D: variable "state" was declared but never referenced
+APP\app_wifi.c(131): warning:  #177-D: function "do_wifi_xxx_cmd" was declared but never referenced
+APP\app_wifi.c(254): warning:  #177-D: function "do_sms_cmd" was declared but never referenced
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=34116 RO-data=1328 RW-data=116 ZI-data=11428  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 9 Warning(s).
+Build target 'MKL26Z128xxx4'
+compiling app_wifi.c...
+APP\app_wifi.c(136): warning:  #550-D: variable "length" was set but never used
+APP\app_wifi.c(136): warning:  #550-D: variable "lastframe" was set but never used
+APP\app_wifi.c(333): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint_8 *"
+APP\app_wifi.c(308): warning:  #550-D: variable "ret" was set but never used
+APP\app_wifi.c(309): warning:  #177-D: variable "v" was declared but never referenced
+APP\app_wifi.c(310): warning:  #177-D: variable "state" was declared but never referenced
+APP\app_wifi.c(131): warning:  #177-D: function "do_wifi_xxx_cmd" was declared but never referenced
+APP\app_wifi.c(254): warning:  #177-D: function "do_sms_cmd" was declared but never referenced
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=34204 RO-data=1328 RW-data=116 ZI-data=11428  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 9 Warning(s).
+Build target 'MKL26Z128xxx4'
+compiling app_wifi.c...
+APP\app_wifi.c(136): warning:  #550-D: variable "length" was set but never used
+APP\app_wifi.c(136): warning:  #550-D: variable "lastframe" was set but never used
+APP\app_wifi.c(333): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint_8 *"
+APP\app_wifi.c(308): warning:  #550-D: variable "ret" was set but never used
+APP\app_wifi.c(309): warning:  #177-D: variable "v" was declared but never referenced
+APP\app_wifi.c(310): warning:  #177-D: variable "state" was declared but never referenced
+APP\app_wifi.c(131): warning:  #177-D: function "do_wifi_xxx_cmd" was declared but never referenced
+APP\app_wifi.c(254): warning:  #177-D: function "do_sms_cmd" was declared but never referenced
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=34204 RO-data=1328 RW-data=116 ZI-data=11428  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 9 Warning(s).
