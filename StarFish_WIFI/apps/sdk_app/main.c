@@ -2,12 +2,12 @@
 #include <qcom_cli.h>
 #include "main.h"
 
-#define APP_POOL_SIZE                 (8 * 1024)
+#define APP_POOL_SIZE                 ( 8 * 512 )
 
-#define WIFI_RECV_THREAD_STACK_SIZE   ( 2 * 1024)
-#define WIFI_SEND_THREAD_STACK_SIZE   ( 1 * 1024)
-#define UART_RECV_THREAD_STACK_SIZE   ( 1 * 1024)
-#define UART_SEND_THREAD_STACK_SIZE   (512)
+#define WIFI_RECV_THREAD_STACK_SIZE   ( 3 * 512 )
+#define WIFI_SEND_THREAD_STACK_SIZE   ( 1 * 512 )
+#define UART_RECV_THREAD_STACK_SIZE   ( 1 * 512 )
+#define UART_SEND_THREAD_STACK_SIZE   ( 1 * 512 )
 
 #define WIFI2UART_QUEUE_SIZE  (20)
 #define UART2WIFI_QUEUE_SIZE  (20)

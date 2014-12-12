@@ -34,9 +34,6 @@ typedef enum {
     eStation
 }ENUM_MODE;
 
-#pragma pack(push)
-#pragma pack(1)
-
 typedef struct {
 
     ENUM_MODE mode;
@@ -70,9 +67,8 @@ typedef struct {
 
     A_UINT16 crc16;
 
-}SYS_CONFIG_t;
+}__attribute__((packed)) SYS_CONFIG_t;
 
-#pragma pack(pop)
 
 A_UINT16 MAIN_CalcCRC16(A_UINT8 *puchMsg, A_UINT16 len);
 
@@ -80,7 +76,6 @@ A_STATUS NVRAM_RestoreConfig();
 A_STATUS NVRAM_SaveSettings(SYS_CONFIG_t *pConfig);
 void NVRAM_LoadDefaultSettings(SYS_CONFIG_t *pConfig);
 
-A_INT32 TASKMGR_Start(VOID (*fn)(A_UINT32), A_UINT32 arg, A_INT32 stk_size, A_INT32 tk_ms);
 void TASKMGR_Del(void);
 void TASKMGR_Yield();
 void TASKMGR_Exit();

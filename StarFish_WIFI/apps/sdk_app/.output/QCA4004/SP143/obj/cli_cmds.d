@@ -45,4 +45,5 @@
   ../../include/qcom/qcom_mem.h ../../include/qcom/qcom_time.h \
   ../../include/qcom/select_api.h ../../include/qcom/socket_api.h \
   typedef.h libcli.h \
-  /cad/tensilica/xtensa/XtDevTools/install/tools/RD-2012.4-linux/XtensaTools/lib/xcc/include/stdarg.h
+  /cad/tensilica/xtensa/XtDevTools/install/tools/RD-2012.4-linux/XtensaTools/lib/xcc/include/stdarg.h \
+  bb_httpclient.h bb_url.h

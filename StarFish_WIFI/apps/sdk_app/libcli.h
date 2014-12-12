@@ -8,7 +8,7 @@
 #define CLI_QUIT                (-2)
 #define CLI_ERROR_ARG           (-3)
 
-#define MAX_HISTORY             (64)
+#define MAX_HISTORY             (5)
 
 #define PRIVILEGE_UNPRIVILEGED  (0)
 #define PRIVILEGE_PRIVILEGED    (15)
@@ -91,7 +91,7 @@ int cli_run_command(struct cli_def *cli, const char *command);
 int cli_loop(struct cli_def *cli, int sockfd);
 void cli_set_auth_callback(struct cli_def *cli, int (*auth_callback)(const char *, const char *));
 void cli_set_enable_callback(struct cli_def *cli, int (*enable_callback)(const char *));
-void cli_allow_user(struct cli_def *cli, const char *username, const char *apKey);
+void cli_allow_user(struct cli_def *cli, const char *username, const char *password);
 void cli_allow_enable(struct cli_def *cli, const char *password);
 void cli_deny_user(struct cli_def *cli, const char *username);
 void cli_set_banner(struct cli_def *cli, const char *banner);

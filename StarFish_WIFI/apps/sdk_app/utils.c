@@ -81,6 +81,49 @@ size_t strnlen(const char * pSrc, size_t _MaxCount)
     return len;
 }
 
+
+char* str_strtok(char *strToken, const char *strDelimit)
+{
+    static char *pToken = NULL;
+    char *pchDelimit    = NULL;
+    char *pchRetToken   = NULL;
+    char ucFlag         = 0;
+
+    if (strToken != NULL) {
+        pToken = strToken;
+    }
+
+    if ((*pToken == '\0') || (pToken == NULL)) {
+        return NULL;
+    }
+
+    pchRetToken = pToken;
+
+    while (*pToken != '\0') {
+
+        for (pchDelimit = (char *)strDelimit; *pchDelimit != '\0'; pchDelimit++) {
+
+            if (*pchRetToken == *pchDelimit) {
+                pchRetToken++;
+                break;
+            }
+
+            if (*pToken == *pchDelimit) {
+                *pToken = '\0';
+                ucFlag = 1;
+            }
+        }
+
+        pToken++;
+
+        if (ucFlag == 1) {
+            break;
+        }
+    }
+
+    return pchRetToken;
+}
+
 /* some reluctance to put this into a new limits.h, so it is here */
 #define INT_MAX		((int)(~0U>>1))
 
@@ -801,3 +844,121 @@ void packet_printf(unsigned char *data, int len)
     A_PRINTF("\n");
     A_PRINTF("----------------------------------------------\n");
 }
+
+// The following function come from bb_stringx.h
+/*
+    Gets the offset of one string in another string
+*/
+int str_index_of(const char *a, char *b) 
+{
+    char *offset = (char *)strstr(a, b);
+    return offset - a;
+}
+
+/*
+    Checks if one string contains another string
+*/
+int str_contains(const char *haystack, const char *needle) 
+{
+    char *pos = (char *)strstr(haystack, needle);
+
+    if (pos) 
+        return 1;
+    else 
+        return 0;
+}
+
+/*
+    Removes last character from string
+*/
+char* trim_end(char *string, char to_trim) 
+{
+    char last_char = string[strlen(string) - 1];
+
+    if (last_char == to_trim) {
+        char *new_string = string;
+        new_string[strlen(string) - 1] = 0;
+        return new_string;
+    } else {
+        return string;
+    }
+}
+
+/*
+    Concecates two strings, a wrapper for strcat from string.h, handles the resizing and copying
+*/
+char* str_cat(char *a, char *b) 
+{
+    char *target = (char *)qcom_mem_alloc(strlen(a) + strlen(b) + 1);
+    strcpy(target, a);
+    strcat(target, b);
+    return target;
+}
+
+
+/*
+    Replacement for the string.h strndup, fixes a bug
+*/
+char* str_ndup(const char *str, size_t max) 
+{
+    size_t len = strnlen(str, max);
+    char *res = (char *)qcom_mem_alloc(len + 1);
+
+    if (res) {
+        memcpy(res, str, len);
+        res[len] = '\0';
+    }
+
+    return res;
+}
+
+/*
+    Replacement for the string.h strdup, fixes a bug
+*/
+char* str_dup(const char *src) 
+{
+    char *tmp = (char *)qcom_mem_alloc(strlen(src) + 1);
+
+    if (tmp) 
+        strcpy(tmp, src);
+
+    return tmp;
+}
+
+/*
+    Search and replace a string with another string , in a string
+*/
+char* str_replace(char *search, char *replace, char *subject) 
+{
+    char  *p = NULL, *old = NULL, *new_subject = NULL;
+    int c = 0, search_size;
+    search_size = strlen(search);
+
+    for (p = strstr(subject, search); p != NULL; p = strstr(p + search_size, search)) {
+        c++;
+    }
+
+    c = (strlen(replace) - search_size) * c + strlen(subject);
+    new_subject = (char *)qcom_mem_alloc(c);
+    strcpy(new_subject, "");
+    old = subject;
+
+    for (p = strstr(subject, search); p != NULL; p = strstr(p + search_size, search)) {
+        strncpy(new_subject + strlen(new_subject), old, p - old);
+        strcpy(new_subject + strlen(new_subject), replace);
+        old = p + search_size;
+    }
+
+    strcpy(new_subject + strlen(new_subject), old);
+    return new_subject;
+}
+
+/*
+    Get's all characters until '*until' has been found
+*/
+char* get_until(char *haystack, char *until) 
+{
+    int offset = str_index_of(haystack, until);
+    return str_ndup(haystack, offset);
+}
+

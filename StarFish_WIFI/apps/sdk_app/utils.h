@@ -113,4 +113,11 @@ int vscnprintf(char *buf, size_t size, const char *fmt, va_list args);
 int vasprintf(char **strp, const char *fmt, va_list args);
 int asprintf(char **strp, const char *fmt, ...);
 
+int   str_contains(const char *haystack, const char *needle);
+char *str_replace(char *search , char *replace , char *subject);
+char *get_until(char *haystack, char *until);
+char *str_ndup (const char *str, size_t max);
+char *str_strtok( char *s, const char *delim);
+A_CHAR * _inet_ntoa(A_UINT32 ip);
+
 #endif
