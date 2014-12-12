@@ -1,75 +1,58 @@
 #include "main.h"
 
-#define LEN_MTU    (1600)
-#define ETH_ALEN   (6)
-#define SYNC_BYTES (4)
+#define LEN_MTU       (1600)
+#define ETH_ALEN      (6)
 
-typedef struct {
-	A_UINT8 version;
-	A_UINT8 encrypt;
-	A_UINT8 flags;
-	A_UINT8 len;
-}__attribute__((packed)) SMART_CONFIG_HEAD_t;
+#define MAX_SSID_LEN  (32)
+#define MAX_KEY_LEN   (64)
+#define MAX_TOTAL_LEN (2 + MAX_SSID_LEN + MAX_KEY_LEN + 16)
 
-typedef struct {
-
-    SMART_CONFIG_HEAD_t hearder;
-
-	A_UINT8	 ap_ssid[32];	 //ssid
-	A_UINT8	 ap_passkey[64]; //psk
-	A_UINT8	 ap_index_key;
-	A_UINT8	 ap_mode;
-	A_UINT8	 ap_enath_mode;
-	A_UINT8	 ap_crpty_type;
-	A_UINT32 ip;
-	A_UINT32 mask;
-	A_UINT32 gw;
-	A_UINT32 dns;
-
-}__attribute__((packed)) SMART_CONFIG_DATA_t;
-
-typedef struct {
+typedef struct  {
     A_UINT16 frame_ctl;
     A_UINT16 duration_id;
-    A_UINT8  addr1[ETH_ALEN];
-    A_UINT8  addr2[ETH_ALEN];
-    A_UINT8  payload[0];
-}__attribute__((packed)) IEEE80211_HDR_2ADDR_t;
+    A_UINT8 addr1[ETH_ALEN];
+    A_UINT8 addr2[ETH_ALEN];
+    A_UINT8 addr3[ETH_ALEN];
+    A_UINT16 seq_ctl;
+    A_UINT8 addr4[ETH_ALEN];
+    A_UINT8 payload[0];
+} __attribute__((packed)) IEEE80211_HDR_4ADDR_t; 
 
 typedef enum {
-    eSYNC,
+    eHEADER,
     ePROC_DATA,
 }ENUM_PROC_t;
 
 typedef struct {
     A_BOOL  isReceived;
     A_UINT8 data;
-} RECV_DATA_t;
+} RAW_RECV_DATA_t;
 
-static TX_TIMER      promic_timer;
-static A_UINT8      *p_promiscRxBuf     = NULL;
-static RECV_DATA_t  *p_recvData         = NULL;
-static SMART_CONFIG_DATA_t *p_smartData = NULL;
-static ENUM_PROC_t   ePacket_Proc       = eSYNC;
-static A_UINT32      expected_index     = 0;
+static qcom_timer_t         promisc_timer;
+static A_UINT8             *p_promisc_rx_buf = NULL;
+static RAW_RECV_DATA_t     *p_raw_recv_data  = NULL;
+static ENUM_PROC_t          e_packet_proc    = eHEADER;
 
-static A_BOOL SMARTCONFIG_IsSmartConfigPacket(IEEE80211_HDR_2ADDR_t *pPacket) {
 
-    if ((pPacket->addr1[0] == 0x01) && (pPacket->addr1[1] == 0x00) && (pPacket->addr1[2] == 0x5e) &&
-        ((pPacket->addr1[3] & 0x80) == 0) && (pPacket->addr1[5] == 0xFE)) {
+extern void CLICMDS_STAConnect2(A_CHAR *pSSID, A_CHAR *pKey);
+
+static A_BOOL SMARTCONFIG_IsSmartConfigPacket(IEEE80211_HDR_4ADDR_t *pPacket) {
+
+    if ((pPacket->addr3[0] == 0x01) && (pPacket->addr3[1] == 0x00) && (pPacket->addr3[2] == 0x5e) &&
+        ((pPacket->addr3[3] & 0x80) == 0) && (pPacket->addr3[5] == 0xFE)) {
         return TRUE;
     } else {
         return FALSE;
     }
 }
 
-A_BOOL SMARTCONFIG_IsAllDataReceived() 
+A_BOOL SMARTCONFIG_IsAllDataReceived(A_UINT8 len) 
 {
-    int i = 0;
+    A_UINT8 i = 0;
 
-    for (i=0; i<sizeof(SMART_CONFIG_DATA_t); i++) {
+    for (i=0; i<len; i++) {
 
-        if (!(p_recvData[i].isReceived)) {
+        if (!(p_raw_recv_data[i].isReceived)) {
             return FALSE;
         }
     }
@@ -79,100 +62,143 @@ A_BOOL SMARTCONFIG_IsAllDataReceived()
 
  void SMARTCONFIG_Proc() 
 {
-    A_UINT8 *pData         = (A_UINT8 *)p_smartData;
-    RECV_DATA_t *pRecvData = (RECV_DATA_t *)p_recvData;
-    int i = 0;
+    A_CHAR cSSID[MAX_SSID_LEN] = {0};
+    A_CHAR cKey[MAX_KEY_LEN]   = {0};
 
-    for (i=0; i<sizeof(SMART_CONFIG_DATA_t); i++) {
+	A_UINT32 ip;
+	A_UINT32 mask;
+	A_UINT32 gateway;
+	A_UINT32 dns;
 
-        *pData = pRecvData->data;
+    A_INT32 i     = 0;
+    A_INT32 index = 2;
 
-        pData ++;
-        pRecvData ++;
+    // Acquire the SSID
+    for (i=0; i<MAX_SSID_LEN; i++) {
+        if (p_raw_recv_data[i + index].data != '\0') {
+            cSSID[i] = p_raw_recv_data[i + index].data;
+        }
+        else {
+            cSSID[i] = '\0';
+            break;
+        }
     }
 
+    // Acquire the Key
+    index += i + 1;
+
+    for (i=0; i<MAX_KEY_LEN; i++) {
+        if (p_raw_recv_data[i + index].data != '\0') {
+            cKey[i] = p_raw_recv_data[i + index].data;
+        }
+        else {
+            cKey[i] = '\0';
+            break;
+        }
+    }
+
+    index += i + 1;
+
+    // Acquire IP
+    ip = (p_raw_recv_data[index + 0].data << 24) | (p_raw_recv_data[index + 1].data << 16) | 
+        (p_raw_recv_data[index + 2].data << 8) | p_raw_recv_data[index + 3].data;
+
+    index += 4;
+
+    // Acquire subnet mask
+    mask = (p_raw_recv_data[index + 0].data << 24) | (p_raw_recv_data[index + 1].data << 16) | 
+        (p_raw_recv_data[index + 2].data << 8) | p_raw_recv_data[index + 3].data;
+
+    index += 4;
+
+    // Acquire gateway
+    gateway = (p_raw_recv_data[index + 0].data << 24) | (p_raw_recv_data[index + 1].data << 16) | 
+        (p_raw_recv_data[index + 2].data << 8) | p_raw_recv_data[index + 3].data;
+
+    index += 4;
+
+    // Acquire dns
+    dns = (p_raw_recv_data[index + 0].data << 24) | (p_raw_recv_data[index + 1].data << 16) | 
+        (p_raw_recv_data[index + 2].data << 8) | p_raw_recv_data[index + 3].data;
+
     A_PRINTF("\r\n");
 
-    A_PRINTF("version       :%x\n",   p_smartData->hearder.version);
-    A_PRINTF("encrypt       :%x\n",   p_smartData->hearder.encrypt);
-    A_PRINTF("flags         :%x\n",   p_smartData->hearder.flags);
-    A_PRINTF("len           :%x\n",   p_smartData->hearder.len);
-    A_PRINTF("ssid          :%s\n",   p_smartData->ap_ssid);
-    A_PRINTF("psk           :%s\n",   p_smartData->ap_passkey);
-    A_PRINTF("key_index     :%x\n",   p_smartData->ap_index_key);
-    A_PRINTF("ap_mode       :%x\n",   p_smartData->ap_mode);
-    A_PRINTF("ap_enath_mode :%x\n",   p_smartData->ap_enath_mode);
-    A_PRINTF("ap_crpty_type :%x\n",   p_smartData->ap_crpty_type);
-    A_PRINTF("ip            :%x\n",   p_smartData->ip);
-    A_PRINTF("mask          :%x\n",   p_smartData->mask);
-    A_PRINTF("gw            :%x\n",   p_smartData->gw);
-    A_PRINTF("dns           :%x\n",   p_smartData->dns);
+    A_PRINTF("SSID :%s\n",   cSSID);
+    A_PRINTF("key  :%s\n",   cKey);
+    A_PRINTF("ip   :%x\n",   ip);
+    A_PRINTF("mask :%x\n",   mask);
+    A_PRINTF("gw   :%x\n",   gateway);
+    A_PRINTF("dns  :%x\n",   dns);
 
     A_PRINTF("\r\n");
+
+    qcom_promiscuous_enable(0);
+
+    CLICMDS_STAConnect2(cSSID, cKey);
 }
 
 static void SMARTCONFIG_ResetProc()
 {
-    ePacket_Proc   = eSYNC;
-    expected_index = 0; 
+    e_packet_proc = eHEADER;
 
-    memset(p_recvData, 0, sizeof(SMART_CONFIG_DATA_t) * sizeof(RECV_DATA_t));
+    memset(p_raw_recv_data, 0, MAX_TOTAL_LEN * sizeof(RAW_RECV_DATA_t));
 }
 
-static void SMARTCONFIG_PromiscuosCallback(unsigned char *buf, int length) 
+static A_UINT8 SMARTCONFIG_CheckSum(A_UINT8 *buf, int len)
 {
-    IEEE80211_HDR_2ADDR_t *pPacket = (IEEE80211_HDR_2ADDR_t *)buf;
+    A_INT32 i        = 0;
+    A_UINT8 checksum = 0;
+
+    for (i=0; i<len; i++) 
+        checksum += buf[i];
+
+    return (~checksum + 2);
+}
+
+static void SMARTCONFIG_PromiscuosCallback(A_UINT8 *buf, int length) 
+{
+    IEEE80211_HDR_4ADDR_t *pPacket = (IEEE80211_HDR_4ADDR_t *)buf;
+
+    static A_UINT8 totalLen = 0;
 
     if (SMARTCONFIG_IsSmartConfigPacket(pPacket)) {
 
-        A_UINT8 index = pPacket->addr1[3];
-        A_UINT8 value = pPacket->addr1[4];
+        A_UINT8 index = pPacket->addr3[3];
+        A_UINT8 value = pPacket->addr3[4];
 
         A_PRINTF("index = %d, value = %d\r\n", index, value);
 
-        switch (ePacket_Proc) {
+        switch (e_packet_proc) {
 
-        // The UDP packet maybe out of order in
-        // some cases, however we still need to
-        // check it is really smart config data
-        case eSYNC:
+        case eHEADER:
+            if (index < 2) {
 
-            if (index == expected_index) {
+                p_raw_recv_data[index].isReceived = TRUE;
+                p_raw_recv_data[index].data       = value;
 
-                // The expected index have been receive,
-                // Deactivate the receiver timer
-                //tx_timer_deactivate(&promic_timer);
+                if (p_raw_recv_data[0].isReceived && p_raw_recv_data[1].isReceived) {
 
-                p_recvData[index].isReceived = TRUE;
-                p_recvData[index].data       = value;
+                    if (SMARTCONFIG_CheckSum(&p_raw_recv_data[0].data, 1) == p_raw_recv_data[1].data) {
 
-                expected_index++;
+                        e_packet_proc = ePROC_DATA;
+                        totalLen     = p_raw_recv_data[0].data;
 
-                if (expected_index >= SYNC_BYTES) {
-                    ePacket_Proc = ePROC_DATA;
-                    A_PRINTF("Found the sync!\r\n");
+                        A_PRINTF("Smart Config Len = %d\r\n", totalLen);
+
+                        qcom_timer_stop(&promisc_timer);
+                        qcom_timer_start(&promisc_timer);
+                    }
                 }
-
-                // Start the timer again to monitor
-                // the receive procedure, if the next
-                // packet is not received in 0.5s,
-                // we reset the received procedure
-               // tx_timer_activate(&promic_timer);
-            } else {
-                expected_index = 0;
-            }
+            } 
             break;
 
         case ePROC_DATA:
+            if (index < totalLen) {
 
-            //tx_timer_deactivate(&promic_timer);
+                p_raw_recv_data[index].isReceived = TRUE;
+                p_raw_recv_data[index].data       = value;
 
-            if (index < sizeof(SMART_CONFIG_DATA_t)) {
-
-                p_recvData[index].isReceived = TRUE;
-                p_recvData[index].data       = value;
-
-                if (SMARTCONFIG_IsAllDataReceived()) {
+                if (SMARTCONFIG_IsAllDataReceived(totalLen)) {
 
                     A_PRINTF("All Packets received, index = %d\r\n", index);
                     SMARTCONFIG_Proc();
@@ -180,75 +206,52 @@ static void SMARTCONFIG_PromiscuosCallback(unsigned char *buf, int length)
                     SMARTCONFIG_ResetProc(); 
                     return;
                 }
-
-                //tx_timer_activate(&promic_timer); 
             }
-            else {
-                SMARTCONFIG_ResetProc(); 
+            else { // Error Handle
+                qcom_timer_stop(&promisc_timer);
+                SMARTCONFIG_ResetProc();
             }
             break;
         }
     }
 }
 
-void SMARTCONFIG_RevPacketTimer(ULONG id) 
+static void SMARTCONFIG_RevPacketTimerHandler(unsigned int alarm, void *data) 
 {
-    tx_timer_deactivate(&promic_timer);
-
     A_PRINTF("SMARTCONFIG_RevPacketTimer: Timeout!\r\n");
 
+    qcom_thread_msleep(200);
     SMARTCONFIG_ResetProc(); 
 }
 
-A_STATUS SMARTCONFIG_SetPromicuousEnable(A_UINT8 enabled) 
+A_STATUS SMARTCONFIG_SetPromiscuousEnable(A_UINT8 enabled) 
 {
-    //UINT status;
+    // In order to optimize memory
+    if (p_promisc_rx_buf == NULL) 
+        p_promisc_rx_buf = (A_UINT8 *)qcom_mem_alloc(LEN_MTU);
 
-    // Inorder to optimize memory
-    if (p_promiscRxBuf == NULL) 
-        p_promiscRxBuf = (A_UINT8 *)qcom_mem_alloc(LEN_MTU);
-
-    if (p_promiscRxBuf == NULL) {
+    if (p_promisc_rx_buf == NULL) {
         A_PRINTF("SMARTCONFIG_SetPromicuousEnable: Failed to alloc p_promiscRxBuf!\r\n");
         return A_ERROR;
     }
 
-    if (p_recvData == NULL) 
-        p_recvData = (RECV_DATA_t *)qcom_mem_alloc(
-            sizeof(SMART_CONFIG_DATA_t) * sizeof(RECV_DATA_t));
+    // The raw receive data acquire from the dest mac
+    if (p_raw_recv_data == NULL) 
+        p_raw_recv_data = (RAW_RECV_DATA_t *)qcom_mem_alloc(MAX_TOTAL_LEN * sizeof(RAW_RECV_DATA_t));
 
-    if (p_recvData == NULL) {
+    if (p_raw_recv_data == NULL) {
         A_PRINTF("SMARTCONFIG_SetPromicuousEnable: Failed to alloc p_recvData!\r\n");
         return A_ERROR;
     }
 
-    if (p_smartData == NULL) 
-        p_smartData = (SMART_CONFIG_DATA_t *)qcom_mem_alloc(
-            sizeof(SMART_CONFIG_DATA_t) );
-
-    if (p_smartData == NULL) {
-        A_PRINTF("SMARTCONFIG_SetPromicuousEnable: Failed to alloc p_smartData!\r\n");
-        return A_ERROR;
-    }
+    // The promisc timer to monitor the smart config packet receive procedure
+    qcom_timer_init(&promisc_timer, SMARTCONFIG_RevPacketTimerHandler, NULL, 5 * 1000, ONESHOT);
 
     SMARTCONFIG_ResetProc();
 
     qcom_disconnect();
 
-    //status = tx_timer_create(&promic_timer, "promic_timer",
-    //                         SMARTCONFIG_RevPacketTimer, 0x1, 1, 50,
-    //                         TX_NO_ACTIVATE);
+    qcom_set_promiscuous_rx_cb(p_promisc_rx_buf, SMARTCONFIG_PromiscuosCallback);
 
-    //if (status == TX_SUCCESS) {
-
-        qcom_set_promiscuous_rx_cb(p_promiscRxBuf, SMARTCONFIG_PromiscuosCallback);
-
-        return qcom_promiscuous_enable(enabled);
-
-    //} else {
-    //    A_PRINTF("SMARTCONFIG_SetPromicuousEnable: Failed to create timer!\r\n");
-    //    return A_ERROR;
-    //}
-
-    return;
+    return qcom_promiscuous_enable(enabled); 
 }

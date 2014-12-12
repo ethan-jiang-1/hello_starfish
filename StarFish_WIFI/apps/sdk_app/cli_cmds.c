@@ -4,6 +4,7 @@
 #include "threadx/tx_api.h"
 #include "main.h"
 #include "libcli.h"
+#include "bb_httpclient.h"
 
 #ifdef __GNUC__
 #define UNUSED(d) d __attribute__ ((unused))
@@ -11,16 +12,16 @@
 #define UNUSED(d) d
 #endif
 
-#define TELNET_LISTEN_PORT (8888)
-#define TELNET_POOL_SIZE   (5*1024)
-#define TELNET_STACK_SIZE  (4*1024)
+#define TELNET_LISTEN_PORT (23)
+#define TELNET_POOL_SIZE   (3*1024)
+#define TELNET_STACK_SIZE  (2*1024)
 
 extern SYS_CONFIG_t sys_config;
 extern A_UINT32 mem_heap_get_free_size(void);
 extern A_CHAR * _inet_ntoa(A_UINT32 ip);
 extern A_UINT32 _inet_addr(A_CHAR *str);
 extern A_INT32  CLIOTA_FWUpgrade(struct cli_def *cli, const char *command, A_CHAR *argv[], A_INT32 argc);
-extern A_STATUS SMARTCONFIG_SetPromicuousEnable(A_UINT8 enabled);
+extern A_STATUS SMARTCONFIG_SetPromiscuousEnable(A_UINT8 enabled);
 
 static int telnet_deamon_stop     = 0;
 static int telnet_daemon_port     = 0;
@@ -51,7 +52,7 @@ static A_INT32 CLIOTA_PromiscEnable(struct cli_def *cli, const A_CHAR *command, 
 
     enable = atoi(argv[0]);
 
-    if(SMARTCONFIG_SetPromicuousEnable(enable) != A_OK) {
+    if(SMARTCONFIG_SetPromiscuousEnable(enable) != A_OK) {
         return -1;
     }
     else {
@@ -449,15 +450,10 @@ static A_INT32 CLICMDS_MemFree(struct cli_def *cli, const char *command, A_CHAR 
     return 0; 
 }
 
-static A_INT32 CLICMDS_STAConnect(struct cli_def *cli, const char *command, A_CHAR *argv[], A_INT32 argc)
+void CLICMDS_STAConnect2(A_CHAR *pSSID, A_CHAR *pKey)
 {
-    if (argc < 2) {
-        CLI_PRINTF("Usage:%s <SSID> <Password>", command);
-        return -1;
-    }
-
-    strcpy(sys_config.staSSID, argv[0]);
-    strcpy(sys_config.staKey,  argv[1]);
+    strcpy(sys_config.staSSID, pSSID);
+    strcpy(sys_config.staKey,  pKey);
 
     sys_config.mode  = eStation;
     sys_config.crc16 = MAIN_CalcCRC16((A_UINT8 *)&sys_config,
@@ -465,6 +461,32 @@ static A_INT32 CLICMDS_STAConnect(struct cli_def *cli, const char *command, A_CH
 
     if(NVRAM_SaveSettings(&sys_config) == A_OK) {
         qcom_sys_reset();
+    }
+}
+
+static A_INT32 CLICMDS_STAConnect(struct cli_def *cli, const char *command, A_CHAR *argv[], A_INT32 argc)
+{
+    if (argc < 2) {
+        CLI_PRINTF("Usage:%s <SSID> <Password>", command);
+        return -1;
+    }
+
+    CLICMDS_STAConnect2(argv[0], argv[1]);
+
+    return 0; 
+}
+
+A_INT32 CLICMDS_HttpGet(struct cli_def *cli, const char *command, A_CHAR *argv[], A_INT32 argc)
+{
+    if (argc < 1) {
+        CLI_PRINTF("Usage:%s <url>", command);
+        return -1;
+    }
+
+    BB_HTTP_RESPONSE *hr = http_get(argv[0], 0);
+
+    if (hr != NULL) {
+        http_response_free(hr); 
     }
 
     return 0; 
@@ -482,6 +504,7 @@ static void CLICMDS_RegisterCommands(struct cli_def *cli)
     cli_register_command(cli, NULL, "rssi",             CLICMDS_PrintRssi,          PRIVILEGE_UNPRIVILEGED, MODE_EXEC, "Prints Link Quality (SNR)");
     cli_register_command(cli, NULL, "channel",          CLICMDS_SetChannel,         PRIVILEGE_UNPRIVILEGED, MODE_EXEC, "Set channel hint 1-13");
     cli_register_command(cli, NULL, "connect",          CLICMDS_STAConnect,         PRIVILEGE_UNPRIVILEGED, MODE_EXEC, "Connect to the AP");
+    cli_register_command(cli, NULL, "http_get",         CLICMDS_HttpGet,            PRIVILEGE_UNPRIVILEGED, MODE_EXEC, "Http Get url");
 
     pCmd = cli_register_command(cli, NULL, "memory",    NULL,     PRIVILEGE_UNPRIVILEGED, MODE_EXEC, "Memory info");
     cli_register_command(cli, pCmd, "free",             CLICMDS_MemFree,           PRIVILEGE_UNPRIVILEGED, MODE_EXEC, "Show the free memory");

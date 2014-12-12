@@ -114,11 +114,12 @@ static void    CLIOTA_NvramSwapPartitionTblEntry(A_INT32 partition1, A_INT32 par
 static A_INT32 CLIOTA_Tftp(struct cli_def *cli, A_INT32 ip_addr, A_CHAR *file_name, A_INT32 partition_index);
 
 /* TFTP buffer */
-static A_UINT8 tftp_tx_buf[TFTP_TX_SIZE] = { 0 };
-static A_UINT8 tftp_rx_buf[TFTP_RX_SIZE] = { 0 };
+static A_UINT8 *p_tftp_tx_buf = NULL;
+static A_UINT8 *p_tftp_rx_buf = NULL;
+
 static A_INT32 qca_partition_entries[QCA_PARTITION_NUM] = { 0 };
-static A_INT32 ota_image_len = 0;
-static A_CHAR ota_image_checksum[MD5_CHECKSUM_LEN] = { 0 };
+static A_CHAR  ota_image_checksum[MD5_CHECKSUM_LEN]     = { 0 };
+static A_INT32 ota_image_len                            = 0;
 
 static void OTACLI_TftpPktRrq(const A_CHAR *file_name, A_UINT8 *buf, A_INT32 *len)
 {
@@ -314,17 +315,17 @@ static void CLIOTA_CalculateImageChecksum(A_INT32 partition, A_CHAR *checksum)
     qcom_sec_md5_init();
 
     while (len > TFTP_RX_SIZE) {
-        memset(tftp_rx_buf, 0, TFTP_RX_SIZE);
-        CLIOTA_NvramReadData(partition, offset, tftp_rx_buf, TFTP_RX_SIZE);
-        qcom_sec_md5_update(tftp_rx_buf, TFTP_RX_SIZE);
+        memset(p_tftp_rx_buf, 0, TFTP_RX_SIZE);
+        CLIOTA_NvramReadData(partition, offset, p_tftp_rx_buf, TFTP_RX_SIZE);
+        qcom_sec_md5_update(p_tftp_rx_buf, TFTP_RX_SIZE);
         offset += TFTP_RX_SIZE;
         len -= TFTP_RX_SIZE;
         i++;
     }
 
-    memset(tftp_rx_buf, 0, TFTP_RX_SIZE);
-    CLIOTA_NvramReadData(partition, offset, tftp_rx_buf, len);
-    qcom_sec_md5_update(tftp_rx_buf, len);
+    memset(p_tftp_rx_buf, 0, TFTP_RX_SIZE);
+    CLIOTA_NvramReadData(partition, offset, p_tftp_rx_buf, len);
+    qcom_sec_md5_update(p_tftp_rx_buf, len);
     memset(checksum, 0, 16);
     qcom_sec_md5_final(checksum);
 
@@ -435,16 +436,19 @@ static A_INT32 CLIOTA_Tftp(struct cli_def *cli,
     serv_addr.sin_port        = htons(TFTP_SERVER_PORT);
     serv_addr.sin_family      = AF_INET;
 
+    p_tftp_tx_buf = (A_UINT8 *)qcom_mem_alloc(TFTP_TX_SIZE);
+    p_tftp_rx_buf = (A_UINT8 *)qcom_mem_alloc(TFTP_RX_SIZE);
+
 retry:
     total_rx_bytes = 0;
 
     /* send TFTP_RRQ */
     tftp_state = TFTP_ST_RRQ;
-    memset(tftp_tx_buf, 0, TFTP_TX_SIZE);
-    OTACLI_TftpPktRrq(file_name, tftp_tx_buf, &pkt_len);
+    memset(p_tftp_tx_buf, 0, TFTP_TX_SIZE);
+    OTACLI_TftpPktRrq(file_name, p_tftp_tx_buf, &pkt_len);
 
     nSend = qcom_sendto(fd, 
-                        (A_CHAR *) tftp_tx_buf, 
+                        (A_CHAR *) p_tftp_tx_buf, 
                         pkt_len, 
                         0, 
                         (struct sockaddr *) &serv_addr,
@@ -473,7 +477,7 @@ retry:
                 break;
             }
             else {
-                qcom_sendto(fd, (A_CHAR *) tftp_tx_buf, pkt_len, 0, (struct sockaddr *) &serv_addr,
+                qcom_sendto(fd, (A_CHAR *) p_tftp_tx_buf, pkt_len, 0, (struct sockaddr *) &serv_addr,
                            sizeof (serv_addr));
             }
         }
@@ -482,21 +486,21 @@ retry:
             if (FD_ISSET(fd, &fd_sockSet)) {
 
                 from_size = sizeof (from_addr);
-                memset(tftp_rx_buf, 0, TFTP_RX_SIZE);
-                nRecv = qcom_recvfrom(fd, (A_CHAR *) tftp_rx_buf, TFTP_RX_SIZE, 0,
+                memset(p_tftp_rx_buf, 0, TFTP_RX_SIZE);
+                nRecv = qcom_recvfrom(fd, (A_CHAR *) p_tftp_rx_buf, TFTP_RX_SIZE, 0,
                                      (struct sockaddr *) &from_addr, &from_size);
                 if (nRecv > 0) {
                     retry_times = 0;
 
                     /* parse for TFTP packet */
-                    OTACLI_TftpPktParse(tftp_rx_buf, nRecv, &pkt_seq, &tftp_state);
+                    OTACLI_TftpPktParse(p_tftp_rx_buf, nRecv, &pkt_seq, &tftp_state);
                     if ((TFTP_ST_OACK == tftp_state) || (TFTP_ST_DATA == tftp_state)) {
 
                         /* acknolowdge TFTP_ DATA and TFTP_OACK */
-                        memset(tftp_tx_buf, 0, TFTP_TX_SIZE);
-                        OTACLI_TftpPktAck(pkt_seq, tftp_tx_buf, &pkt_len);
+                        memset(p_tftp_tx_buf, 0, TFTP_TX_SIZE);
+                        OTACLI_TftpPktAck(pkt_seq, p_tftp_tx_buf, &pkt_len);
                         serv_addr.sin_port = from_addr.sin_port;
-                        qcom_sendto(fd, (A_CHAR *) tftp_tx_buf, pkt_len, 0,
+                        qcom_sendto(fd, (A_CHAR *) p_tftp_tx_buf, pkt_len, 0,
                                    (struct sockaddr *) &serv_addr, sizeof (serv_addr));
                     }
 
@@ -512,7 +516,7 @@ retry:
                         pkt_seq_last = pkt_seq;
 
                         /* skip TFTP header 4 bytes */
-                        data_blk_buf = (tftp_rx_buf + 4);
+                        data_blk_buf = (p_tftp_rx_buf + 4);
                         data_blk_size = nRecv - 4;
 
                         /* special work for first data block */
@@ -619,6 +623,10 @@ retry:
 
     /* close socket */
     qcom_close(fd);
+
+    // Free rx buffer
+    qcom_mem_free(p_tftp_tx_buf);
+    qcom_mem_free(p_tftp_rx_buf);
 
     if (ret == QCA_OTA_OK)
         CLI_PRINTF("OTA upgrade finished!");

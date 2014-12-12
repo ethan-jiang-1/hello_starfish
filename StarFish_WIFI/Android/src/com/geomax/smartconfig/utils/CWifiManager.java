@@ -1,0 +1,143 @@
+package com.geomax.smartconfig.utils;
+
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+
+/**
+ * Wifi manager class for getting the WIFI details and SSID gateway parameters 
+ */
+public class CWifiManager {
+	
+	/**
+	 * Default wifimanager instance
+	 */
+	private WifiManager mWifiManager = null;
+
+	/**
+	 * Wifi info instance
+	 */
+	private WifiInfo mWifiInfo = null;
+	
+	/**
+	 * Called activity context
+	 */
+	private Context mContext = null;
+
+	/**
+	 * Integer constant to check if this build is currently running under
+	 * Jellybean and above
+	 */
+	private static final int BUILD_VERSION_JELLYBEAN = 17;
+
+	/**
+	 * Constructor for custom alert dialog.accepting context of called activity
+	 */
+	public CWifiManager(Context mContext) {
+		
+		this.mContext = mContext;
+		
+		mWifiManager = (WifiManager) mContext
+				.getSystemService(Context.WIFI_SERVICE);
+		
+		mWifiInfo = mWifiManager.getConnectionInfo();
+	}
+
+	/**
+	 * returns BASE ssid
+	 */
+	public String getBaseSSID() {
+		return mWifiInfo.getBSSID();
+	}
+
+	/**
+	 * returns current ssid connected to
+	 */
+	public String getCurrentSSID() {
+		return removeSSIDQuotes(mWifiInfo.getSSID());
+	}
+
+	/**
+	 * method to check wifi
+	 * 
+	 * @return true if wifi is connected in our device else false
+	 */
+	public boolean isWifiConnected() {
+		
+		ConnectivityManager connManager = (ConnectivityManager) mContext
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		
+		NetworkInfo mWifi = connManager
+				.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
+		return mWifi.isConnected();
+	}
+
+	/**
+	 * Returns the current IP address connected to
+	 */
+	public String getCurrentIpAddressConnected() {
+
+		int ipval = mWifiInfo.getIpAddress();
+		
+		String ipString = String
+				.format("%d.%d.%d.%d", (ipval & 0xff), (ipval >> 8 & 0xff),
+						(ipval >> 16 & 0xff), (ipval >> 24 & 0xff));
+
+		return ipString.toString();
+	}
+
+	/**
+	 * Returns the current GatewayIP address connected to
+	 */
+	public String getGateway() {
+		
+		int gatwayVal = mWifiManager.getDhcpInfo().gateway;
+		
+		return (String.format("%d.%d.%d.%d", (gatwayVal & 0xff),
+				(gatwayVal >> 8 & 0xff), (gatwayVal >> 16 & 0xff),
+				(gatwayVal >> 24 & 0xff))).toString();
+	}
+
+	public String getNetMask() {
+		
+		int netMaskVal = mWifiManager.getDhcpInfo().netmask;
+		
+		return (String.format("%d.%d.%d.%d", (netMaskVal & 0xff),
+				(netMaskVal >> 8 & 0xff), (netMaskVal >> 16 & 0xff),
+				(netMaskVal >> 24 & 0xff))).toString();
+	}	
+	
+	public String getDns() {
+		
+		int dnsVal = mWifiManager.getDhcpInfo().dns1;
+		
+		return (String.format("%d.%d.%d.%d", (dnsVal & 0xff),
+				(dnsVal >> 8 & 0xff), (dnsVal >> 16 & 0xff),
+				(dnsVal >> 24 & 0xff))).toString();
+	}		
+	
+	/**
+	 * Filters the double Quotations occuring in Jellybean and above devices.
+	 * This is only occuring in SDK 17 and above this is documented in SDK as
+	 * http
+	 * ://developer.android.com/reference/android/net/wifi/WifiConfiguration.
+	 * html#SSID
+	 */
+	public static String removeSSIDQuotes(String connectedSSID) {
+		
+		int currentVersion = Build.VERSION.SDK_INT;
+
+		if (currentVersion >= BUILD_VERSION_JELLYBEAN) {
+			if (connectedSSID.startsWith("\"") && connectedSSID.endsWith("\"")) {
+				connectedSSID = connectedSSID.substring(1,
+						connectedSSID.length() - 1);
+			}
+		}
+		
+		return connectedSSID;
+	}
+}

@@ -445,7 +445,8 @@ int cli_int_history(struct cli_def *cli, UNUSED(const char *command), UNUSED(cha
 
     cli_error(cli, "\nCommand history:");
     for (i = 0; i < MAX_HISTORY; i++) {
-        if (cli->history[i]) cli_error(cli, "%3d. %s", i, cli->history[i]);
+        if (cli->history[i]) 
+            cli_error(cli, "%3d. %s", i, cli->history[i]);
     }
 
     return CLI_OK;
