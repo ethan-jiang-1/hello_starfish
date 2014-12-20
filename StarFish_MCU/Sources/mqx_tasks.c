@@ -114,7 +114,9 @@ void Init_Task(uint32_t task_init_data)
 {
 		int tester=0;
 	//uint_8 sys=0;
-	bool bInitOpen, bInitStill, bInitVLPS=FALSE;
+	bool bInitOpen=FALSE;
+  bool	bInitStill=FALSE;
+	bool bInitVLPS=FALSE;
 	MQX_TICK_STRUCT ttt;
 	 _mqx_uint       mqx_ret;
 	  trace_init();
@@ -155,6 +157,8 @@ for(;;)
 			{
 				SetSysStatus(ACTIVE_OPEN);
 			}
+			// for test 
+			SetSysStatus(ACTIVE_OPEN);
 		switch (sysStatus)
 	{
 		case ACTIVE_OPEN:
@@ -164,7 +168,7 @@ for(;;)
 					if(bInitOpen==FALSE)
 					{
 						bInitOpen=TRUE;
-					//	putmma8451running();
+						putmma8451running();
 						SysTick_PDD_EnableDevice(SysTick_BASE_PTR, PDD_ENABLE);
 					}
 					

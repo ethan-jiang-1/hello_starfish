@@ -189,7 +189,7 @@ static void mma8451_getdata(void)
                       &Data);
     if (ret)
     {
-			// APP_TRACE("interrupt source: 0x%X\r\n", Data);
+			 //APP_TRACE("interrupt source: 0x%X\r\n", Data);
         // Set up Case statement here to service all of the possible interrupts
         if ((Data &SRC_FIFO_MASK) == 0x40)
         {
@@ -449,6 +449,7 @@ void    app_mma8451_control_task(uint32_t task_init_data)
 
 static void MMA8451_INT1_isr_service(void* p_arg)
 {
+
     // PTA14
     if (PORTA_ISFR & ((uint32_t)(1<<14)))
     {

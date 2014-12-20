@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\UV4Build\StarFish_MCU.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\UV4Build\StarFish_MCU.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Wed Oct 29 22:59:59 2014
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sat Dec 20 19:26:43 2014
 <BR><P>
 <H3>Maximum Stack Usage =        488 bytes + Unknown(Functions without stacksize, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -14,16 +14,16 @@ Functions with no stack information
 </H3><UL>
  <LI><a href="#[1b]">__boot</a>
  <LI><a href="#[1c]">__set_MSP</a>
- <LI><a href="#[8e]">_sched_start_internal</a>
- <LI><a href="#[a4]">_sched_run_internal</a>
- <LI><a href="#[71]">_sched_check_scheduler_internal</a>
- <LI><a href="#[56]">_sched_execute_scheduler_internal</a>
+ <LI><a href="#[8f]">_sched_start_internal</a>
+ <LI><a href="#[a5]">_sched_run_internal</a>
+ <LI><a href="#[72]">_sched_check_scheduler_internal</a>
+ <LI><a href="#[57]">_sched_execute_scheduler_internal</a>
  <LI><a href="#[101]">_mqx_api_call</a>
- <LI><a href="#[73]">_task_block</a>
+ <LI><a href="#[74]">_task_block</a>
  <LI><a href="#[7]">_int_kernel_isr</a>
- <LI><a href="#[c3]">_psp_exception_return</a>
- <LI><a href="#[95]">_mem_test_and_set</a>
- <LI><a href="#[a7]">__get_PSP</a>
+ <LI><a href="#[c4]">_psp_exception_return</a>
+ <LI><a href="#[96]">_mem_test_and_set</a>
+ <LI><a href="#[a8]">__get_PSP</a>
  <LI><a href="#[157]">__get_MSP</a>
  <LI><a href="#[158]">__get_PSR</a>
  <LI><a href="#[159]">__enable_interrupt</a>
@@ -76,7 +76,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1c]"></a>__set_MSP</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, boot.o(. text))
-<BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_install
+<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_install
 </UL>
 
 <P><STRONG><a name="[2]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
@@ -221,7 +221,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_isr
 </UL>
 
-<P><STRONG><a name="[8b]"></a>SystemTimer1_Enable</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, systemtimer1.o(.text))
+<P><STRONG><a name="[8c]"></a>SystemTimer1_Enable</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, systemtimer1.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite
 </UL>
 
@@ -247,8 +247,8 @@ Global Symbols
 
 <P><STRONG><a name="[115]"></a>PWMTimerRGB_Deinit</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
 
-<P><STRONG><a name="[51]"></a>PWMTimerRGB_Enable</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
+<P><STRONG><a name="[52]"></a>PWMTimerRGB_Enable</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
 </UL>
 
 <P><STRONG><a name="[39]"></a>PWMTimerRGB_Disable</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
@@ -257,8 +257,8 @@ Global Symbols
 
 <P><STRONG><a name="[116]"></a>PWMTimerRGB_GetCounterValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pwmtimerrgb.o(.text), UNUSED)
 
-<P><STRONG><a name="[53]"></a>PWMTimerRGB_SetOffsetTicks</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, pwmtimerrgb.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
+<P><STRONG><a name="[54]"></a>PWMTimerRGB_SetOffsetTicks</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, pwmtimerrgb.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
 </UL>
 
 <P><STRONG><a name="[117]"></a>PWMTimerRGB_GetOffsetTicks</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, pwmtimerrgb.o(.text), UNUSED)
@@ -290,11 +290,11 @@ Global Symbols
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_MasterReceiveBlock
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_MasterSendBlock
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451running
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
 <LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451running
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 </UL>
 
 <P><STRONG><a name="[3c]"></a>WriteAccRegs</STRONG> (Thumb, 82 bytes, Stack size 40 bytes, mma845xq.o(.text))
@@ -304,9 +304,9 @@ Global Symbols
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_MasterSendBlock
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451running
 <LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451running
 </UL>
 
 <P><STRONG><a name="[0]"></a>main</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, processorexpert.o(.text))
@@ -326,7 +326,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
 
-<P><STRONG><a name="[d0]"></a>GetSysStatus</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mqx_tasks.o(.text))
+<P><STRONG><a name="[d1]"></a>GetSysStatus</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mqx_tasks.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lptmr_isr
 </UL>
 
@@ -335,14 +335,15 @@ Global Symbols
 <LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lptmr_isr
 </UL>
 
-<P><STRONG><a name="[13]"></a>Init_Task</STRONG> (Thumb, 254 bytes, Stack size 24 bytes, mqx_tasks.o(.text))
+<P><STRONG><a name="[13]"></a>Init_Task</STRONG> (Thumb, 268 bytes, Stack size 24 bytes, mqx_tasks.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 268 + Unknown Stack Size
 <LI>Call Chain = Init_Task &rArr; _task_create_at &rArr; _task_build_internal &rArr; _task_init_internal &rArr; _task_alloc_td_internal &rArr; _mem_zero &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trace_init
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451detect
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enter_vlps
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451running
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451detect
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enter_vlps
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_elapsed_ticks
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_create_at
@@ -358,64 +359,64 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_template_list.o(.constdata)
 </UL>
-<P><STRONG><a name="[50]"></a>ColorTask</STRONG> (Thumb, 200 bytes, Stack size 16 bytes, mqx_tasks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_ticks
+<P><STRONG><a name="[51]"></a>ColorTask</STRONG> (Thumb, 200 bytes, Stack size 16 bytes, mqx_tasks.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_ticks
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadAccRegs
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWMTimerRGB_SetOffsetTicks
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWMTimerRGB_Enable
-<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWMTimerRGB_SetOffsetTicks
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWMTimerRGB_Enable
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 
-<P><STRONG><a name="[55]"></a>_time_delay_internal</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, time_ticks.o(.text))
+<P><STRONG><a name="[56]"></a>_time_delay_internal</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, time_ticks.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32 + Unknown Stack Size
 <LI>Call Chain = _time_delay_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_timed_internal
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_until
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_for
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_ticks
-</UL>
-
-<P><STRONG><a name="[57]"></a>_time_delay_for</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_add_ticks
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_timed_internal
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_until
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_for
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_ticks
 </UL>
 
-<P><STRONG><a name="[54]"></a>_time_delay_ticks</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, time_ticks.o(.text))
+<P><STRONG><a name="[58]"></a>_time_delay_for</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_add_ticks
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
+</UL>
+
+<P><STRONG><a name="[55]"></a>_time_delay_ticks</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, time_ticks.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
 <LI>Call Chain = _time_delay_ticks &rArr; _time_delay_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
+<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
 <LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
 </UL>
 
-<P><STRONG><a name="[5a]"></a>_time_delay_until</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
+<P><STRONG><a name="[5b]"></a>_time_delay_until</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
 </UL>
 
-<P><STRONG><a name="[5b]"></a>_time_diff_ticks</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_subtract_ticks
+<P><STRONG><a name="[5c]"></a>_time_diff_ticks</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_subtract_ticks
 </UL>
 
-<P><STRONG><a name="[5d]"></a>_time_diff_ticks_int32</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_subtract_ticks_int32
+<P><STRONG><a name="[5e]"></a>_time_diff_ticks_int32</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_subtract_ticks_int32
 </UL>
 
-<P><STRONG><a name="[5f]"></a>_time_dequeue</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<P><STRONG><a name="[60]"></a>_time_dequeue</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 
-<P><STRONG><a name="[61]"></a>_time_dequeue_td</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
+<P><STRONG><a name="[62]"></a>_time_dequeue_td</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
@@ -423,21 +424,21 @@ Global Symbols
 <P><STRONG><a name="[4a]"></a>_time_get_elapsed_ticks</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, time_ticks.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = _time_get_elapsed_ticks &rArr; _psp_normalize_ticks &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
+<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 </UL>
 
-<P><STRONG><a name="[63]"></a>_time_get_elapsed_ticks_fast</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
+<P><STRONG><a name="[64]"></a>_time_get_elapsed_ticks_fast</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
 </UL>
 
 <P><STRONG><a name="[11a]"></a>_time_get_hwticks</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, time_ticks.o(.text), UNUSED)
 
-<P><STRONG><a name="[64]"></a>_time_get_ticks</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_add_ticks
+<P><STRONG><a name="[65]"></a>_time_get_ticks</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_add_ticks
 </UL>
 
 <P><STRONG><a name="[11b]"></a>_time_get_hwticks_per_tick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
@@ -447,13 +448,13 @@ Global Symbols
 <P><STRONG><a name="[30]"></a>_time_notify_kernel</STRONG> (Thumb, 354 bytes, Stack size 24 bytes, time_ticks.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = _time_notify_kernel &rArr; _psp_normalize_ticks &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
+<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_OnCounterRestart
 </UL>
 
-<P><STRONG><a name="[65]"></a>_time_set_ticks</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_subtract_ticks
+<P><STRONG><a name="[66]"></a>_time_set_ticks</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, time_ticks.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_subtract_ticks
 </UL>
 
 <P><STRONG><a name="[11d]"></a>_time_set_timer_vector</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, time_ticks.o(.text), UNUSED)
@@ -470,75 +471,75 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> mqx_utils.o(.text)
 </UL>
 <P><STRONG><a name="[2c]"></a>_int_enable</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, int.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_queue_test
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_until
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_ticks
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_for
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_test
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy_internal
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_internal
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
+<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_queue_test
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_until
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_ticks
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_for
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_test
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy_internal
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_internal
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_default_isr
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue_td
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue_td
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_ResetCounter
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_isr
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_GetError
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_MasterReceiveBlock
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_MasterSendBlock
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_start_preemption
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_stop_preemption
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_set_priority_ceiling
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_test
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_create_component
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_start_preemption
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_stop_preemption
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_set_priority_ceiling
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_test
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_create_component
 <LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_cleanup
 </UL>
 
 <P><STRONG><a name="[2b]"></a>_int_disable</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, int.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_queue_test
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_test
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy_internal
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_internal
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
+<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_queue_test
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_test
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy_internal
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_internal
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_default_isr
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue_td
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue_td
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_ResetCounter
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_isr
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_GetError
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_MasterReceiveBlock
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_MasterSendBlock
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_start_preemption
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_stop_preemption
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_set_priority_ceiling
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_test
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_create_component
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_start_preemption
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_stop_preemption
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_set_priority_ceiling
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_test
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_create_component
 <LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_cleanup
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_exit
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_exit
 </UL>
 
 <P><STRONG><a name="[8]"></a>_int_default_isr</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, int.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _int_default_isr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error_td_internal
+<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error_td_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
@@ -546,22 +547,22 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[121]"></a>_int_get_default_isr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, int.o(.text), UNUSED)
 
-<P><STRONG><a name="[67]"></a>_int_get_exception_handler</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, int.o(.text))
+<P><STRONG><a name="[68]"></a>_int_get_exception_handler</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, int.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _int_get_exception_handler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_exception_isr
 </UL>
 
-<P><STRONG><a name="[68]"></a>_int_get_isr</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, int.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<P><STRONG><a name="[69]"></a>_int_get_isr</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, int.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
 </UL>
 
 <P><STRONG><a name="[27]"></a>_int_get_isr_data</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, int.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _int_get_isr_data
 </UL>
-<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_exception_isr
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_Init
@@ -570,19 +571,19 @@ Global Symbols
 
 <P><STRONG><a name="[122]"></a>_int_get_isr_depth</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, int.o(.text), UNUSED)
 
-<P><STRONG><a name="[6a]"></a>_int_install_default_isr</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, int.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_unexpected_isr
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_exception_isr
+<P><STRONG><a name="[6b]"></a>_int_install_default_isr</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, int.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_unexpected_isr
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_exception_isr
 </UL>
 
-<P><STRONG><a name="[69]"></a>_int_install_exception_isr</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, int.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_default_isr
+<P><STRONG><a name="[6a]"></a>_int_install_exception_isr</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, int.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_default_isr
 </UL>
 
 <P><STRONG><a name="[28]"></a>_int_install_isr</STRONG> (Thumb, 86 bytes, Stack size 40 bytes, int.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _int_install_isr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
@@ -592,125 +593,125 @@ Global Symbols
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_Init
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Deinit
 <LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Init
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart0
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart2
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart0
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart2
 </UL>
 
-<P><STRONG><a name="[6b]"></a>_int_install_unexpected_isr</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, int.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_default_isr
+<P><STRONG><a name="[6c]"></a>_int_install_unexpected_isr</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, int.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_default_isr
 </UL>
 
-<P><STRONG><a name="[6c]"></a>_int_set_exception_handler</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, int.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<P><STRONG><a name="[6d]"></a>_int_set_exception_handler</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, int.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
 </UL>
 
-<P><STRONG><a name="[6d]"></a>_int_set_isr_data</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, int.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<P><STRONG><a name="[6e]"></a>_int_set_isr_data</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, int.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
 </UL>
 
-<P><STRONG><a name="[c5]"></a>_int_init</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, int.o(.text))
+<P><STRONG><a name="[c6]"></a>_int_init</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, int.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _int_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_init
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_init
 </UL>
 
-<P><STRONG><a name="[6f]"></a>_lwmsgq_init_internal</STRONG> (Thumb, 212 bytes, Stack size 20 bytes, lwmsgq.o(.text))
+<P><STRONG><a name="[70]"></a>_lwmsgq_init_internal</STRONG> (Thumb, 212 bytes, Stack size 20 bytes, lwmsgq.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = _lwmsgq_init_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_init
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_init
 </UL>
 
-<P><STRONG><a name="[6e]"></a>_lwmsgq_init</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, lwmsgq.o(.text))
+<P><STRONG><a name="[6f]"></a>_lwmsgq_init</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, lwmsgq.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = _lwmsgq_init &rArr; _lwmsgq_init_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_init_internal
+<BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_init_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
 </UL>
 
-<P><STRONG><a name="[70]"></a>_lwmsgq_receive</STRONG> (Thumb, 364 bytes, Stack size 48 bytes, lwmsgq.o(.text))
+<P><STRONG><a name="[71]"></a>_lwmsgq_receive</STRONG> (Thumb, 364 bytes, Stack size 48 bytes, lwmsgq.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84 + Unknown Stack Size
 <LI>Call Chain = _lwmsgq_receive &rArr; _psp_add_ticks
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_add_ticks
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_add_ticks
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
 </UL>
 
-<P><STRONG><a name="[72]"></a>_lwmsgq_send</STRONG> (Thumb, 348 bytes, Stack size 48 bytes, lwmsgq.o(.text))
+<P><STRONG><a name="[73]"></a>_lwmsgq_send</STRONG> (Thumb, 348 bytes, Stack size 48 bytes, lwmsgq.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
 <LI>Call Chain = _lwmsgq_send
 </UL>
-<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_block
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_block
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_irq_handler
 </UL>
 
-<P><STRONG><a name="[74]"></a>_lwsem_create_internal</STRONG> (Thumb, 116 bytes, Stack size 40 bytes, lwsem.o(.text))
+<P><STRONG><a name="[75]"></a>_lwsem_create_internal</STRONG> (Thumb, 116 bytes, Stack size 40 bytes, lwsem.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _lwsem_create_internal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_hidden
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_hidden
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create
 </UL>
 
-<P><STRONG><a name="[75]"></a>_lwsem_create</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, lwsem.o(.text))
+<P><STRONG><a name="[76]"></a>_lwsem_create</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, lwsem.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = _lwsem_create &rArr; _lwsem_create_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_internal
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lptmr_Init
 <LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
 </UL>
 
-<P><STRONG><a name="[76]"></a>_lwsem_create_hidden</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, lwsem.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_internal
+<P><STRONG><a name="[77]"></a>_lwsem_create_hidden</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, lwsem.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create_internal
 </UL>
 
-<P><STRONG><a name="[77]"></a>_lwsem_destroy_internal</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, lwsem.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<P><STRONG><a name="[78]"></a>_lwsem_destroy_internal</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, lwsem.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy
+<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy
 </UL>
 
-<P><STRONG><a name="[78]"></a>_lwsem_destroy</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, lwsem.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy_internal
+<P><STRONG><a name="[79]"></a>_lwsem_destroy</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, lwsem.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy_internal
 </UL>
 
 <P><STRONG><a name="[123]"></a>_lwsem_poll</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, lwsem.o(.text), UNUSED)
 
-<P><STRONG><a name="[79]"></a>_lwsem_post</STRONG> (Thumb, 210 bytes, Stack size 16 bytes, lwsem.o(.text))
+<P><STRONG><a name="[7a]"></a>_lwsem_post</STRONG> (Thumb, 210 bytes, Stack size 16 bytes, lwsem.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = _lwsem_post
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MMA8451_INT1_isr_service
 <LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lptmr_isr
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_template_index
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_id_from_name
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_template_index
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_id_from_name
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
 </UL>
 
-<P><STRONG><a name="[7a]"></a>_lwsem_test</STRONG> (Thumb, 124 bytes, Stack size 32 bytes, lwsem.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_queue_test
+<P><STRONG><a name="[7b]"></a>_lwsem_test</STRONG> (Thumb, 124 bytes, Stack size 32 bytes, lwsem.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_queue_test
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
@@ -719,56 +720,56 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = _lwsem_wait
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
 <LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_template_index
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_id_from_name
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_template_index
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_id_from_name
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
 </UL>
 
-<P><STRONG><a name="[7c]"></a>_lwsem_wait_timed_internal</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, lwsem.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
+<P><STRONG><a name="[7d]"></a>_lwsem_wait_timed_internal</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, lwsem.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_until
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_ticks
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_for
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_until
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_ticks
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_for
 </UL>
 
-<P><STRONG><a name="[7d]"></a>_lwsem_wait_for</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, lwsem.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_timed_internal
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_add_ticks
+<P><STRONG><a name="[7e]"></a>_lwsem_wait_for</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, lwsem.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_timed_internal
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_add_ticks
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 </UL>
 
-<P><STRONG><a name="[7e]"></a>_lwsem_wait_ticks</STRONG> (Thumb, 210 bytes, Stack size 24 bytes, lwsem.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_timed_internal
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<P><STRONG><a name="[7f]"></a>_lwsem_wait_ticks</STRONG> (Thumb, 210 bytes, Stack size 24 bytes, lwsem.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_timed_internal
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 </UL>
 
-<P><STRONG><a name="[7f]"></a>_lwsem_wait_until</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, lwsem.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_timed_internal
+<P><STRONG><a name="[80]"></a>_lwsem_wait_until</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, lwsem.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_timed_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 </UL>
 
 <P><STRONG><a name="[124]"></a>_mqx_get_kernel_data</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
 
-<P><STRONG><a name="[80]"></a>_mqx_fatal_error</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, mqx_utils.o(.text))
+<P><STRONG><a name="[81]"></a>_mqx_fatal_error</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, mqx_utils.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _mqx_fatal_error
 </UL>
-<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_exit
+<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_exit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_exception_isr
 </UL>
 
 <P><STRONG><a name="[125]"></a>_mqx_get_cpu_type</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
 
-<P><STRONG><a name="[88]"></a>_mqx_set_cpu_type</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mqx_utils.o(.text))
+<P><STRONG><a name="[89]"></a>_mqx_set_cpu_type</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mqx_utils.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
 </UL>
 
@@ -780,11 +781,11 @@ Global Symbols
 
 <P><STRONG><a name="[129]"></a>_mqx_get_system_task_id</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mqx_utils.o(.text), UNUSED)
 
-<P><STRONG><a name="[82]"></a>_mqx_init_kernel_data_internal</STRONG> (Thumb, 240 bytes, Stack size 24 bytes, mqx_utils.o(.text))
+<P><STRONG><a name="[83]"></a>_mqx_init_kernel_data_internal</STRONG> (Thumb, 240 bytes, Stack size 24 bytes, mqx_utils.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _mqx_init_kernel_data_internal &rArr; _psp_set_kernel_disable_level
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_set_kernel_disable_level
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_exit
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_set_kernel_disable_level
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_exit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
 </UL>
@@ -793,54 +794,54 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 96 + Unknown Stack Size
 <LI>Call Chain = _mqxlite_init &rArr; _lwsem_create &rArr; _lwsem_create_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create
+<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_Init
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_GetPeriodTicks
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_GetTicsPerSecond
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_fill_stack_internal
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_init
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_init_readyqs
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_zero
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_set_vector_table
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_init_kernel_data_internal
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_set_cpu_type
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_fill_stack_internal
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_init
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_init_readyqs
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_zero
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_set_vector_table
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_init_kernel_data_internal
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_set_cpu_type
 </UL>
 <BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PE_low_level_init
 </UL>
 
-<P><STRONG><a name="[81]"></a>_mqx_exit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, mqxlite.o(.text))
+<P><STRONG><a name="[82]"></a>_mqx_exit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, mqxlite.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_init_kernel_data_internal
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_fatal_error
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_init_kernel_data_internal
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_fatal_error
 </UL>
 
 <P><STRONG><a name="[3e]"></a>_mqxlite</STRONG> (Thumb, 136 bytes, Stack size 32 bytes, mqxlite.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 180 + Unknown Stack Size
 <LI>Call Chain = _mqxlite &rArr; _task_init_internal &rArr; _task_alloc_td_internal &rArr; _mem_zero &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_Enable
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready_internal
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_start_internal
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_exit
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_Enable
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready_internal
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_start_internal
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_exit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9a]"></a>_mutatr_init</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, mutex.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
+<P><STRONG><a name="[9b]"></a>_mutatr_init</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, mutex.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
 </UL>
 
-<P><STRONG><a name="[8f]"></a>_mutex_unlock</STRONG> (Thumb, 264 bytes, Stack size 24 bytes, mutex.o(.text))
+<P><STRONG><a name="[90]"></a>_mutex_unlock</STRONG> (Thumb, 264 bytes, Stack size 24 bytes, mutex.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64 + Unknown Stack Size
 <LI>Call Chain = _mutex_unlock &rArr; _sched_unboost_priority_internal &rArr; _sched_set_priority_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_unboost_priority_internal
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_unboost_priority_internal
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
 <LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_cleanup
@@ -852,44 +853,44 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mutex.o(.text)
 </UL>
-<P><STRONG><a name="[92]"></a>_mutex_create_component</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, mutex.o(.text))
+<P><STRONG><a name="[93]"></a>_mutex_create_component</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, mutex.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _mutex_create_component
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
 </UL>
 
 <P><STRONG><a name="[12a]"></a>_mutatr_destroy</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[93]"></a>_mutex_lock</STRONG> (Thumb, 738 bytes, Stack size 32 bytes, mutex.o(.text))
+<P><STRONG><a name="[94]"></a>_mutex_lock</STRONG> (Thumb, 738 bytes, Stack size 32 bytes, mutex.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72 + Unknown Stack Size
 <LI>Call Chain = _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_yield
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_insert_priorityq_internal
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_get_max_priority_on_q_internal
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_test_and_set
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_yield
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_insert_priorityq_internal
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_get_max_priority_on_q_internal
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_test_and_set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
 </UL>
 
-<P><STRONG><a name="[98]"></a>_mutex_destroy</STRONG> (Thumb, 208 bytes, Stack size 24 bytes, mutex.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error_td_internal
+<P><STRONG><a name="[99]"></a>_mutex_destroy</STRONG> (Thumb, 208 bytes, Stack size 24 bytes, mutex.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error_td_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_unboost_priority_internal
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_unboost_priority_internal
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
 </UL>
 
 <P><STRONG><a name="[12b]"></a>_mutatr_get_wait_protocol</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
@@ -900,13 +901,13 @@ Global Symbols
 
 <P><STRONG><a name="[12e]"></a>_mutatr_get_spin_limit</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[99]"></a>_mutex_init</STRONG> (Thumb, 190 bytes, Stack size 48 bytes, mutex.o(.text))
+<P><STRONG><a name="[9a]"></a>_mutex_init</STRONG> (Thumb, 190 bytes, Stack size 48 bytes, mutex.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = _mutex_init &rArr; _mutex_create_component
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_create_component
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutatr_init
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_create_component
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutatr_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trace_init
 </UL>
@@ -919,180 +920,180 @@ Global Symbols
 
 <P><STRONG><a name="[132]"></a>_mutatr_set_spin_limit</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[9b]"></a>_mutex_test</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, mutex.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_queue_test
+<P><STRONG><a name="[9c]"></a>_mutex_test</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, mutex.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_queue_test
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 
-<P><STRONG><a name="[9c]"></a>_mutex_try_lock</STRONG> (Thumb, 266 bytes, Stack size 16 bytes, mutex.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_test_and_set
+<P><STRONG><a name="[9d]"></a>_mutex_try_lock</STRONG> (Thumb, 266 bytes, Stack size 16 bytes, mutex.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_test_and_set
 </UL>
 
-<P><STRONG><a name="[9d]"></a>_mutex_set_priority_ceiling</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, mutex.o(.text), UNUSED)
+<P><STRONG><a name="[9e]"></a>_mutex_set_priority_ceiling</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, mutex.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 
 <P><STRONG><a name="[133]"></a>_mutex_get_priority_ceiling</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mutex.o(.text), UNUSED)
 
-<P><STRONG><a name="[9e]"></a>_mutex_get_wait_count</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, mutex.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<P><STRONG><a name="[9f]"></a>_mutex_get_wait_count</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, mutex.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
 </UL>
 
-<P><STRONG><a name="[7b]"></a>_queue_test</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, qu_test.o(.text), UNUSED)
+<P><STRONG><a name="[7c]"></a>_queue_test</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, qu_test.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_test
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_test
+<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_test
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_test
 </UL>
 
 <P><STRONG><a name="[134]"></a>_sched_get_max_priority</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, sched.o(.text), UNUSED)
 
 <P><STRONG><a name="[135]"></a>_sched_get_min_priority</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sched.o(.text), UNUSED)
 
-<P><STRONG><a name="[94]"></a>_sched_yield</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, sched.o(.text))
+<P><STRONG><a name="[95]"></a>_sched_yield</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, sched.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = _sched_yield
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
 </UL>
 
-<P><STRONG><a name="[9f]"></a>_sched_set_priority_internal</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, sched.o(.text))
+<P><STRONG><a name="[a0]"></a>_sched_set_priority_internal</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, sched.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24 + Unknown Stack Size
 <LI>Call Chain = _sched_set_priority_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_sync_priority_internal
+<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_sync_priority_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_unboost_priority_internal
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_unboost_priority_internal
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
 </UL>
 
-<P><STRONG><a name="[90]"></a>_sched_boost_priority_internal</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, sched.o(.text))
+<P><STRONG><a name="[91]"></a>_sched_boost_priority_internal</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, sched.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
 <LI>Call Chain = _sched_boost_priority_internal &rArr; _sched_set_priority_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_try_lock
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_try_lock
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
 </UL>
 
-<P><STRONG><a name="[91]"></a>_sched_unboost_priority_internal</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, sched.o(.text))
+<P><STRONG><a name="[92]"></a>_sched_unboost_priority_internal</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, sched.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
 <LI>Call Chain = _sched_unboost_priority_internal &rArr; _sched_set_priority_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
 </UL>
 
-<P><STRONG><a name="[96]"></a>_sched_insert_priorityq_internal</STRONG> (Thumb, 56 bytes, Stack size 20 bytes, sched.o(.text))
+<P><STRONG><a name="[97]"></a>_sched_insert_priorityq_internal</STRONG> (Thumb, 56 bytes, Stack size 20 bytes, sched.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = _sched_insert_priorityq_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
 </UL>
 
-<P><STRONG><a name="[97]"></a>_sched_get_max_priority_on_q_internal</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, sched.o(.text))
+<P><STRONG><a name="[98]"></a>_sched_get_max_priority_on_q_internal</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, sched.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _sched_get_max_priority_on_q_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
 </UL>
 
-<P><STRONG><a name="[8d]"></a>_task_ready_internal</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, task.o(.text))
+<P><STRONG><a name="[8e]"></a>_task_ready_internal</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _task_ready_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_create_at
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
 </UL>
 
-<P><STRONG><a name="[58]"></a>_task_set_error</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, task.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_set_isr_data
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_set_exception_handler
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_get_isr
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_get_exception_handler
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_until
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_for
+<P><STRONG><a name="[59]"></a>_task_set_error</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, task.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_set_isr_data
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_set_exception_handler
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_get_isr
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_get_exception_handler
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_until
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_for
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_create_at
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_isr
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_get_isr_data
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_exit_handler
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_exit_handler
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_exception_handler
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_exception_handler
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_get_wait_count
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_exit_handler
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_exit_handler
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_exception_handler
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_exception_handler
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_get_wait_count
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
 </UL>
 
-<P><STRONG><a name="[a1]"></a>_task_ready</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, task.o(.text))
+<P><STRONG><a name="[a2]"></a>_task_ready</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24 + Unknown Stack Size
 <LI>Call Chain = _task_ready &rArr; _task_ready_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready_internal
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
 </UL>
 
-<P><STRONG><a name="[60]"></a>_task_get_td</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, task.o(.text))
+<P><STRONG><a name="[61]"></a>_task_get_td</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = _task_get_td
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_task_stack_usage
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_priority
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_for
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_for
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_index_from_id
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_template_ptr
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_exit_handler
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_exit_handler
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_exception_handler
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_exception_handler
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_dequeue
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_task_stack_usage
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_priority
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_for
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_for
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_index_from_id
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_template_ptr
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_exit_handler
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_exit_handler
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_exception_handler
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_exception_handler
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
 </UL>
 
-<P><STRONG><a name="[a2]"></a>_task_destroy_internal</STRONG> (Thumb, 404 bytes, Stack size 32 bytes, task.o(.text))
+<P><STRONG><a name="[a3]"></a>_task_destroy_internal</STRONG> (Thumb, 404 bytes, Stack size 32 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56 + Unknown Stack Size
 <LI>Call Chain = _task_destroy_internal &rArr; _task_get_td
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_run_internal
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_destroy_stack_frame
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_run_internal
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_destroy_stack_frame
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy
+<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy
 </UL>
 
-<P><STRONG><a name="[a5]"></a>_task_destroy</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, task.o(.text))
+<P><STRONG><a name="[a6]"></a>_task_destroy</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64 + Unknown Stack Size
 <LI>Call Chain = _task_destroy &rArr; _task_destroy_internal &rArr; _task_get_td
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
+<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_exit_function_internal
 </UL>
@@ -1101,70 +1102,70 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 80 + Unknown Stack Size
 <LI>Call Chain = _task_exit_function_internal &rArr; _task_destroy &rArr; _task_destroy_internal &rArr; _task_get_td
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy
+<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
 </UL>
 <BR>[Address Reference Count : 2]<UL><LI> stack_bu.o(.text)
 <LI> task.o(.text)
 </UL>
-<P><STRONG><a name="[a6]"></a>_task_abort_internal</STRONG> (Thumb, 252 bytes, Stack size 24 bytes, task.o(.text))
+<P><STRONG><a name="[a7]"></a>_task_abort_internal</STRONG> (Thumb, 252 bytes, Stack size 24 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104 + Unknown Stack Size
 <LI>Call Chain = _task_abort_internal &rArr; _task_exit_function_internal &rArr; _task_destroy &rArr; _task_destroy_internal &rArr; _task_get_td
 </UL>
-<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__get_PSP
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__get_PSP
 <LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_exit_function_internal
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort
 </UL>
 
-<P><STRONG><a name="[a8]"></a>_task_abort</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, task.o(.text))
+<P><STRONG><a name="[a9]"></a>_task_abort</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112 + Unknown Stack Size
 <LI>Call Chain = _task_abort &rArr; _task_abort_internal &rArr; _task_exit_function_internal &rArr; _task_destroy &rArr; _task_destroy_internal &rArr; _task_get_td
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_exception_isr
 </UL>
 
-<P><STRONG><a name="[86]"></a>_task_fill_stack_internal</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, task.o(.text))
+<P><STRONG><a name="[87]"></a>_task_fill_stack_internal</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, task.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
 </UL>
 
-<P><STRONG><a name="[a9]"></a>_task_alloc_td_internal</STRONG> (Thumb, 190 bytes, Stack size 56 bytes, task.o(.text))
+<P><STRONG><a name="[aa]"></a>_task_alloc_td_internal</STRONG> (Thumb, 190 bytes, Stack size 56 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = _task_alloc_td_internal &rArr; _mem_zero &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_zero
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_zero
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
 </UL>
 
-<P><STRONG><a name="[8c]"></a>_task_init_internal</STRONG> (Thumb, 300 bytes, Stack size 64 bytes, task.o(.text))
+<P><STRONG><a name="[8d]"></a>_task_init_internal</STRONG> (Thumb, 300 bytes, Stack size 64 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = _task_init_internal &rArr; _task_alloc_td_internal &rArr; _mem_zero &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_build_stack_frame
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_alloc_td_internal
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_fill_stack_internal
+<BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_build_stack_frame
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_alloc_td_internal
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_fill_stack_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
 </UL>
 
-<P><STRONG><a name="[ab]"></a>_task_build_internal</STRONG> (Thumb, 124 bytes, Stack size 56 bytes, task.o(.text))
+<P><STRONG><a name="[ac]"></a>_task_build_internal</STRONG> (Thumb, 124 bytes, Stack size 56 bytes, task.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204 + Unknown Stack Size
 <LI>Call Chain = _task_build_internal &rArr; _task_init_internal &rArr; _task_alloc_td_internal &rArr; _mem_zero &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_create_at
 </UL>
@@ -1173,112 +1174,112 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 244 + Unknown Stack Size
 <LI>Call Chain = _task_create_at &rArr; _task_build_internal &rArr; _task_init_internal &rArr; _task_alloc_td_internal &rArr; _mem_zero &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready_internal
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_build_internal
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
 
-<P><STRONG><a name="[ac]"></a>_task_get_exception_handler</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<P><STRONG><a name="[ad]"></a>_task_get_exception_handler</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 </UL>
 
-<P><STRONG><a name="[ad]"></a>_task_set_exception_handler</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<P><STRONG><a name="[ae]"></a>_task_set_exception_handler</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 </UL>
 
-<P><STRONG><a name="[ae]"></a>_task_get_exit_handler</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<P><STRONG><a name="[af]"></a>_task_get_exit_handler</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 </UL>
 
-<P><STRONG><a name="[af]"></a>_task_set_exit_handler</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<P><STRONG><a name="[b0]"></a>_task_set_exit_handler</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_error
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 </UL>
 
-<P><STRONG><a name="[b0]"></a>_task_get_id_from_name</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
+<P><STRONG><a name="[b1]"></a>_task_get_id_from_name</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
 </UL>
 
-<P><STRONG><a name="[b2]"></a>_task_get_template_ptr</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<P><STRONG><a name="[b3]"></a>_task_get_template_ptr</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 </UL>
 
-<P><STRONG><a name="[b3]"></a>_task_get_template_index</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
+<P><STRONG><a name="[b4]"></a>_task_get_template_index</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
 </UL>
 
 <P><STRONG><a name="[136]"></a>_task_get_id_from_td</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
 
-<P><STRONG><a name="[b4]"></a>_task_get_index_from_id</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<P><STRONG><a name="[b5]"></a>_task_get_index_from_id</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 </UL>
 
-<P><STRONG><a name="[b5]"></a>_task_get_parameter_internal</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_get_stack_start
+<P><STRONG><a name="[b6]"></a>_task_get_parameter_internal</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_get_stack_start
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_for
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter
-</UL>
-
-<P><STRONG><a name="[b7]"></a>_task_get_parameter</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_internal
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_for
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter
 </UL>
 
-<P><STRONG><a name="[b8]"></a>_task_get_parameter_for</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_internal
+<P><STRONG><a name="[b8]"></a>_task_get_parameter</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_internal
 </UL>
 
-<P><STRONG><a name="[b9]"></a>_task_set_parameter_internal</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_get_stack_start
-</UL>
-<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_for
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter
+<P><STRONG><a name="[b9]"></a>_task_get_parameter_for</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_internal
 </UL>
 
-<P><STRONG><a name="[ba]"></a>_task_set_parameter</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_internal
+<P><STRONG><a name="[ba]"></a>_task_set_parameter_internal</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_get_stack_start
+</UL>
+<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_for
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter
 </UL>
 
-<P><STRONG><a name="[bb]"></a>_task_set_parameter_for</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_internal
+<P><STRONG><a name="[bb]"></a>_task_set_parameter</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_internal
 </UL>
 
-<P><STRONG><a name="[bc]"></a>_task_get_priority</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<P><STRONG><a name="[bc]"></a>_task_set_parameter_for</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_internal
 </UL>
 
-<P><STRONG><a name="[bd]"></a>_task_set_priority</STRONG> (Thumb, 160 bytes, Stack size 40 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<P><STRONG><a name="[bd]"></a>_task_get_priority</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+</UL>
+
+<P><STRONG><a name="[be]"></a>_task_set_priority</STRONG> (Thumb, 160 bytes, Stack size 40 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_insert_priorityq_internal
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_insert_priorityq_internal
 </UL>
 
-<P><STRONG><a name="[bf]"></a>_task_restart</STRONG> (Thumb, 30 bytes, Stack size 104 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<P><STRONG><a name="[c0]"></a>_task_restart</STRONG> (Thumb, 30 bytes, Stack size 104 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
 </UL>
 
-<P><STRONG><a name="[c0]"></a>_task_stop_preemption</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<P><STRONG><a name="[c1]"></a>_task_stop_preemption</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
 
-<P><STRONG><a name="[c1]"></a>_task_start_preemption</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<P><STRONG><a name="[c2]"></a>_task_start_preemption</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
 </UL>
@@ -1295,28 +1296,28 @@ Global Symbols
 
 <P><STRONG><a name="[13c]"></a>_task_exiting_function_internal</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, task.o(.text), UNUSED)
 
-<P><STRONG><a name="[a0]"></a>_task_sync_priority_internal</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, task.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
+<P><STRONG><a name="[a1]"></a>_task_sync_priority_internal</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, task.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
 </UL>
 
-<P><STRONG><a name="[66]"></a>_task_set_error_td_internal</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, task.o(.text))
+<P><STRONG><a name="[67]"></a>_task_set_error_td_internal</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, task.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_default_isr
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
 </UL>
 
-<P><STRONG><a name="[b6]"></a>_psp_get_stack_start</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stack_st.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_internal
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_internal
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<P><STRONG><a name="[b7]"></a>_psp_get_stack_start</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stack_st.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_parameter_internal
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_parameter_internal
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
 </UL>
 
-<P><STRONG><a name="[c2]"></a>_psp_int_install</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, int_inst.o(.text))
+<P><STRONG><a name="[c3]"></a>_psp_int_install</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, int_inst.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = _psp_int_install
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_MSP
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_init
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_init
 </UL>
 
 <P><STRONG><a name="[6]"></a>_int_unexpected_isr</STRONG> (Thumb, 86 bytes, Stack size 12 bytes, int_unx.o(.text))
@@ -1324,7 +1325,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> int.o(.text)
 </UL>
-<P><STRONG><a name="[8a]"></a>_int_set_vector_table</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, int_vtab.o(.text))
+<P><STRONG><a name="[8b]"></a>_int_set_vector_table</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, int_vtab.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
 </UL>
 
@@ -1334,148 +1335,148 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
 <LI>Call Chain = _int_exception_isr &rArr; _task_abort &rArr; _task_abort_internal &rArr; _task_exit_function_internal &rArr; _task_destroy &rArr; _task_destroy_internal &rArr; _task_get_td
 </UL>
-<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_get_exception_handler
+<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_get_exception_handler
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_get_isr_data
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_exception_return
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_fatal_error
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_exception_return
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_fatal_error
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> int.o(.text)
 </UL>
-<P><STRONG><a name="[84]"></a>_mem_zero</STRONG> (Thumb, 246 bytes, Stack size 20 bytes, mem_zero.o(.text))
+<P><STRONG><a name="[85]"></a>_mem_zero</STRONG> (Thumb, 246 bytes, Stack size 20 bytes, mem_zero.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = _mem_zero &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_build_stack_frame
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_alloc_td_internal
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_build_stack_frame
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_alloc_td_internal
 </UL>
 
-<P><STRONG><a name="[89]"></a>_psp_int_init</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, psp_iinit.o(.text))
+<P><STRONG><a name="[8a]"></a>_psp_int_init</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, psp_iinit.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32 + Unknown Stack Size
 <LI>Call Chain = _psp_int_init &rArr; _int_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_init
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_install
+<BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_init
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_int_install
 </UL>
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
 </UL>
 
-<P><STRONG><a name="[59]"></a>_psp_add_ticks</STRONG> (Thumb, 78 bytes, Stack size 36 bytes, psp_tiad.o(.text))
+<P><STRONG><a name="[5a]"></a>_psp_add_ticks</STRONG> (Thumb, 78 bytes, Stack size 36 bytes, psp_tiad.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = _psp_add_ticks
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_for
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_ticks
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_for
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_for
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_ticks
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_for
 </UL>
 
-<P><STRONG><a name="[62]"></a>_psp_normalize_ticks</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, psp_tinm.o(.text))
+<P><STRONG><a name="[63]"></a>_psp_normalize_ticks</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, psp_tinm.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = _psp_normalize_ticks &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_ticks
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_elapsed_ticks_fast
+<BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_ticks
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_elapsed_ticks_fast
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_elapsed_ticks
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_notify_kernel
 </UL>
 
-<P><STRONG><a name="[5c]"></a>_psp_subtract_ticks</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, psp_tisu.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_set_ticks
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_diff_ticks
+<P><STRONG><a name="[5d]"></a>_psp_subtract_ticks</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, psp_tisu.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_set_ticks
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_diff_ticks
 </UL>
 
-<P><STRONG><a name="[5e]"></a>_psp_subtract_ticks_int32</STRONG> (Thumb, 122 bytes, Stack size 48 bytes, psp_tisu.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_diff_ticks_int32
+<P><STRONG><a name="[5f]"></a>_psp_subtract_ticks_int32</STRONG> (Thumb, 122 bytes, Stack size 48 bytes, psp_tisu.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_diff_ticks_int32
 </UL>
 
-<P><STRONG><a name="[83]"></a>_psp_set_kernel_disable_level</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, sc_irdyq.o(.text))
+<P><STRONG><a name="[84]"></a>_psp_set_kernel_disable_level</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, sc_irdyq.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _psp_set_kernel_disable_level
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_init_kernel_data_internal
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_init_kernel_data_internal
 </UL>
 
-<P><STRONG><a name="[87]"></a>_psp_init_readyqs</STRONG> (Thumb, 84 bytes, Stack size 12 bytes, sc_irdyq.o(.text))
+<P><STRONG><a name="[88]"></a>_psp_init_readyqs</STRONG> (Thumb, 84 bytes, Stack size 12 bytes, sc_irdyq.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = _psp_init_readyqs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
 </UL>
 
-<P><STRONG><a name="[aa]"></a>_psp_build_stack_frame</STRONG> (Thumb, 86 bytes, Stack size 48 bytes, stack_bu.o(.text))
+<P><STRONG><a name="[ab]"></a>_psp_build_stack_frame</STRONG> (Thumb, 86 bytes, Stack size 48 bytes, stack_bu.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = _psp_build_stack_frame &rArr; _mem_zero &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_zero
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_zero
 </UL>
-<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
-</UL>
-
-<P><STRONG><a name="[a3]"></a>_psp_destroy_stack_frame</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stack_de.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
+<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
 </UL>
 
-<P><STRONG><a name="[c8]"></a>enable_irq</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, nvic.o(.text))
+<P><STRONG><a name="[a4]"></a>_psp_destroy_stack_frame</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stack_de.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
+</UL>
+
+<P><STRONG><a name="[c9]"></a>enable_irq</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, nvic.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lptmr_Init
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Init
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart0
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart2
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart0
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart2
 </UL>
 
 <P><STRONG><a name="[13e]"></a>disable_irq</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, nvic.o(.text), UNUSED)
 
-<P><STRONG><a name="[c9]"></a>set_irq_priority</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, nvic.o(.text))
+<P><STRONG><a name="[ca]"></a>set_irq_priority</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, nvic.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = set_irq_priority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart0
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart2
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart0
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart2
 </UL>
 
-<P><STRONG><a name="[c6]"></a>uart_init</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+<P><STRONG><a name="[c7]"></a>uart_init</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, uart.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart2
+<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart2
 </UL>
 
-<P><STRONG><a name="[c7]"></a>init_uart2</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, uart.o(.text), UNUSED)
+<P><STRONG><a name="[c8]"></a>init_uart2</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, uart.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_isr
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_irq_priority
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_irq_priority
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
 </UL>
 
-<P><STRONG><a name="[cb]"></a>uart_send_data</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_send_string
+<P><STRONG><a name="[cc]"></a>uart_send_data</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_send_string
 </UL>
 
-<P><STRONG><a name="[ca]"></a>uart_send_string</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_send_data
+<P><STRONG><a name="[cb]"></a>uart_send_string</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, uart.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_send_data
 </UL>
 
-<P><STRONG><a name="[cd]"></a>uart0_send_data</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, uart.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DumpData
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_string
+<P><STRONG><a name="[ce]"></a>uart0_send_data</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, uart.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DumpData
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_string
 </UL>
 
-<P><STRONG><a name="[cc]"></a>uart0_send_string</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, uart.o(.text))
+<P><STRONG><a name="[cd]"></a>uart0_send_string</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = uart0_send_string
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_data
+<BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_data
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DumpData
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;traceInfo_output
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DumpData
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;traceInfo_output
 </UL>
 
-<P><STRONG><a name="[ce]"></a>init_uart0</STRONG> (Thumb, 232 bytes, Stack size 8 bytes, uart.o(.text))
+<P><STRONG><a name="[cf]"></a>init_uart0</STRONG> (Thumb, 232 bytes, Stack size 8 bytes, uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = init_uart0 &rArr; _int_install_isr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_isr
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_irq_priority
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_irq_priority
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trace_init
 </UL>
@@ -1502,7 +1503,7 @@ Global Symbols
 <P><STRONG><a name="[c]"></a>adc0_isr</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, dma1.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> dma1.o(.text)
 </UL>
-<P><STRONG><a name="[cf]"></a>dma_setup</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dma1.o(.text))
+<P><STRONG><a name="[d0]"></a>dma_setup</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dma1.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lptmr_isr
 </UL>
 
@@ -1512,7 +1513,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_isr
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
@@ -1521,11 +1522,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24 + Unknown Stack Size
 <LI>Call Chain = lptmr_isr &rArr; _lwsem_post
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysStatus
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetSysStatus
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAccStatus
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_setup
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetSysStatus
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAccStatus
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_setup
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> lptmr.o(.text)
 </UL>
@@ -1533,11 +1534,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 120 + Unknown Stack Size
 <LI>Call Chain = Lptmr_Init &rArr; app_traceInfo_output &rArr; _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create
+<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_isr
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
@@ -1558,7 +1559,7 @@ Global Symbols
 
 <P><STRONG><a name="[147]"></a>exit_vlpr</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[4e]"></a>enter_vlps</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, smc.o(.text))
+<P><STRONG><a name="[4f]"></a>enter_vlps</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, smc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = enter_vlps
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
@@ -1576,12 +1577,12 @@ Global Symbols
 
 <P><STRONG><a name="[14d]"></a>enter_vlls0_nopor</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[d6]"></a>app_cmd_tbl_add</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, app_shell.o(.text))
+<P><STRONG><a name="[d7]"></a>app_cmd_tbl_add</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, app_shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128 + Unknown Stack Size
 <LI>Call Chain = app_cmd_tbl_add &rArr; Shell_CmdTblAdd &rArr; Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
 </UL>
@@ -1590,14 +1591,14 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
 <LI>Call Chain = shell_task &rArr; exec_cmd &rArr; Shell_Exec &rArr; Shell_CmdSearch &rArr; Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_init
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_init
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_ticks
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Init
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_cmd_tbl_add
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_ticks
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Init
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_cmd_tbl_add
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_template_list.o(.constdata)
 </UL>
@@ -1605,31 +1606,31 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 64 + Unknown Stack Size
 <LI>Call Chain = uart0_irq_handler &rArr; _lwmsgq_send
 </UL>
-<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_trace.o(.text)
 </UL>
-<P><STRONG><a name="[db]"></a>traceInfo_output</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, app_trace.o(.text))
+<P><STRONG><a name="[dc]"></a>traceInfo_output</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, app_trace.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = traceInfo_output &rArr; __c89vsnprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_string
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__c89vsnprintf
+<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_string
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__c89vsnprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
 
-<P><STRONG><a name="[d2]"></a>assert_failed</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, app_trace.o(.text))
+<P><STRONG><a name="[d3]"></a>assert_failed</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, app_trace.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = assert_failed &rArr; traceInfo_output &rArr; __c89vsnprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;traceInfo_output
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;traceInfo_output
 </UL>
 <BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trace_init
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lptmr_Init
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
 <LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
 <LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_irq_handler
 </UL>
 
@@ -1637,144 +1638,149 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 104 + Unknown Stack Size
 <LI>Call Chain = app_traceInfo_output &rArr; _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_string
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__c89vsnprintf
+<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_string
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__c89vsnprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451running
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lptmr_Init
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Init
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_version_information
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
 <LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
 <LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451running
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_cmd_tbl_add
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_cmd_tbl_add
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
 <LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_mqxlite_status
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_mqxlite_task_information
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_mqxlite_task_information
 <LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_list
 </UL>
 
-<P><STRONG><a name="[dd]"></a>DumpData</STRONG> (Thumb, 154 bytes, Stack size 56 bytes, app_trace.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_string
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_data
+<P><STRONG><a name="[de]"></a>DumpData</STRONG> (Thumb, 154 bytes, Stack size 56 bytes, app_trace.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_string
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_send_data
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
 </UL>
 
 <P><STRONG><a name="[42]"></a>trace_init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, app_trace.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = trace_init &rArr; _mutex_init &rArr; _mutex_create_component
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart0
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
+<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_uart0
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
 
-<P><STRONG><a name="[d1]"></a>GetAccStatus</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[d2]"></a>GetAccStatus</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_mma8451.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lptmr_isr
 </UL>
 
-<P><STRONG><a name="[ed]"></a>SetAccStatus</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_mma8451.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451running
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<P><STRONG><a name="[ee]"></a>SetAccStatus</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_mma8451.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451standby
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;putmma8451running
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 </UL>
 
-<P><STRONG><a name="[de]"></a>init_PTA14_interrupt</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[df]"></a>init_PTA14_interrupt</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, app_mma8451.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = init_PTA14_interrupt &rArr; assert_failed &rArr; traceInfo_output &rArr; __c89vsnprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_install_isr
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_irq_priority
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_irq_priority
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enable_irq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
 </UL>
 
-<P><STRONG><a name="[ec]"></a>angle_calculation</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[ed]"></a>angle_calculation</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, app_mma8451.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = angle_calculation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 </UL>
 
-<P><STRONG><a name="[df]"></a>Get_mean</STRONG> (Thumb, 74 bytes, Stack size 40 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[e0]"></a>Get_mean</STRONG> (Thumb, 74 bytes, Stack size 40 bytes, app_mma8451.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = Get_mean &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
 </UL>
 
-<P><STRONG><a name="[e3]"></a>Get_var</STRONG> (Thumb, 126 bytes, Stack size 64 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[e4]"></a>Get_var</STRONG> (Thumb, 126 bytes, Stack size 64 bytes, app_mma8451.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
 </UL>
 
-<P><STRONG><a name="[e7]"></a>FindFirstPeak</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[e8]"></a>FindFirstPeak</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, app_mma8451.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
 <LI>Call Chain = FindFirstPeak &rArr; Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
 </UL>
-<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 </UL>
 
-<P><STRONG><a name="[ea]"></a>FindLastPeak</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[eb]"></a>FindLastPeak</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, app_mma8451.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
 <LI>Call Chain = FindLastPeak &rArr; Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
 </UL>
-<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
 </UL>
 
-<P><STRONG><a name="[4f]"></a>putmma8451standby</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[50]"></a>putmma8451standby</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, app_mma8451.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120 + Unknown Stack Size
 <LI>Call Chain = putmma8451standby &rArr; app_traceInfo_output &rArr; _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteAccRegs
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadAccRegs
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAccStatus
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAccStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
 
-<P><STRONG><a name="[ee]"></a>putmma8451running</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, app_mma8451.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
+<P><STRONG><a name="[4d]"></a>putmma8451running</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, app_mma8451.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120 + Unknown Stack Size
+<LI>Call Chain = putmma8451running &rArr; app_traceInfo_output &rArr; _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
+</UL>
+<BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteAccRegs
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadAccRegs
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAccStatus
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAccStatus
+</UL>
+<BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
 
-<P><STRONG><a name="[4d]"></a>putmma8451detect</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[4e]"></a>putmma8451detect</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, app_mma8451.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
 
@@ -1782,20 +1788,20 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 488 + Unknown Stack Size
 <LI>Call Chain = app_mma8451_control_task &rArr; mma8451_getdata &rArr; FindLastPeak &rArr; Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create
+<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_create
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_ticks
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_ticks
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteAccRegs
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadAccRegs
 <LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Init
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PTA14_interrupt
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mma8451_getdata
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_template_list.o(.constdata)
 </UL>
-<P><STRONG><a name="[da]"></a>Shell_Init</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, shell.o(.text))
+<P><STRONG><a name="[db]"></a>Shell_Init</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Shell_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdClr
@@ -1803,29 +1809,29 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
 </UL>
 
-<P><STRONG><a name="[d9]"></a>Shell_Exec</STRONG> (Thumb, 142 bytes, Stack size 72 bytes, shell.o(.text))
+<P><STRONG><a name="[da]"></a>Shell_Exec</STRONG> (Thumb, 142 bytes, Stack size 72 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = Shell_Exec &rArr; Shell_CmdSearch &rArr; Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Scanner
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdSearch
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
 </UL>
 
-<P><STRONG><a name="[d7]"></a>Shell_CmdTblAdd</STRONG> (Thumb, 218 bytes, Stack size 64 bytes, shell.o(.text))
+<P><STRONG><a name="[d8]"></a>Shell_CmdTblAdd</STRONG> (Thumb, 218 bytes, Stack size 64 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = Shell_CmdTblAdd &rArr; Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdNameGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_cmd_tbl_add
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_cmd_tbl_add
 </UL>
 
 <P><STRONG><a name="[f6]"></a>Shell_CmdTblRem</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, shell.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<BR><BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdClr
 </UL>
 
@@ -1834,28 +1840,28 @@ Global Symbols
 <P><STRONG><a name="[34]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
+<BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_normalize_ticks
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimer1_GetTicsPerSecond
-<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[14f]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
 
-<P><STRONG><a name="[52]"></a>__aeabi_idivmod</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
+<P><STRONG><a name="[53]"></a>__aeabi_idivmod</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ColorTask
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 </UL>
 
 <P><STRONG><a name="[3d]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteAccRegs
 </UL>
 
-<P><STRONG><a name="[85]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
+<P><STRONG><a name="[86]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite_init
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_init_internal
 </UL>
 
 <P><STRONG><a name="[150]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
@@ -1867,28 +1873,28 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f4]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
+<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
 </UL>
 
-<P><STRONG><a name="[d5]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
+<P><STRONG><a name="[d6]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblRem
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdSearch
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
 <LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_mqxlite_status
 </UL>
 
 <P><STRONG><a name="[f5]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
+<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
 </UL>
 
-<P><STRONG><a name="[b1]"></a>strncmp</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, strncmp.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_template_index
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_id_from_name
+<P><STRONG><a name="[b2]"></a>strncmp</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, strncmp.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_template_index
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_id_from_name
 </UL>
 
-<P><STRONG><a name="[e1]"></a>__aeabi_dadd</STRONG> (Thumb, 326 bytes, Stack size 48 bytes, dadd.o(.text))
+<P><STRONG><a name="[e2]"></a>__aeabi_dadd</STRONG> (Thumb, 326 bytes, Stack size 48 bytes, dadd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lasr
@@ -1896,71 +1902,71 @@ Global Symbols
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[e4]"></a>__aeabi_dsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text))
+<P><STRONG><a name="[e5]"></a>__aeabi_dsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
 </UL>
 
 <P><STRONG><a name="[fb]"></a>__aeabi_drsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR><BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[e5]"></a>__aeabi_dmul</STRONG> (Thumb, 202 bytes, Stack size 72 bytes, dmul.o(.text))
+<P><STRONG><a name="[e6]"></a>__aeabi_dmul</STRONG> (Thumb, 202 bytes, Stack size 72 bytes, dmul.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[e2]"></a>__aeabi_ddiv</STRONG> (Thumb, 234 bytes, Stack size 40 bytes, ddiv.o(.text))
+<P><STRONG><a name="[e3]"></a>__aeabi_ddiv</STRONG> (Thumb, 234 bytes, Stack size 40 bytes, ddiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = __aeabi_ddiv &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[e6]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text))
+<P><STRONG><a name="[e7]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __aeabi_i2d &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
 </UL>
 
-<P><STRONG><a name="[e0]"></a>__aeabi_ui2d</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, dfltui.o(.text))
+<P><STRONG><a name="[e1]"></a>__aeabi_ui2d</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, dfltui.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __aeabi_ui2d &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_var
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_mean
 </UL>
 
 <P><STRONG><a name="[151]"></a>__aeabi_cdcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cdcmple.o(.text), UNUSED)
 
-<P><STRONG><a name="[e9]"></a>__aeabi_cdcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+<P><STRONG><a name="[ea]"></a>__aeabi_cdcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
 </UL>
 
-<P><STRONG><a name="[e8]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdrcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+<P><STRONG><a name="[e9]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdrcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
@@ -1976,7 +1982,7 @@ Global Symbols
 <P><STRONG><a name="[f7]"></a>__aeabi_llsl</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, llshl.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
@@ -1987,7 +1993,7 @@ Global Symbols
 <P><STRONG><a name="[f8]"></a>__aeabi_lasr</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, llsshr.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_lasr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
 <P><STRONG><a name="[153]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
@@ -1997,8 +2003,8 @@ Global Symbols
 <P><STRONG><a name="[fa]"></a>_double_round</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, depilogue.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
@@ -2010,10 +2016,10 @@ Global Symbols
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
 <P><STRONG><a name="[ff]"></a>__aeabi_d2ulz</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, dfixul.o(.text), UNUSED)
@@ -2041,43 +2047,43 @@ Global Symbols
 
 <P><STRONG><a name="[156]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
 
-<P><STRONG><a name="[8e]"></a>_sched_start_internal</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
+<P><STRONG><a name="[8f]"></a>_sched_start_internal</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
 <BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqxlite
 </UL>
 
-<P><STRONG><a name="[a4]"></a>_sched_run_internal</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
-<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<P><STRONG><a name="[a5]"></a>_sched_run_internal</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
+<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_destroy_internal
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
 </UL>
 
-<P><STRONG><a name="[71]"></a>_sched_check_scheduler_internal</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
-<BR><BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<P><STRONG><a name="[72]"></a>_sched_check_scheduler_internal</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
+<BR><BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy_internal
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
+<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_destroy_internal
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_create_at
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_start_preemption
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_unboost_priority_internal
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_start_preemption
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_set_priority
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_unboost_priority_internal
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_boost_priority_internal
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_destroy
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_unlock
 </UL>
 
-<P><STRONG><a name="[56]"></a>_sched_execute_scheduler_internal</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
-<BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_ticks
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
+<P><STRONG><a name="[57]"></a>_sched_execute_scheduler_internal</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
+<BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait_ticks
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_check_scheduler_internal
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_receive
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_delay_internal
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_yield
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart_func
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_set_priority_internal
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_yield
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
 </UL>
 
 <P><STRONG><a name="[101]"></a>_mqx_api_call</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
@@ -2086,25 +2092,25 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mqx_api_call
 </UL>
 
-<P><STRONG><a name="[73]"></a>_task_block</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
-<BR><BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
+<P><STRONG><a name="[74]"></a>_task_block</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
+<BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwmsgq_send
 </UL>
 
 <P><STRONG><a name="[7]"></a>_int_kernel_isr</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
 <BR>[Address Reference Count : 2]<UL><LI> vectors.o(.vectortable)
 <LI> int.o(.text)
 </UL>
-<P><STRONG><a name="[c3]"></a>_psp_exception_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
+<P><STRONG><a name="[c4]"></a>_psp_exception_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
 <BR><BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_exception_isr
 </UL>
 
-<P><STRONG><a name="[95]"></a>_mem_test_and_set</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_try_lock
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
+<P><STRONG><a name="[96]"></a>_mem_test_and_set</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_try_lock
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_lock
 </UL>
 
-<P><STRONG><a name="[a7]"></a>__get_PSP</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
+<P><STRONG><a name="[a8]"></a>__get_PSP</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_abort_internal
 </UL>
 
 <P><STRONG><a name="[157]"></a>__get_MSP</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL), UNUSED)
@@ -2131,8 +2137,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __2snprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_version_information
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DumpData
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DumpData
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
 </UL>
 
 <P><STRONG><a name="[104]"></a>__0vsnprintf</STRONG> (Thumb, 32 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
@@ -2143,11 +2149,11 @@ Global Symbols
 
 <P><STRONG><a name="[160]"></a>__2vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
 
-<P><STRONG><a name="[dc]"></a>__c89vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf))
+<P><STRONG><a name="[dd]"></a>__c89vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __c89vsnprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;traceInfo_output
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;traceInfo_output
 </UL>
 
 <P><STRONG><a name="[161]"></a>vsnprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsnprintf), UNUSED)
@@ -2156,11 +2162,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
-<P><STRONG><a name="[c4]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, mem_zero.o(i.__ARM_common_switch8))
+<P><STRONG><a name="[c5]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, mem_zero.o(i.__ARM_common_switch8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_zero
+<BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mem_zero
 </UL>
 
 <P><STRONG><a name="[162]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
@@ -2182,19 +2188,19 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
 
-<P><STRONG><a name="[be]"></a>_task_restart_func</STRONG> (Thumb, 490 bytes, Stack size 64 bytes, task.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
+<P><STRONG><a name="[bf]"></a>_task_restart_func</STRONG> (Thumb, 490 bytes, Stack size 64 bytes, task.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_execute_scheduler_internal
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_wait
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_enable
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_int_disable
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_run_internal
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_get_stack_start
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_build_stack_frame
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready_internal
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sched_run_internal
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_get_stack_start
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_psp_build_stack_frame
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_ready_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart
+<BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_restart
 </UL>
 
 <P><STRONG><a name="[10]"></a>_int_kernel_isr_epilog</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dispatch.o(KERNEL))
@@ -2208,20 +2214,20 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_shell.o(.data)
 </UL>
-<P><STRONG><a name="[d3]"></a>get_task_stack_usage</STRONG> (Thumb, 72 bytes, Stack size 40 bytes, app_shell.o(.text))
+<P><STRONG><a name="[d4]"></a>get_task_stack_usage</STRONG> (Thumb, 72 bytes, Stack size 40 bytes, app_shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = get_task_stack_usage &rArr; _task_get_td
 </UL>
-<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
+<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_get_td
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_mqxlite_task_information
+<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_mqxlite_task_information
 </UL>
 
-<P><STRONG><a name="[d4]"></a>show_mqxlite_task_information</STRONG> (Thumb, 114 bytes, Stack size 48 bytes, app_shell.o(.text))
+<P><STRONG><a name="[d5]"></a>show_mqxlite_task_information</STRONG> (Thumb, 114 bytes, Stack size 48 bytes, app_shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
 <LI>Call Chain = show_mqxlite_task_information &rArr; app_traceInfo_output &rArr; _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_task_stack_usage
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_task_stack_usage
 </UL>
 <BR>[Called By]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_mqxlite_status
 </UL>
@@ -2231,17 +2237,17 @@ Local Symbols
 <LI>Call Chain = get_mqxlite_status &rArr; show_mqxlite_task_information &rArr; app_traceInfo_output &rArr; _mutex_lock &rArr; _sched_boost_priority_internal &rArr; _sched_set_priority_internal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_mqxlite_task_information
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_mqxlite_task_information
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_shell.o(.data)
 </UL>
-<P><STRONG><a name="[d8]"></a>exec_cmd</STRONG> (Thumb, 116 bytes, Stack size 64 bytes, app_shell.o(.text))
+<P><STRONG><a name="[d9]"></a>exec_cmd</STRONG> (Thumb, 116 bytes, Stack size 64 bytes, app_shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
 <LI>Call Chain = exec_cmd &rArr; Shell_Exec &rArr; Shell_CmdSearch &rArr; Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_task
@@ -2251,28 +2257,28 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24 + Unknown Stack Size
 <LI>Call Chain = MMA8451_INT1_isr_service &rArr; _lwsem_post
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lwsem_post
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_mma8451.o(.text)
 </UL>
-<P><STRONG><a name="[eb]"></a>mma8451_getdata</STRONG> (Thumb, 534 bytes, Stack size 248 bytes, app_mma8451.o(.text))
+<P><STRONG><a name="[ec]"></a>mma8451_getdata</STRONG> (Thumb, 534 bytes, Stack size 248 bytes, app_mma8451.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 472 + Unknown Stack Size
 <LI>Call Chain = mma8451_getdata &rArr; FindLastPeak &rArr; Get_var &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_traceInfo_output
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_time_get_elapsed_ticks
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadAccRegs
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angle_calculation
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAccStatus
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindLastPeak
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindFirstPeak
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angle_calculation
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAccStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_mma8451_control_task
 </UL>
 
 <P><STRONG><a name="[ef]"></a>Shell_ModuleCmdClr</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, shell.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblRem
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Init
 </UL>
 
 <P><STRONG><a name="[f0]"></a>Shell_ModuleCmdNameGet</STRONG> (Thumb, 116 bytes, Stack size 48 bytes, shell.o(.text))
@@ -2281,22 +2287,22 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdSearch
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_CmdTblAdd
 </UL>
 
 <P><STRONG><a name="[f2]"></a>Shell_CmdSearch</STRONG> (Thumb, 172 bytes, Stack size 56 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = Shell_CmdSearch &rArr; Shell_ModuleCmdNameGet &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_ModuleCmdNameGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
+<BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
 </UL>
 
 <P><STRONG><a name="[f3]"></a>Shell_Scanner</STRONG> (Thumb, 108 bytes, Stack size 36 bytes, shell.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = Shell_Scanner
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
+<BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Shell_Exec
 </UL>
 
 <P><STRONG><a name="[103]"></a>_printf_core</STRONG> (Thumb, 1072 bytes, Stack size 104 bytes, printf8.o(i._printf_core), UNUSED)
@@ -2319,10 +2325,10 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> printf8.o(i.__0snprintf$8)
 </UL>
 <P><STRONG><a name="[106]"></a>_fp_digits</STRONG> (Thumb, 314 bytes, Stack size 56 bytes, printfa.o(i._fp_digits), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<BR><BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>

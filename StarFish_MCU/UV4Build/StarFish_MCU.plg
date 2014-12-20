@@ -7,3 +7,100 @@ E:\Starfish\starfish\StarFish_MCU\StarFish_MCU.uvproj
 Project File Date:  10/29/2014
 
 <h2>Output:</h2>
+Build target 'MKL26Z128xxx4'
+compiling task_template_list.c...
+compiling Events.c...
+compiling MMA845xQ.c...
+compiling mqx_tasks.c...
+./Sources/mqx_tasks.c(47): warning:  #1295-D: Deprecated declaration putmma8451standby - give arg types
+./Sources/mqx_tasks.c(48): warning:  #1295-D: Deprecated declaration putmma8451detect - give arg types
+./Sources/mqx_tasks.c(49): warning:  #1295-D: Deprecated declaration putmma8451running - give arg types
+./Sources/mqx_tasks.c(121): warning:  #550-D: variable "mqx_ret" was set but never used
+compiling nvic.c...
+compiling uart.c...
+compiling DMA1.c...
+compiling lptmr.c...
+common\drivers\lptmr\lptmr.c(9): warning:  #1295-D: Deprecated declaration dma_setup - give arg types
+common\drivers\lptmr\lptmr.c(15): warning:  #1295-D: Deprecated declaration GetSysStatus - give arg types
+common\drivers\lptmr\lptmr.c(17): warning:  #1295-D: Deprecated declaration GetAccStatus - give arg types
+compiling app_mma8451.c...
+APP\acos.h(2): warning:  #1-D: last line of file ends without a newline
+APP\app_mma8451.c(39): warning:  #1295-D: Deprecated declaration putmma8451standby - give arg types
+APP\app_mma8451.c(40): warning:  #1295-D: Deprecated declaration putmma8451detect - give arg types
+APP\app_mma8451.c(41): warning:  #1295-D: Deprecated declaration putmma8451running - give arg types
+APP\app_mma8451.c(108): warning:  #68-D: integer conversion resulted in a change of sign
+APP\app_mma8451.c(158): warning:  #177-D: variable "j" was declared but never referenced
+APP\app_mma8451.c(311): warning:  #177-D: variable "ths" was declared but never referenced
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=31032 RO-data=1160 RW-data=108 ZI-data=10484  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 15 Warning(s).
+Build target 'MKL26Z128xxx4'
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=31032 RO-data=1160 RW-data=108 ZI-data=10484  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 1 Warning(s).
+Build target 'MKL26Z128xxx4'
+compiling app_mma8451.c...
+APP\acos.h(2): warning:  #1-D: last line of file ends without a newline
+APP\app_mma8451.c(39): warning:  #1295-D: Deprecated declaration putmma8451standby - give arg types
+APP\app_mma8451.c(40): warning:  #1295-D: Deprecated declaration putmma8451detect - give arg types
+APP\app_mma8451.c(41): warning:  #1295-D: Deprecated declaration putmma8451running - give arg types
+APP\app_mma8451.c(108): warning:  #68-D: integer conversion resulted in a change of sign
+APP\app_mma8451.c(158): warning:  #177-D: variable "j" was declared but never referenced
+APP\app_mma8451.c(311): warning:  #177-D: variable "ths" was declared but never referenced
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=31068 RO-data=1160 RW-data=108 ZI-data=10484  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 8 Warning(s).
+Build target 'MKL26Z128xxx4'
+compiling app_mma8451.c...
+APP\acos.h(2): warning:  #1-D: last line of file ends without a newline
+APP\app_mma8451.c(39): warning:  #1295-D: Deprecated declaration putmma8451standby - give arg types
+APP\app_mma8451.c(40): warning:  #1295-D: Deprecated declaration putmma8451detect - give arg types
+APP\app_mma8451.c(41): warning:  #1295-D: Deprecated declaration putmma8451running - give arg types
+APP\app_mma8451.c(108): warning:  #68-D: integer conversion resulted in a change of sign
+APP\app_mma8451.c(158): warning:  #177-D: variable "j" was declared but never referenced
+APP\app_mma8451.c(311): warning:  #177-D: variable "ths" was declared but never referenced
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=31096 RO-data=1160 RW-data=108 ZI-data=10484  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 8 Warning(s).
+Build target 'MKL26Z128xxx4'
+compiling app_mma8451.c...
+APP\acos.h(2): warning:  #1-D: last line of file ends without a newline
+APP\app_mma8451.c(39): warning:  #1295-D: Deprecated declaration putmma8451standby - give arg types
+APP\app_mma8451.c(40): warning:  #1295-D: Deprecated declaration putmma8451detect - give arg types
+APP\app_mma8451.c(41): warning:  #1295-D: Deprecated declaration putmma8451running - give arg types
+APP\app_mma8451.c(108): warning:  #68-D: integer conversion resulted in a change of sign
+APP\app_mma8451.c(158): warning:  #177-D: variable "j" was declared but never referenced
+APP\app_mma8451.c(311): warning:  #177-D: variable "ths" was declared but never referenced
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=31116 RO-data=1160 RW-data=108 ZI-data=10484  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 8 Warning(s).
+Build target 'MKL26Z128xxx4'
+compiling app_mma8451.c...
+APP\acos.h(2): warning:  #1-D: last line of file ends without a newline
+APP\app_mma8451.c(39): warning:  #1295-D: Deprecated declaration putmma8451standby - give arg types
+APP\app_mma8451.c(40): warning:  #1295-D: Deprecated declaration putmma8451detect - give arg types
+APP\app_mma8451.c(41): warning:  #1295-D: Deprecated declaration putmma8451running - give arg types
+APP\app_mma8451.c(108): warning:  #68-D: integer conversion resulted in a change of sign
+APP\app_mma8451.c(158): warning:  #177-D: variable "j" was declared but never referenced
+APP\app_mma8451.c(311): warning:  #177-D: variable "ths" was declared but never referenced
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=31032 RO-data=1160 RW-data=108 ZI-data=10484  
+After Build - User command #1: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Errors, 8 Warning(s).
