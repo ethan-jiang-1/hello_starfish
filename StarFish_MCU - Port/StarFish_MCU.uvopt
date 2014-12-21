@@ -197,7 +197,7 @@
       <Focus>0</Focus>
       <ColumnNumber>20</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>74</TopLine>
+      <TopLine>77</TopLine>
       <CurrentLine>98</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>./Generated_Code/Cpu.c</PathWithFileName>
@@ -245,7 +245,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>38</TopLine>
+      <TopLine>41</TopLine>
       <CurrentLine>71</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>./Generated_Code/PE_LDD.c</PathWithFileName>
@@ -293,7 +293,7 @@
       <Focus>0</Focus>
       <ColumnNumber>20</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>21</TopLine>
+      <TopLine>24</TopLine>
       <CurrentLine>59</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>./Generated_Code/task_template_list.c</PathWithFileName>
@@ -357,7 +357,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>21</TopLine>
+      <TopLine>24</TopLine>
       <CurrentLine>39</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>./Sources/Events.c</PathWithFileName>
@@ -403,10 +403,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>14</ColumnNumber>
+      <ColumnNumber>42</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>96</TopLine>
-      <CurrentLine>113</CurrentLine>
+      <TopLine>174</TopLine>
+      <CurrentLine>224</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>./Sources/mqx_tasks.c</PathWithFileName>
       <FilenameWithoutPath>mqx_tasks.c</FilenameWithoutPath>
@@ -1525,8 +1525,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>161</TopLine>
-      <CurrentLine>190</CurrentLine>
+      <TopLine>164</TopLine>
+      <CurrentLine>193</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\common\drivers\dma\DMA1.c</PathWithFileName>
       <FilenameWithoutPath>DMA1.c</FilenameWithoutPath>
@@ -1539,10 +1539,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>15</ColumnNumber>
+      <ColumnNumber>31</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>34</TopLine>
-      <CurrentLine>35</CurrentLine>
+      <TopLine>18</TopLine>
+      <CurrentLine>43</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\common\drivers\lptmr\lptmr.c</PathWithFileName>
       <FilenameWithoutPath>lptmr.c</FilenameWithoutPath>
@@ -1557,7 +1557,7 @@
       <Focus>0</Focus>
       <ColumnNumber>25</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>282</TopLine>
+      <TopLine>285</TopLine>
       <CurrentLine>293</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\common\drivers\smc\smc.c</PathWithFileName>
@@ -1611,10 +1611,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>10</ColumnNumber>
+      <ColumnNumber>16</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>348</TopLine>
-      <CurrentLine>384</CurrentLine>
+      <TopLine>307</TopLine>
+      <CurrentLine>361</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\APP\app_mma8451.c</PathWithFileName>
       <FilenameWithoutPath>app_mma8451.c</FilenameWithoutPath>
@@ -1643,10 +1643,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>324</TopLine>
-      <CurrentLine>309</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\APP\app_wifi.c</PathWithFileName>
       <FilenameWithoutPath>app_wifi.c</FilenameWithoutPath>

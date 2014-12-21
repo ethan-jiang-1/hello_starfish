@@ -44,9 +44,9 @@ extern volatile  uint8_t Measured;
 extern LWSEM_STRUCT     g_lptmr_int_sem;
 extern volatile bool bSysActive;
 extern volatile bool bVLPSMode;
-extern void putmma8451standby();
-extern void putmma8451detect();
-extern void putmma8451running();
+extern void enablemma8451standby();
+extern void enablemma8451detect();
+extern void enablemma8451running();
 //////////////
 void SetSysStatus(uint_8 sys);
 ////////////////dma end test
@@ -164,7 +164,7 @@ for(;;)
 					if(bInitOpen==FALSE)
 					{
 						bInitOpen=TRUE;
-					//	putmma8451running();
+					//	enablemma8451running();
 						SysTick_PDD_EnableDevice(SysTick_BASE_PTR, PDD_ENABLE);
 					}
 					
@@ -178,7 +178,7 @@ for(;;)
 					if(bInitStill==FALSE)
 					{
 						bInitStill=TRUE;
-						putmma8451detect();
+						enablemma8451detect();
 					}
 					enter_vlps();
 		case 	VLPSMODE:
@@ -188,7 +188,7 @@ for(;;)
 					if(bInitVLPS==FALSE)
 					{
 						bInitVLPS=TRUE;
-						putmma8451standby();
+						enablemma8451standby();
 					}
 					enter_vlps();
     default:

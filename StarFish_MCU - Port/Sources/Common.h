@@ -36,6 +36,13 @@ typedef struct {
   volatile bool Sent;
   volatile bool Received;
 } TDataState;
+/*
+
+ACTIVE_OPEN: light sensro is on: acc in running; cpu in running mode.
+ACTIVE_STILL: light is on but not moving for 1 minute: acc in motion detection and cpu in vlps mode;
+VLPSMODE: light is off: light is off: acc in standby;  cpu in vlps mode.
+
+*/
 
   typedef enum {
       VLPSMODE = 0,

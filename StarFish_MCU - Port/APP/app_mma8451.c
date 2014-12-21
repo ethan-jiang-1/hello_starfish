@@ -36,9 +36,9 @@ static LWSEM_STRUCT     g_mma8451_int_sem;
 
 uint_8 accStatus=0;
 uint_16 z_angle_tmp=0;
-void putmma8451standby();
-void putmma8451detect();
-void putmma8451running();
+void enablemma8451standby();
+void enablemma8451detect();
+void enablemma8451running();
 
 uint_8 GetAccStatus()
 {
@@ -242,7 +242,7 @@ static void mma8451_getdata(void)
 //    _lwsem_post(&g_mma8451_alarm_sem);
 
 }
-void putmma8451standby()
+void enablemma8451standby()
 {
 	byte Data;
 	LDD_TError      ret;
@@ -250,10 +250,11 @@ void putmma8451standby()
      * Put the device into Standby Mode
      * Register 0x2A CTRL_REG1
      */
-    // Set the device in 100 Hz ODR, Standby
+    // Set the device in 12.5  Hz ODR, Standby
     // 0001 1000
-    // 0x18
+    // 0x18==>100HZ; 0X28===>12.5HZ
     Data = 0x28;
+	APP_TRACE("putmma8451standby \r\n");
     ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
     if (!ret)
     {
@@ -274,94 +275,12 @@ void putmma8451standby()
 	SetAccStatus(ACC_STANDBY);
 }
 
-void putmma8451running()
+void enablemma8451running()
 {
 		byte Data;
 	LDD_TError      ret;
-	 // Put the device in Active Mode
-    ret = ReadAccRegs(g_I2C_DeviceData,
-                      &g_DataState,
-                      CTRL_REG_1,
-                      ACC_REG_SIZE,
-                      &Data);
-    if (ret)
-    {
-        Data |= 0x01;
-        ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
-        if (!ret)
-        {
-            APP_TRACE("write MMA8451 [0x%.2X] error\r\n", CTRL_REG_1);
-        }
-    }
-    else
-    {
-        APP_TRACE("Put the device in Active Mode error\r\n", CTRL_REG_5, Data);
-    }
-		SetAccStatus(ACC_RUNNING);
-}
-void putmma8451detect()
-{
-	
-	
-}
-void    app_mma8451_control_task(uint32_t task_init_data)
-{
-    LDD_TError      ret;
-    byte            Data;
-    float           ths;
-    _mqx_uint       mqx_ret;
-
-    APP_TRACE("MMA8451 control task start...\r\n");
-
-    // wait MMA8451 start...
-    _time_delay_ticks(2*30);
-    APP_TRACE("init MMA8451...\r\n");
-    g_I2C_DeviceData = I2C_Init(&g_DataState);
-
-    /*
-     * read MMA8451 ID
-     */
-    ret = ReadAccRegs(g_I2C_DeviceData,
-                      &g_DataState,
-                      WHO_AM_I,
-                      ACC_REG_SIZE,
-                      &Data);
-    if (ret)
-    {
-        APP_TRACE("MMA8451 ID: 0x%X\r\n", Data);
-    }
-    else
-    {
-        APP_TRACE("read MMA8451 ID error\r\n");
-    }
-
-    /*
-     * Put the device into Standby Mode
-     * Register 0x2A CTRL_REG1
-     */
-    // Set the device in 12.5 Hz ODR, Standby
-    // 0001 1000
-    // 0x28
-    Data = 0x28;
-    ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
-    if (!ret)
-    {
-        APP_TRACE("write MMA8451 [0x%.2X] error\r\n", CTRL_REG_1);
-    }
-
-    // read the 0x2A register again
-    Data = 0;
-    ret = ReadAccRegs(g_I2C_DeviceData,
-                      &g_DataState,
-                      CTRL_REG_1,
-                      ACC_REG_SIZE,
-                      &Data);
-    if (Data != 0x28)
-    {
-        APP_TRACE("MMA8451 [0x%.2X] error[0x%.2X != 0x18]\r\n", CTRL_REG_1, Data);
-    }
-
-   /*write 2g mode ---XYZ_DATA_CFG*/
+		enablemma8451standby();
+	    /*write 2g mode ---XYZ_DATA_CFG*/
 		Data=0x0;
 		WriteAccRegs(g_I2C_DeviceData, &g_DataState, XYZ_DATA_CFG, ACC_REG_SIZE, &Data);
 	 
@@ -375,9 +294,9 @@ void    app_mma8451_control_task(uint32_t task_init_data)
 		WriteAccRegs(g_I2C_DeviceData, &g_DataState, 0x09, ACC_REG_SIZE, &Data);
 		
 		 /*
-    ** Enable the fifo interrupt and route it to INT1.
+    ** Enable the FIFO and route it to INT1.
     */
-    Data = INT_EN_FIFO_MASK;//INT_EN_FF_MT_MASK;
+    Data = INT_EN_FIFO_MASK;
     ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_4, ACC_REG_SIZE, &Data);
     if (ret == FALSE)
     {
@@ -389,12 +308,12 @@ void    app_mma8451_control_task(uint32_t task_init_data)
                       CTRL_REG_4,
                       ACC_REG_SIZE,
                       &Data);
-    if (Data != INT_EN_FIFO_MASK)//INT_EN_FF_MT_MASK)
+    if (Data != INT_EN_FIFO_MASK)
     {
         APP_TRACE("MMA8451 [0x%.2X] = 0x%.2X != 0x0A\r\n", CTRL_REG_4, Data);
     }
 
-    Data = INT_CFG_FIFO_MASK;//INT_CFG_FF_MT_MASK;
+    Data = INT_CFG_FIFO_MASK;
     ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_5, ACC_REG_SIZE, &Data);
     if (ret == FALSE)
     {
@@ -430,8 +349,158 @@ void    app_mma8451_control_task(uint32_t task_init_data)
         APP_TRACE("Put the device in Active Mode error\r\n", CTRL_REG_5, Data);
     }
 
-    APP_TRACE("MMA8451 Configuring Motion Detection OK!\r\n");
+    APP_TRACE("MMA8451 Configuring RUNNING  OK!\r\n");
+		SetAccStatus(ACC_RUNNING);
+}
 
+
+ /* Configuring the MMA8451 for Motion Detection
+     * FF/MT Config
+     */
+    // Enable Latch, Motion, X-axis, Y-axis
+    // 1101 1000
+void enablemma8451detect()
+{
+	LDD_TError      ret;
+    byte            Data;
+		 float           ths;
+		enablemma8451standby();
+	  Data = 0xd8;
+    ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, FF_MT_CFG_REG, ACC_REG_SIZE, &Data);
+	{
+        APP_TRACE("write MMA8451 [0x%.2X] error\r\n", CTRL_REG_1);
+   }
+	 
+//    /*
+//     * Setting the Threshold for Motion Detection
+//     * FF_MT_THS
+//     */
+//    //Set Threshold to counts
+    ths = 0.3;
+    Data = (byte)(ths/0.063);
+    ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, FT_MT_THS_REG, ACC_REG_SIZE, &Data);
+    if (ret == FALSE)
+    {
+        APP_TRACE("Setting the Threshold for Motion Detection error\r\n");
+    }
+    ret = ReadAccRegs(g_I2C_DeviceData,
+                      &g_DataState,
+                      FT_MT_THS_REG,
+                      ACC_REG_SIZE,
+                      &Data);
+    if (ret)
+    {
+        APP_TRACE("Threshold [0x%.2X] = 0x%.2X[%d]\r\n", FT_MT_THS_REG, Data, Data);
+    }
+
+    /*
+     * Setting theDebounce Counter
+     * 100Hz = 0.01
+     * 0x0A*0.01 = 0.1(100ms)
+     */
+    Data = 0x05;
+    ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, FF_MT_COUNT_REG, ACC_REG_SIZE, &Data);
+    if (ret == FALSE)
+    {
+        APP_TRACE("Setting [0x%.2X] error\r\n", FF_MT_COUNT_REG);
+    }
+    ret = ReadAccRegs(g_I2C_DeviceData,
+                      &g_DataState,
+                      FF_MT_COUNT_REG,
+                      ACC_REG_SIZE,
+                      &Data);
+    if (Data != 0x0A)
+    {
+        APP_TRACE("MMA8451 [0x%.2X] = 0x%.2X != 0x0A\r\n", FF_MT_COUNT_REG, Data);
+    }
+				 /*
+    ** Enable the FIFO and route it to INT1.
+    */
+    Data = INT_EN_FF_MT_MASK;//INT_EN_FF_MT_MASK;
+    ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_4, ACC_REG_SIZE, &Data);
+    if (ret == FALSE)
+    {
+        //APP_TRACE("Motion interrupt error\r\n");
+			APP_TRACE("Data ready interrupt error\r\n");
+    }
+    ret = ReadAccRegs(g_I2C_DeviceData,
+                      &g_DataState,
+                      CTRL_REG_4,
+                      ACC_REG_SIZE,
+                      &Data);
+    if (Data != INT_EN_FF_MT_MASK)
+    {
+        APP_TRACE("MMA8451 [0x%.2X] = 0x%.2X != 0x0A\r\n", CTRL_REG_4, Data);
+    }
+
+    Data = INT_CFG_FF_MT_MASK;
+    ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_5, ACC_REG_SIZE, &Data);
+    if (ret == FALSE)
+    {
+        APP_TRACE("route it to INT1 error\r\n");
+    }
+    ret = ReadAccRegs(g_I2C_DeviceData,
+                      &g_DataState,
+                      CTRL_REG_5,
+                      ACC_REG_SIZE,
+                      &Data);
+    if (Data != INT_CFG_FF_MT_MASK)
+    {
+        APP_TRACE("MMA8451 [0x%.2X] = 0x%.2X != 0x0A\r\n", CTRL_REG_5, Data);
+    }
+		// Put the device in Active Mode
+    ret = ReadAccRegs(g_I2C_DeviceData,
+                      &g_DataState,
+                      CTRL_REG_1,
+                      ACC_REG_SIZE,
+                      &Data);
+    if (ret)
+    {
+        Data |= 0x01;
+        ret = WriteAccRegs(g_I2C_DeviceData, &g_DataState, CTRL_REG_1, ACC_REG_SIZE, &Data);
+        if (!ret)
+        {
+            APP_TRACE("write MMA8451 [0x%.2X] error\r\n", CTRL_REG_1);
+        }
+    }
+    else
+    {
+        APP_TRACE("Put the device in Active Mode error\r\n", CTRL_REG_5, Data);
+    }
+		SetAccStatus(ACC_STILL);
+    APP_TRACE("MMA8451 Configuring Motion Detection OK!\r\n");
+	
+}
+void    app_mma8451_control_task(uint32_t task_init_data)
+{
+   LDD_TError      ret;
+    byte            Data;
+    float           ths;
+    _mqx_uint       mqx_ret;
+    APP_TRACE("MMA8451 control task start...\r\n");
+    // wait MMA8451 start...
+    APP_TRACE("init MMA8451...\r\n");
+    g_I2C_DeviceData = I2C_Init(&g_DataState);
+
+    /*
+     * read MMA8451 ID
+     */
+    ret = ReadAccRegs(g_I2C_DeviceData,
+                      &g_DataState,
+                      WHO_AM_I,
+                      ACC_REG_SIZE,
+                      &Data);
+    if (ret)
+    {
+        APP_TRACE("MMA8451 ID: 0x%X\r\n", Data);
+    }
+    else
+    {
+        APP_TRACE("read MMA8451 ID error\r\n");
+    }
+
+		enablemma8451standby();
+		enablemma8451running();
     init_PTA14_interrupt();
 
     mqx_ret = _lwsem_create(&g_mma8451_int_sem, 0);
