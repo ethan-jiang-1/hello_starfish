@@ -1,7 +1,7 @@
 .\uv4build\processorexpert.o: ./Sources/ProcessorExpert.c
 .\uv4build\processorexpert.o: .\Generated_Code\Cpu.h
 .\uv4build\processorexpert.o: .\Generated_Code\PE_Types.h
-.\uv4build\processorexpert.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\processorexpert.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\processorexpert.o: .\Generated_Code\PE_Error.h
 .\uv4build\processorexpert.o: .\Generated_Code\PE_Const.h
 .\uv4build\processorexpert.o: .\Generated_Code\IO_Map.h
@@ -45,7 +45,7 @@
 .\uv4build\processorexpert.o: .\Sources\derivative.h
 .\uv4build\processorexpert.o: .\Sources\TSS\TSS_API.h
 .\uv4build\processorexpert.o: .\Generated_Code\CsIO1.h
-.\uv4build\processorexpert.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\uv4build\processorexpert.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\uv4build\processorexpert.o: .\Generated_Code\IO1.h
 .\uv4build\processorexpert.o: .\Generated_Code\PWMTimerRGB.h
 .\uv4build\processorexpert.o: .\Generated_Code\IO_Map.h

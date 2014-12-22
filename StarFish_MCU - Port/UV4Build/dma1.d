@@ -1,7 +1,7 @@
 .\uv4build\dma1.o: common\drivers\dma\DMA1.c
 .\uv4build\dma1.o: common\drivers\dma\DMA1.h
 .\uv4build\dma1.o: .\Generated_Code\io_map.h
-.\uv4build\dma1.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\dma1.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\dma1.o: .\APP\app_trace.h
 .\uv4build\dma1.o: .\common\drivers\uart.h
 .\uv4build\dma1.o: .\Generated_Code\PE_Types.h
@@ -49,7 +49,7 @@
 .\uv4build\dma1.o: .\Sources\derivative.h
 .\uv4build\dma1.o: .\Sources\TSS\TSS_API.h
 .\uv4build\dma1.o: .\Generated_Code\CsIO1.h
-.\uv4build\dma1.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\uv4build\dma1.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\uv4build\dma1.o: .\Generated_Code\IO1.h
 .\uv4build\dma1.o: .\Generated_Code\PWMTimerRGB.h
 .\uv4build\dma1.o: .\Generated_Code\IO_Map.h

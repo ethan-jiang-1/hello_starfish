@@ -1,7 +1,7 @@
 .\uv4build\smc.o: common\drivers\smc\smc.c
 .\uv4build\smc.o: common\drivers\smc\smc.h
 .\uv4build\smc.o: .\Generated_Code\io_map.h
-.\uv4build\smc.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\smc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\smc.o: .\Generated_Code\SystemTimer1.h
 .\uv4build\smc.o: .\Generated_Code\PE_Types.h
 .\uv4build\smc.o: .\Generated_Code\PE_Error.h

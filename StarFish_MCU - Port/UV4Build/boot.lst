@@ -2122,9 +2122,10 @@ ARM Macro Assembler    Page 33
 Command Line: --debug --xref --cpreproc --cpu=Cortex-M0+ --apcs=interwork --dep
 end=.\uv4build\boot.d -o.\uv4build\boot.o -I.\Generated_Code -I.\MQXLITE\includ
 e -I.\MQXLITE\kernel -I.\MQXLITE\psp\cortex_m -I.\MQXLITE\psp\cortex_m\compiler
-\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSI
-S\Include -IC:\Keil\ARM\Inc\Freescale\Kinetis --predefine="__MICROLIB SETA 1" -
--list=.\uv4build\boot.lst MQXLITE\psp\cortex_m\compiler\uv4\boot.S
+\uv4 -I.\MQXLITE\psp\cortex_m\core\M0 -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\AR
+M\CMSIS\Include -IC:\Keil_v5\ARM\Inc\Freescale\Kinetis --predefine="__MICROLIB 
+SETA 1" --predefine="MKL16Z256xxx4 SETA 1" --list=.\uv4build\boot.lst MQXLITE\p
+sp\cortex_m\compiler\uv4\boot.S
 
 
 
@@ -2282,4 +2283,4 @@ Symbol: _psp_undef_sp
       None
 Comment: _psp_undef_sp unused
 7 symbols
-348 symbols in table
+349 symbols in table

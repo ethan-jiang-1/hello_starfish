@@ -3,8 +3,8 @@
 
 
 /* 宏,用于定义w25x32的片选引脚 */
-#define SPI_FLASH_CS_LOW()       FGPIOB_PCOR |= 1 << 0;                            /* 配置CS1置低 */
-#define SPI_FLASH_CS_HIGH()      FGPIOB_PSOR |= 1 << 0;  
+#define SPI_FLASH_CS_LOW()       FGPIOE_PCOR |= 1 << 16;                            /* 配置CS1置低 */
+#define SPI_FLASH_CS_HIGH()      FGPIOE_PSOR |= 1 << 16;  
 
 /*********************************************************************************************************
 ** Function name     : ssp_init

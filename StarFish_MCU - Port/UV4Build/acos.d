@@ -1,2 +1,2 @@
 .\uv4build\acos.o: APP\acos.c
-.\uv4build\acos.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\uv4build\acos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

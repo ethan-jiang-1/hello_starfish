@@ -35,6 +35,7 @@
 #include "DMA1.H"
 #include "nvic.h"
 ///////////zga dma test
+#include "MKL_spi.h"
 
 LDD_TDeviceData *I2C_DeviceData = NULL;
 LDD_TDeviceData *PWMTimerRGB_DeviceData = NULL;
@@ -114,11 +115,20 @@ void Init_Task(uint32_t task_init_data)
 {
 		int tester=0;
 	//uint_8 sys=0;
-	bool bInitOpen, bInitStill, bInitVLPS=FALSE;
+	bool bInitOpen=FALSE;
+	bool bInitStill=FALSE;
+	bool bInitVLPS=FALSE;
+	int spiid=0;
 	MQX_TICK_STRUCT ttt;
 	 _mqx_uint       mqx_ret;
 	  trace_init();
 	 show_version_information();
+	////zg add for spi data flah
+	  spiInit(SPI0_BASE_PTR , Master);                                    /* init spi*/
+  spiid = flash_read_id();
+	/////////////end spi flash
+	APP_TRACE("flash id 0x%x\r\n", spiid);
+	///////////////
 		//////////////zga add
 	//Set LPTMR to timeout about 5 seconds
 		Lptmr_Init(5000, LPOCLK);	
@@ -147,6 +157,7 @@ for(;;)
 		//APP_TRACE("tester is: %d\r\n",tester);
 		_time_get_elapsed_ticks(&ttt);
           APP_TRACE("high ttt %d, low ttt%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
+		APP_TRACE("flash id 0x%x\r\n", spiid);
 		if(Measured)
 		{	Measured=0;
 				APP_TRACE ("%d, %d ,%d \r\n", (uint16_t) MeasuredValues[0],(uint16_t) MeasuredValues[1],tester);

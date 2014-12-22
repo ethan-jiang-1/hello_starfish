@@ -2,7 +2,7 @@
 .\uv4build\task_template_list.o: ./Generated_Code/task_template_list.h
 .\uv4build\task_template_list.o: .\Sources\mqx_tasks.h
 .\uv4build\task_template_list.o: .\Generated_Code\PE_Types.h
-.\uv4build\task_template_list.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\task_template_list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\task_template_list.o: .\Generated_Code\PE_Error.h
 .\uv4build\task_template_list.o: .\Generated_Code\PE_Const.h
 .\uv4build\task_template_list.o: .\Generated_Code\IO_Map.h
@@ -45,7 +45,7 @@
 .\uv4build\task_template_list.o: .\Sources\derivative.h
 .\uv4build\task_template_list.o: .\Sources\TSS\TSS_API.h
 .\uv4build\task_template_list.o: .\Generated_Code\CsIO1.h
-.\uv4build\task_template_list.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\uv4build\task_template_list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\uv4build\task_template_list.o: .\Generated_Code\IO1.h
 .\uv4build\task_template_list.o: .\Generated_Code\PWMTimerRGB.h
 .\uv4build\task_template_list.o: .\Generated_Code\IO_Map.h
@@ -53,12 +53,12 @@
 .\uv4build\task_template_list.o: .\Generated_Code\PE_LDD.h
 .\uv4build\task_template_list.o: .\APP\app_mma8451.h
 .\uv4build\task_template_list.o: .\Sources\MMA845xQ.h
-.\uv4build\task_template_list.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\uv4build\task_template_list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\uv4build\task_template_list.o: .\Sources\Common.h
 .\uv4build\task_template_list.o: .\APP\app_shell.h
 .\uv4build\task_template_list.o: .\common\shell\shell.h
 .\uv4build\task_template_list.o: .\common\shell\shell_cfg.h
-.\uv4build\task_template_list.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\uv4build\task_template_list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\uv4build\task_template_list.o: .\APP\app_trace.h
 .\uv4build\task_template_list.o: .\common\drivers\uart.h
 .\uv4build\task_template_list.o: .\Generated_Code\IO_Map.h

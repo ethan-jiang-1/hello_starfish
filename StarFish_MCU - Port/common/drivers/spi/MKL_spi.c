@@ -22,29 +22,14 @@ void spiInit (SPI_MemMapPtr SPI,uint_8 bMode)
 	/*
      *  SPI的管脚初始化
      */
-    PORTB_PCR0  |= PORT_PCR_MUX(1);                                     /* 开启PB0管脚GPIO功能 SPI0 CS1 */
-    PORTC_PCR5  |= PORT_PCR_MUX(2)|(uint32_t)~(uint32_t)PORT_PCR_MUX(5);                                   /* 开启PC5管脚SPI0功能 SPI0 SCK */
-    PORTC_PCR6  |= PORT_PCR_MUX(2)|(uint32_t)~(uint32_t)PORT_PCR_MUX(5);                                     /* 开启PC6管脚SPI0功能 SPI0 MOSI*/
-    PORTC_PCR7  |= PORT_PCR_MUX(2)|(uint32_t)~(uint32_t)PORT_PCR_MUX(5);                                     /* 开启PC7管脚SPI0功能 SPI0 MISO*/
-    FGPIOB_PSOR |= 1<<0;                                                /* 配置CS1置高                  */
-    FGPIOB_PDDR |= 1<<0;                                                /* 配置CS1为输出                */
+    PORTE_PCR16  |= PORT_PCR_MUX(1);                                     /* 开启PB0管脚GPIO功能 SPI0 CS1 */
+    PORTE_PCR17  |= PORT_PCR_MUX(2)|(uint32_t)~(uint32_t)PORT_PCR_MUX(5);                                   /* 开启PC5管脚SPI0功能 SPI0 SCK */
+    PORTE_PCR19  |= PORT_PCR_MUX(2)|(uint32_t)~(uint32_t)PORT_PCR_MUX(5);                                     /* 开启PC6管脚SPI0功能 SPI0 MOSI*/
+    PORTE_PCR18  |= PORT_PCR_MUX(2)|(uint32_t)~(uint32_t)PORT_PCR_MUX(5);                                     /* 开启PC7管脚SPI0功能 SPI0 MISO*/
+    FGPIOE_PSOR |= 1<<16;                                                /* 配置CS1置高                  */
+    FGPIOE_PDDR |= 1<<16;                                                /* 配置CS1为输出                */
     
-    /*
-     *  开启PA4 PD6管脚GPIO功能  按键输入上拉
-     */
-    PORTA_PCR4  |= (PORT_PCR_MUX(1) | PORT_PCR_PE_MASK);
-	  PORTD_PCR6  |= (PORT_PCR_MUX(1) | PORT_PCR_PE_MASK);
     
-		FGPIOB_PSOR |= 1<<18;                                               /* 配置GPIO 置高                */
-    FGPIOB_PDDR |= 1<<18;                                               /* 配置GPIO为输出               */
-    FGPIOB_PSOR |= 1<<19;                                               /* 配置GPIO 置高                */
-    FGPIOB_PDDR |= 1<<19;                                               /* 配置GPIO为输出               */
-    FGPIOD_PSOR |= 1<<1;                                                /* 配置GPIO 置高                */
-    FGPIOD_PDDR |= 1<<1;                                                /* 配置GPIO为输出               */
-    
-    FGPIOA_PDDR &= ~(1<<4);                                             /* 配置GPIO为输入               */
-		FGPIOD_PDDR &= ~(1<<6);
-	//////////end io initlization
 	
     SIM_SCGC4 |= SIM_SCGC4_SPI0_MASK;                                   /* 开启SPI0                     */
                                                                         /* CPOL = 0, SCK 为低有效       */

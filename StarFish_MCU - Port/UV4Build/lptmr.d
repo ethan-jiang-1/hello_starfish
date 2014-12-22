@@ -1,7 +1,7 @@
 .\uv4build\lptmr.o: common\drivers\lptmr\lptmr.c
 .\uv4build\lptmr.o: common\drivers\lptmr\lptmr.h
 .\uv4build\lptmr.o: .\Generated_Code\io_map.h
-.\uv4build\lptmr.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\lptmr.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\lptmr.o: .\APP\app_trace.h
 .\uv4build\lptmr.o: .\common\drivers\uart.h
 .\uv4build\lptmr.o: .\Generated_Code\PE_Types.h
@@ -49,7 +49,7 @@
 .\uv4build\lptmr.o: .\Sources\derivative.h
 .\uv4build\lptmr.o: .\Sources\TSS\TSS_API.h
 .\uv4build\lptmr.o: .\Generated_Code\CsIO1.h
-.\uv4build\lptmr.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\uv4build\lptmr.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\uv4build\lptmr.o: .\Generated_Code\IO1.h
 .\uv4build\lptmr.o: .\Generated_Code\PWMTimerRGB.h
 .\uv4build\lptmr.o: .\Generated_Code\IO_Map.h

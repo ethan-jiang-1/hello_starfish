@@ -1,0 +1,173 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.12.0.0
+Copyright (C) 2014 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: g z, tri, LIC=9N0WF-60L42-NRVXL-0NA1S-E9BM4-27GSP
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.12.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 (build 41)
+Assembler:       Armasm.exe V5.05 (build 41)
+Linker/Locator:  ArmLink.exe V5.05 (build 41)
+Library Manager: ArmAr.exe V5.05 (build 41)
+Hex Converter:   FromElf.exe V5.05 (build 41)
+CPU DLL:         SARMCM3.DLL V5.12.0.0
+Dialog DLL:      DARMCM1.DLL V1.11.00.0
+    Target DLL: Segger\JL2CM3.dll
+Dialog DLL:      TARMCM1.DLL V1.08.00.0
+ 
+<h2>Project:</h2>
+D:\starfish\StarFish_MCU - Port\StarFish_MCU.uvproj
+Project File Date:  12/04/2014
+
+<h2>Output:</h2>
+Build target 'MKL26Z128xxx4'
+compiling app_mma8451.c...
+APP\acos.h(2): warning:  #1-D: last line of file ends without a newline
+  extern const int acos_array[];
+APP\app_mma8451.c(39): warning:  #1295-D: Deprecated declaration enablemma8451standby - give arg types
+  void enablemma8451standby();
+APP\app_mma8451.c(40): warning:  #1295-D: Deprecated declaration enablemma8451detect - give arg types
+  void enablemma8451detect();
+APP\app_mma8451.c(41): warning:  #1295-D: Deprecated declaration enablemma8451running - give arg types
+  void enablemma8451running();
+APP\app_mma8451.c(110): warning:  #68-D: integer conversion resulted in a change of sign
+                        return -1; // return error code.
+APP\app_mma8451.c(160): warning:  #177-D: variable "j" was declared but never referenced
+                int i,j=0;
+APP\app_mma8451.c(492): warning:  #177-D: variable "ths" was declared but never referenced
+      float           ths;
+APP\app_mma8451.c: 7 warnings, 0 errors
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=34680 RO-data=1372 RW-data=120 ZI-data=11312  
+Finished: 0 information, 1 warning and 0 error messages.
+After Build - User command #1: C:\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Error(s), 8 Warning(s).
+</pre>
+</body>
+</html>
+: variable "ths" was declared but never referenced
+      float           ths;
+APP\app_mma8451.c: 7 warnings, 0 errors
+linking...
+.\Project_Settings\Linker_Files\ProcessorExpert.scf(46): warning: L6314W: No section matches pattern *.o(RESET).
+Program Size: Code=34596 RO-data=1372 RW-data=120 ZI-data=11312  
+Finished: 0 information, 1 warning and 0 error messages.
+After Build - User command #1: C:\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --m32combined --output=.\UV4Build\StarFish_MCU.srec .\UV4Build\StarFish_MCU.axf
+After Build - User command #2: C:\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bincombined --output=.\UV4Build\StarFish_MCU.bin .\UV4Build\StarFish_MCU.axf
+".\UV4Build\StarFish_MCU.axf" - 0 Error(s), 13 Warning(s).
+Load "D:\\starfish\\StarFish_MCU - Port\\UV4Build\\StarFish_MCU.axf" 
+* JLink Info: Device "CORTEX-M0" selected (0 KB flash, 0 KB RAM).
+Set JLink Project File to "D:\starfish\StarFish_MCU - Port\JLinkSettings.ini"
+* JLink Info: Device "CORTEX-M0" selected (0 KB flash, 0 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.91b, compiled Sep 15 2014 09:17:56
+Firmware: J-Link ARM V8 compiled Dec  1 2015 11:42:48
+Hardware: V8.00
+S/N : 20080643 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x0BC11477
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+* JLink Info: FPUnit: 2 code (BP) slots and 0 literal slots
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: MKL16Z256xxx4
+VTarget = 3.203V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 2
+Software-Breakpoints: 8192
+Watchpoints:          2
+JTAG speed: 500 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+***JLink Error: Communication timed out: Requested 8 bytes, received 0 bytes !
+Could not start CPU core. (ErrorCode: -1)
+Application running ...
+.
+***JLink Error: Communication timed out: Requested 8 bytes, received 0 bytes !
+Could not start CPU core. (ErrorCode: -1)
+Application running ...
+Load "D:\\starfish\\StarFish_MCU - Port\\UV4Build\\StarFish_MCU.axf" 
+* JLink Info: Device "CORTEX-M0" selected (0 KB flash, 0 KB RAM).
+Set JLink Project File to "D:\starfish\StarFish_MCU - Port\JLinkSettings.ini"
+* JLink Info: Device "CORTEX-M0" selected (0 KB flash, 0 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.91b, compiled Sep 15 2014 09:17:56
+Firmware: J-Link ARM V8 compiled Dec  1 2015 11:42:48
+Hardware: V8.00
+S/N : 20080643 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x0BC11477
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+* JLink Info: FPUnit: 2 code (BP) slots and 0 literal slots
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: MKL16Z256xxx4
+VTarget = 3.203V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 2
+Software-Breakpoints: 8192
+Watchpoints:          2
+JTAG speed: 500 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+***JLink Error: Communication timed out: Requested 8 bytes, received 0 bytes !
+Could not start CPU core. (ErrorCode: -1)
+Application running ...
+Load "D:\\starfish\\StarFish_MCU - Port\\UV4Build\\StarFish_MCU.axf" 
+* JLink Info: Device "CORTEX-M0" selected (0 KB flash, 0 KB RAM).
+Set JLink Project File to "D:\starfish\StarFish_MCU - Port\JLinkSettings.ini"
+* JLink Info: Device "CORTEX-M0" selected (0 KB flash, 0 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.91b, compiled Sep 15 2014 09:17:56
+Firmware: J-Link ARM V8 compiled Dec  1 2015 11:42:48
+Hardware: V8.00
+S/N : 20080643 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x0BC11477
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+* JLink Info: FPUnit: 2 code (BP) slots and 0 literal slots
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: MKL16Z256xxx4
+VTarget = 3.203V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 2
+Software-Breakpoints: 8192
+Watchpoints:          2
+JTAG speed: 500 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+***JLink Error: Communication timed out: Requested 8 bytes, received 0 bytes !
+Could not start CPU core. (ErrorCode: -1)
+Application running ...

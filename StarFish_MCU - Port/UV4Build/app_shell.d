@@ -2,12 +2,12 @@
 .\uv4build\app_shell.o: APP\app_shell.h
 .\uv4build\app_shell.o: .\common\shell\shell.h
 .\uv4build\app_shell.o: .\common\shell\shell_cfg.h
-.\uv4build\app_shell.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
-.\uv4build\app_shell.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\uv4build\app_shell.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\uv4build\app_shell.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\uv4build\app_shell.o: .\APP\app_trace.h
 .\uv4build\app_shell.o: .\common\drivers\uart.h
 .\uv4build\app_shell.o: .\Generated_Code\PE_Types.h
-.\uv4build\app_shell.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\app_shell.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\app_shell.o: .\Generated_Code\PE_Error.h
 .\uv4build\app_shell.o: .\Generated_Code\PE_Const.h
 .\uv4build\app_shell.o: .\Generated_Code\IO_Map.h
@@ -52,7 +52,7 @@
 .\uv4build\app_shell.o: .\Sources\derivative.h
 .\uv4build\app_shell.o: .\Sources\TSS\TSS_API.h
 .\uv4build\app_shell.o: .\Generated_Code\CsIO1.h
-.\uv4build\app_shell.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\uv4build\app_shell.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\uv4build\app_shell.o: .\Generated_Code\IO1.h
 .\uv4build\app_shell.o: .\Generated_Code\PWMTimerRGB.h
 .\uv4build\app_shell.o: .\Generated_Code\IO_Map.h

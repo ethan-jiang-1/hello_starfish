@@ -1,9 +1,9 @@
 .\uv4build\app_mma8451.o: APP\app_mma8451.c
 .\uv4build\app_mma8451.o: APP\app_mma8451.h
 .\uv4build\app_mma8451.o: .\Generated_Code\PE_Types.h
-.\uv4build\app_mma8451.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\app_mma8451.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\app_mma8451.o: .\Sources\MMA845xQ.h
-.\uv4build\app_mma8451.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\uv4build\app_mma8451.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\uv4build\app_mma8451.o: .\Generated_Code\Cpu.h
 .\uv4build\app_mma8451.o: .\Generated_Code\PE_Error.h
 .\uv4build\app_mma8451.o: .\Generated_Code\PE_Const.h
@@ -51,7 +51,7 @@
 .\uv4build\app_mma8451.o: .\Sources\derivative.h
 .\uv4build\app_mma8451.o: .\Sources\TSS\TSS_API.h
 .\uv4build\app_mma8451.o: .\Generated_Code\CsIO1.h
-.\uv4build\app_mma8451.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\uv4build\app_mma8451.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\uv4build\app_mma8451.o: .\Generated_Code\IO1.h
 .\uv4build\app_mma8451.o: .\Generated_Code\PWMTimerRGB.h
 .\uv4build\app_mma8451.o: .\Generated_Code\IO_Map.h
@@ -65,4 +65,4 @@
 .\uv4build\app_mma8451.o: .\common\drivers\nvic.h
 .\uv4build\app_mma8451.o: APP\acos.h
 .\uv4build\app_mma8451.o: APP\app_trace.h
-.\uv4build\app_mma8451.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\uv4build\app_mma8451.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

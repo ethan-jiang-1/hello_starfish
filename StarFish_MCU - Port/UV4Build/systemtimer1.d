@@ -1,7 +1,7 @@
 .\uv4build\systemtimer1.o: ./Generated_Code/SystemTimer1.c
 .\uv4build\systemtimer1.o: ./Generated_Code/MQX1.h
 .\uv4build\systemtimer1.o: ./Generated_Code/PE_Types.h
-.\uv4build\systemtimer1.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\systemtimer1.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\systemtimer1.o: ./Generated_Code/PE_Error.h
 .\uv4build\systemtimer1.o: ./Generated_Code/PE_Const.h
 .\uv4build\systemtimer1.o: ./Generated_Code/IO_Map.h

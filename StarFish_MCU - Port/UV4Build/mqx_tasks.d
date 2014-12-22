@@ -1,7 +1,7 @@
 .\uv4build\mqx_tasks.o: ./Sources/mqx_tasks.c
 .\uv4build\mqx_tasks.o: .\Generated_Code\Cpu.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\PE_Types.h
-.\uv4build\mqx_tasks.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\mqx_tasks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\PE_Error.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\PE_Const.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\IO_Map.h
@@ -45,7 +45,7 @@
 .\uv4build\mqx_tasks.o: .\Sources\derivative.h
 .\uv4build\mqx_tasks.o: .\Sources\TSS\TSS_API.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\CsIO1.h
-.\uv4build\mqx_tasks.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\uv4build\mqx_tasks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\IO1.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\PWMTimerRGB.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\IO_Map.h
@@ -53,11 +53,11 @@
 .\uv4build\mqx_tasks.o: .\Generated_Code\PE_LDD.h
 .\uv4build\mqx_tasks.o: ./Sources/mqx_tasks.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\IO_Map.h
-.\uv4build\mqx_tasks.o: C:\Keil\ARM\ARMCC\bin\..\include\cstdlib
-.\uv4build\mqx_tasks.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\uv4build\mqx_tasks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdlib
+.\uv4build\mqx_tasks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\uv4build\mqx_tasks.o: ./Sources/Common.h
 .\uv4build\mqx_tasks.o: ./Sources/MMA845xQ.h
-.\uv4build\mqx_tasks.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\uv4build\mqx_tasks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\uv4build\mqx_tasks.o: .\APP\app_trace.h
 .\uv4build\mqx_tasks.o: .\common\drivers\uart.h
 .\uv4build\mqx_tasks.o: .\Generated_Code\IO_Map.h
@@ -70,3 +70,5 @@
 .\uv4build\mqx_tasks.o: .\common\drivers\dma\DMA1.H
 .\uv4build\mqx_tasks.o: .\Generated_Code\io_map.h
 .\uv4build\mqx_tasks.o: .\common\drivers\nvic.h
+.\uv4build\mqx_tasks.o: .\common\drivers\spi\MKL_spi.h
+.\uv4build\mqx_tasks.o: .\Generated_Code\io_map.h

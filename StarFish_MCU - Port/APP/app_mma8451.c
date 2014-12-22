@@ -61,7 +61,7 @@ static void MMA8451_INT1_isr_service(void* p_arg);
   *         Interrupt on falling edge
   *
   */
-void    init_PTA14_interrupt(void)
+void    init_MMA8451_interrupt(void)
 {
     INT_ISR_FPTR isr;
 
@@ -69,13 +69,15 @@ void    init_PTA14_interrupt(void)
     // ALT1
     /* PORTA_PCR14: ISF=0, MUX=1, IQRC=0x0A(1010), PE=1, PS=1 */
 		/*zga: in kl25, this pin is connected from chip to mcu*/
-    PORTA_PCR14 = 0x000A0103;
-    GPIOA_PDDR &= ~(1<<14);
-
+		/*But in our cup design, pte5 is used as interrupt pin*/
+   // PORTA_PCR14 = 0x000A0103;
+    //GPIOA_PDDR &= ~(1<<14);
+	  PORTE_PCR5  = 0x000A0103;                                
+		GPIOE_PDDR &= ~(1<<5);
     isr = _int_install_isr(LDD_ivIndex_INT_PORTA, MMA8451_INT1_isr_service, NULL);
     ASSERT_PARAM(isr != NULL);
 
-    // ENABLE PTA14 Falling interrupt
+    // ENABLE PTE5 Falling interrupt
     enable_irq(30);
     set_irq_priority(30, 2);
 }
@@ -189,9 +191,21 @@ static void mma8451_getdata(void)
                       &Data);
     if (ret)
     {
-			// APP_TRACE("interrupt source: 0x%X\r\n", Data);
+			 APP_TRACE("interrupt source: 0x%X\r\n", Data);
         // Set up Case statement here to service all of the possible interrupts
-        if ((Data &SRC_FIFO_MASK) == 0x40)
+			if ((Data &0x04) == 0x04) //detection interrupt
+        {
+					APP_TRACE("get detect interrupt\r\n");
+            //Perform an Action since Motion Flag has been set
+            //Read the Motion/Freefall Function to clear the interrupt
+            ret = ReadAccRegs(g_I2C_DeviceData,
+                              &g_DataState,
+                              FF_MT_SRC_REG,
+                              ACC_REG_SIZE,
+                              &Data);
+					 enablemma8451running();
+        }
+        if ((Data &SRC_FIFO_MASK) == 0x40) // FIFO Data interrupt
         {
 	
 					ret = ReadAccRegs(g_I2C_DeviceData, &g_DataState, OUT_X_MSB, 192 * ACC_REG_SIZE, Color);  // Read x,y,z acceleration data.
@@ -501,7 +515,7 @@ void    app_mma8451_control_task(uint32_t task_init_data)
 
 		enablemma8451standby();
 		enablemma8451running();
-    init_PTA14_interrupt();
+    init_MMA8451_interrupt();
 
     mqx_ret = _lwsem_create(&g_mma8451_int_sem, 0);
     ASSERT_PARAM(MQX_OK == mqx_ret);

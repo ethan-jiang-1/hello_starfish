@@ -1,12 +1,12 @@
 .\uv4build\mqxlite.o: MQXLITE\kernel\mqxlite.c
-.\uv4build\mqxlite.o: C:\Keil\ARM\ARMCC\bin\..\include\setjmp.h
+.\uv4build\mqxlite.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\setjmp.h
 .\uv4build\mqxlite.o: .\MQXLITE\include\mqx_inc.h
 .\uv4build\mqxlite.o: .\MQXLITE\include\mqx_cnfg.h
 .\uv4build\mqxlite.o: .\Generated_Code\user_config.h
 .\uv4build\mqxlite.o: .\MQXLITE\include\mqxlite_cnfg.h
 .\uv4build\mqxlite.o: .\Generated_Code\PE_LDD.h
 .\uv4build\mqxlite.o: .\Generated_Code\PE_Types.h
-.\uv4build\mqxlite.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\uv4build\mqxlite.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\uv4build\mqxlite.o: .\Generated_Code\PE_Error.h
 .\uv4build\mqxlite.o: .\Generated_Code\PE_Const.h
 .\uv4build\mqxlite.o: .\Generated_Code\MQX1.h
@@ -46,7 +46,7 @@
 .\uv4build\mqxlite.o: .\Sources\derivative.h
 .\uv4build\mqxlite.o: .\Sources\TSS\TSS_API.h
 .\uv4build\mqxlite.o: .\Generated_Code\CsIO1.h
-.\uv4build\mqxlite.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\uv4build\mqxlite.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\uv4build\mqxlite.o: .\Generated_Code\IO1.h
 .\uv4build\mqxlite.o: .\Generated_Code\PWMTimerRGB.h
 .\uv4build\mqxlite.o: .\Generated_Code\IO_Map.h
