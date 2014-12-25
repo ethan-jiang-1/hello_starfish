@@ -290,7 +290,11 @@ void PE_low_level_init(void)
                  PORT_PCR_MUX(0x07)
                 ));                                  
   /* NVIC_IPR1: PRI_6=0 */
-  NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));                                   
+  NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));  
+	/*ambient_light sensor value*/
+	    PORTE_PCR22 = (uint32_t)(
+                               PORT_PCR_MUX(0x00)
+                               );
   /* ### TSS_Library "TSS1" init code ... */
   /* Write code here ... */
 

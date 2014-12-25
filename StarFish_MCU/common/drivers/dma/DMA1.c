@@ -175,7 +175,8 @@ volatile uint8_t Measured;
 // seconcd onfiguration array coreesponding to channels selecting A/B pins
 // For example: 0 + PIN_A corresponds to the pin ADC0_SE0,   5 + PIN_5 selects the pin ADC0_SE5b
 // You can use these arrays to reorder the measurement as you need
-const uint8_t ChannelsCfg [ADC_CHANNELS_COUNT + 1] =  { 26,27, 0x1F };
+//const uint8_t ChannelsCfg [ADC_CHANNELS_COUNT + 1] =  { 26,27, 0x1F };
+const uint8_t ChannelsCfg [ADC_CHANNELS_COUNT + 1] =  { 26,3, 0x1F };
 const uint8_t ChannelsCfg2[ADC_CHANNELS_COUNT + 1] =  {PIN_A, PIN_A, 0 };
 
 // buffer for resulting measured values

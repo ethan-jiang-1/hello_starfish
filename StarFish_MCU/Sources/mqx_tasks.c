@@ -123,7 +123,7 @@ void Init_Task(uint32_t task_init_data)
 	 show_version_information();
 		//////////////zga add
 	//Set LPTMR to timeout about 5 seconds
-		Lptmr_Init(5000, LPOCLK);	
+		Lptmr_Init(1000, LPOCLK);	
 		ADC_Init();
 		Calibrate_ADC();
 		ADC_Init();
@@ -151,7 +151,7 @@ for(;;)
           APP_TRACE("high ttt %d, low ttt%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
 		if(Measured)
 		{	Measured=0;
-				APP_TRACE ("%d, %d ,%d \r\n", (uint16_t) MeasuredValues[0],(uint16_t) MeasuredValues[1],tester);
+			APP_TRACE ("light: %d ,%d \r\n", (uint16_t) MeasuredValues[1],tester);
 		}
 		if((GetTouchON()==TRUE))
 			{
