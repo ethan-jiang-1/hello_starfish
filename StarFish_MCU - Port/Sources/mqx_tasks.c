@@ -36,6 +36,7 @@
 #include "nvic.h"
 ///////////zga dma test
 #include "MKL_spi.h"
+#include "w25x32.h"
 
 LDD_TDeviceData *I2C_DeviceData = NULL;
 LDD_TDeviceData *PWMTimerRGB_DeviceData = NULL;
@@ -118,7 +119,11 @@ void Init_Task(uint32_t task_init_data)
 	bool bInitOpen=FALSE;
 	bool bInitStill=FALSE;
 	bool bInitVLPS=FALSE;
+	int i=0;
 	int spiid=0;
+	
+	uint8_t BufferW[256];
+	uint8_t BufferR[300];
 	MQX_TICK_STRUCT ttt;
 	 _mqx_uint       mqx_ret;
 	  trace_init();
@@ -128,6 +133,9 @@ void Init_Task(uint32_t task_init_data)
   spiid = flash_read_id();
 	/////////////end spi flash
 	APP_TRACE("flash id 0x%x\r\n", spiid);
+	
+	
+	
 	///////////////
 		//////////////zga add
 	//Set LPTMR to timeout about 5 seconds
@@ -143,9 +151,24 @@ void Init_Task(uint32_t task_init_data)
 	 _task_create_at(0, MMA8415_TASK, 0, mma8451_task_stack, MMA8451_TASK_STACK_SIZE);
 	
 		Lptmr_Start();
-	
-
-	
+	//--------------------For Test Only----------------------
+	//Terry SPI flash TEST
+	APP_TRACE("SPI Flash Programe Test Start");
+	for(i=0;i<256;i++)
+	{
+		BufferW[i]=i;
+		BufferR[i]=0;
+	}
+	flash_write_status(BLOCK_PROTECTION_LOCK_DOWN_NULL);
+	flash_block_erase(0x300000);
+	flash_write_word (0x300000, BufferW, 256	);
+	flash_read_data (0x2FFFF0, BufferR, 300);
+	for( i=0;i<300;i++)
+	{
+			APP_TRACE("%d=0x%x \r\n", i,BufferR[i]);
+	}
+	APP_TRACE("-------------Done-----------\r\n");
+	//--------------------Test DONE---------------------------------
 for(;;)
 	{
 		 mqx_ret = _lwsem_wait(&g_lptmr_int_sem);

@@ -9,16 +9,26 @@
 *********************************************************************************************************/
 #define W25X32_BLOCK_SIZE                  0x00010000		                    /* The size of block            */
 #define W25X32_SECTOR_SIZE                 0x00001000                          /* The size of sector           */ 
-#define W25X32_PAGE_SIZE                   256ul      		                    /* The size of page             */
+#define W25X32_PAGE_SIZE                   256ul      		                    /* The size of page   
+*/
 
+
+#define BLOCK_PROTECTION_LOCK_DOWN_NULL				 0x00 
+#define BLOCK_PROTECTION_LOCK_DOWN_UP_1_OF_64  0x01
+#define BLOCK_PROTECTION_LOCK_DOWN_UP_1_OF_32  0x02
+#define BLOCK_PROTECTION_LOCK_DOWN_UP_1_OF_16  0x03
+#define BLOCK_PROTECTION_LOCK_DOWN_UP_1_OF_8   0x04
+#define BLOCK_PROTECTION_LOCK_DOWN_UP_1_OF_4   0x05
+#define BLOCK_PROTECTION_LOCK_DOWN_UP_1_OF_2   0x06
+#define BLOCK_PROTECTION_LOCK_DOWN_ALL          0x07
 /*********************************************************************************************************
 ** Function name     : ssp_init
 ** Descriptions      : Inialize ssp controller
 ** Input parameters  : none
 ** Output parameters : none
 *********************************************************************************************************/
-extern void SSPInit(void);
-extern uint8_t flash_write_sector (uint32_t WAddr, uint8_t *buf, uint32_t WLength);
+void SSPInit(void);
+uint8_t flash_write_sector (uint32_t WAddr, uint8_t *buf, uint32_t WLength);
 
 
 /*********************************************************************************************************
@@ -27,9 +37,9 @@ extern uint8_t flash_write_sector (uint32_t WAddr, uint8_t *buf, uint32_t WLengt
 ** Input parameters  : none
 ** Output parameters : Flash IDcode
 *********************************************************************************************************/
-extern uint16_t flash_read_id (void);
+uint16_t flash_read_id (void);
 
-extern uint8_t flash_read_status ( void );
+uint8_t flash_read_status ( void );
 
 
 /*********************************************************************************************************
@@ -39,7 +49,7 @@ extern uint8_t flash_read_status ( void );
 ** Output parameters : buf      -- the buffer to receive the read data
 **                     RLength	-- the length of the data to read
 *********************************************************************************************************/
-extern uint8_t flash_read_data (uint32_t RAddr, uint8_t *buf, uint32_t RLength);
+uint8_t flash_read_data (uint32_t RAddr, uint8_t *buf, uint32_t RLength);
 
 
 /*********************************************************************************************************
@@ -49,7 +59,7 @@ extern uint8_t flash_read_data (uint32_t RAddr, uint8_t *buf, uint32_t RLength);
 ** Output parameters : buf      -- the buffer to write the data
 **                     RLength	-- the length of the data to write
 *********************************************************************************************************/							
-extern uint8_t flash_write_data (uint32_t WAddr, uint8_t *buf, uint32_t WLength);
+uint8_t flash_write_data (uint32_t WAddr, uint8_t *buf, uint32_t WLength);
 
 
 /*********************************************************************************************************
@@ -58,7 +68,7 @@ extern uint8_t flash_write_data (uint32_t WAddr, uint8_t *buf, uint32_t WLength)
 ** Input parameters  : None
 ** Output parameters : None
 *********************************************************************************************************/
-extern uint8_t flash_whole_erase( void );
+uint8_t flash_whole_erase( void );
 
 
 /*********************************************************************************************************
@@ -68,9 +78,9 @@ extern uint8_t flash_whole_erase( void );
 **                     endSec   -- end sector number
 ** Output parameters : None
 *********************************************************************************************************/
-extern uint8_t flash_sector_erase (uint32_t addr);
+uint8_t flash_sector_erase (uint32_t addr);
 
-
+uint8_t flash_block_erase (uint32_t addr);
 #endif
 /*********************************************************************************************************
   End Of File
