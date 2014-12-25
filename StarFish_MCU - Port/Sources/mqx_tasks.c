@@ -122,8 +122,8 @@ void Init_Task(uint32_t task_init_data)
 	int i=0;
 	int spiid=0;
 	
-	uint8_t BufferW[256];
-	uint8_t BufferR[300];
+	uint8_t BufferW[10];
+	uint8_t BufferR[10];
 	MQX_TICK_STRUCT ttt;
 	 _mqx_uint       mqx_ret;
 	  trace_init();
@@ -153,20 +153,25 @@ void Init_Task(uint32_t task_init_data)
 		Lptmr_Start();
 	//--------------------For Test Only----------------------
 	//Terry SPI flash TEST
-	APP_TRACE("SPI Flash Programe Test Start");
-	for(i=0;i<256;i++)
+	APP_TRACE("SPI Flash Programe Test Start\r\n");
+	for(i=0;i<10;i++)
 	{
 		BufferW[i]=i;
 		BufferR[i]=0;
 	}
 	flash_write_status(BLOCK_PROTECTION_LOCK_DOWN_NULL);
 	flash_block_erase(0x300000);
-	flash_write_word (0x300000, BufferW, 256	);
-	flash_read_data (0x2FFFF0, BufferR, 300);
-	for( i=0;i<300;i++)
+	flash_write_word (0x300000, BufferW, 10	);
+	flash_read_data (0x300000, BufferR, 10);
+	if(BufferR[5]==5)
 	{
-			APP_TRACE("%d=0x%x \r\n", i,BufferR[i]);
+		APP_TRACE("Spi Flash OK\r\n");		
 	}
+	else
+	{
+		APP_TRACE("Spi Flash error\r\n");
+	}
+	
 	APP_TRACE("-------------Done-----------\r\n");
 	//--------------------Test DONE---------------------------------
 for(;;)
