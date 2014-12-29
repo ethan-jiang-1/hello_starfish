@@ -4,11 +4,22 @@
 #include "bb_url.h"
 #include "ctype.h"
 #include "utils.h"
+BB_PARSED_URL BB_URL;
+#define URL_PARA 32
+char schema_buf[256];
+char url_password[URL_PARA];
+char url_host[URL_PARA];
+char url_port[URL_PARA];
+char url_path[URL_PARA];
+char url_fragment[URL_PARA];
+char url_query[128];
+char url_username[URL_PARA];
+//char encode_buf[256];
 /*
     Free memory of parsed url
 */
 void bb_parsed_url_free(BB_PARSED_URL *purl) 
-{
+{/*
     if (NULL != purl) {
 
         if (NULL != purl->scheme) 
@@ -37,6 +48,7 @@ void bb_parsed_url_free(BB_PARSED_URL *purl)
 
         qcom_mem_free(purl);
     }
+*/
 }
 
 /*
@@ -75,9 +87,19 @@ BB_PARSED_URL* bb_parse_url(const char *url)
     int i;
     int userpass_flag;
     int bracket_flag;
+    memset(&BB_URL,0,sizeof(BB_PARSED_URL));
+    memset(schema_buf,0,256);
+    memset(url_password,0,URL_PARA);
+	memset(url_host,0,URL_PARA);
+	memset(url_port,0,URL_PARA);
+	memset(url_path,0,URL_PARA);
+	memset(url_query,0,128);
+	memset(url_fragment,0,URL_PARA);
+	memset(url_username,0,URL_PARA);
+	memset(url_query,0,128);
 
     /* Allocate the parsed url storage */
-    purl = (BB_PARSED_URL *)qcom_mem_alloc(sizeof(BB_PARSED_URL));
+    purl = &BB_URL;//(BB_PARSED_URL *)qcom_mem_alloc(sizeof(BB_PARSED_URL));
     if (NULL == purl) {
         return NULL;
     }
@@ -120,7 +142,8 @@ BB_PARSED_URL* bb_parse_url(const char *url)
     }
 
     /* Copy the scheme to the storage */
-    purl->scheme = (char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+    purl->scheme = schema_buf;//(char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+  A_PRINTF("schema len:%d\r\n",sizeof(char) * (len + 1));
     if (NULL == purl->scheme) {
         bb_parsed_url_free(purl); 
         A_PRINTF("Error on line %d (%s)\n", __LINE__, __FILE__);
@@ -179,8 +202,8 @@ BB_PARSED_URL* bb_parse_url(const char *url)
         }
 
         len = tmpstr - curstr;
-        purl->username = (char *)qcom_mem_alloc(sizeof(char) * (len + 1));
-
+        purl->username = url_username;//(char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+  A_PRINTF("username len:%d\r\n",sizeof(char) * (len + 1));
         if (NULL == purl->username) {
             bb_parsed_url_free(purl); 
             A_PRINTF("Error on line %d (%s)\n", __LINE__, __FILE__);
@@ -202,7 +225,8 @@ BB_PARSED_URL* bb_parse_url(const char *url)
                 tmpstr++;
             }
             len = tmpstr - curstr;
-            purl->password = (char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+            purl->password = url_password;//(char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+  A_PRINTF("passwd len:%d\r\n",sizeof(char) * (len + 1));
             if (NULL == purl->password) {
                 bb_parsed_url_free(purl); 
                 A_PRINTF("Error on line %d (%s)\n", __LINE__, __FILE__);
@@ -243,7 +267,8 @@ BB_PARSED_URL* bb_parse_url(const char *url)
     }
 
     len = tmpstr - curstr;
-    purl->host = (char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+    purl->host = url_host;//(char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+  A_PRINTF("host len:%d\r\n",sizeof(char) * (len + 1));
     if (NULL == purl->host || len <= 0) {
         bb_parsed_url_free(purl); 
         A_PRINTF("Error on line %d (%s)\n", __LINE__, __FILE__);
@@ -265,8 +290,8 @@ BB_PARSED_URL* bb_parse_url(const char *url)
         }
 
         len = tmpstr - curstr;
-        purl->port = (char *)qcom_mem_alloc(sizeof(char) * (len + 1));
-
+        purl->port = url_port;//(char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+  A_PRINTF("port len:%d\r\n",sizeof(char) * (len + 1));
         if (NULL == purl->port) {
             bb_parsed_url_free(purl); 
             A_PRINTF("Error on line %d (%s)\n", __LINE__, __FILE__);
@@ -307,7 +332,8 @@ BB_PARSED_URL* bb_parse_url(const char *url)
     }
 
     len = tmpstr - curstr;
-    purl->path = (char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+    purl->path = url_path;//(char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+  A_PRINTF("path len:%d\r\n",sizeof(char) * (len + 1));
     if (NULL == purl->path) {
         bb_parsed_url_free(purl); 
         A_PRINTF("Error on line %d (%s)\n", __LINE__, __FILE__);
@@ -330,7 +356,8 @@ BB_PARSED_URL* bb_parse_url(const char *url)
         }
 
         len = tmpstr - curstr;
-        purl->query = (char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+        purl->query = url_query;//(char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+  A_PRINTF("query len:%d\r\n",sizeof(char) * (len + 1));
 
         if (NULL == purl->query) {
             bb_parsed_url_free(purl); 
@@ -356,8 +383,8 @@ BB_PARSED_URL* bb_parse_url(const char *url)
         }
 
         len = tmpstr - curstr;
-        purl->fragment = (char *)qcom_mem_alloc(sizeof(char) * (len + 1));
-
+        purl->fragment = url_fragment;//(char *)qcom_mem_alloc(sizeof(char) * (len + 1));
+  A_PRINTF("frag len:%d\r\n",sizeof(char) * (len + 1));
         if (NULL == purl->fragment) {
             bb_parsed_url_free(purl); 
             A_PRINTF("Error on line %d (%s)\n", __LINE__, __FILE__);
@@ -385,7 +412,8 @@ static char to_hex(char code)
 char* bb_urlencode(char *str) 
 {
     char *pstr = str, *buf = (char *)qcom_mem_alloc(strlen(str) * 3 + 1), *pbuf = buf;
-
+   //memset(encode_buf,0,256);
+  A_PRINTF("encode len:%d\r\n",(strlen(str) * 3 + 1));
     while (*pstr) {
 
         if (isalnum(*pstr) || *pstr == '-' || *pstr == '_' || *pstr == '.' || *pstr == '~') 

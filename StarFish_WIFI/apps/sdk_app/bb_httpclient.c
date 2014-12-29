@@ -7,7 +7,12 @@
 #include "bb_httpclient.h"
 
 #define BUFSIZ 1024
-
+BB_HTTP_RESPONSE hresp_buf;
+struct sockaddr_in remote_sockaddr;
+char response[BUFSIZ];
+char http_headers_buf[1024];
+char upwd_buf[512];
+char auth_buf[512];
 extern A_UINT32 _inet_addr(A_CHAR *str);
 
 /*
@@ -107,11 +112,9 @@ BB_HTTP_RESPONSE* http_req(char *http_headers, BB_PARSED_URL *purl)
     struct sockaddr_in *remote;
 
     /* Allocate memeory for htmlcontent */
-    BB_HTTP_RESPONSE *hresp = (BB_HTTP_RESPONSE *)qcom_mem_alloc(sizeof(BB_HTTP_RESPONSE));
-    if (hresp == NULL) {
-        A_PRINTF("Unable to allocate memory for htmlcontent.");
-        return NULL;
-    }
+  //  BB_HTTP_RESPONSE *hresp = (BB_HTTP_RESPONSE *)qcom_mem_alloc(sizeof(BB_HTTP_RESPONSE));
+    memset(&hresp_buf,0,sizeof(BB_HTTP_RESPONSE));
+    BB_HTTP_RESPONSE *hresp = &hresp_buf;
     hresp->body = NULL;
     hresp->request_headers = NULL;
     hresp->response_headers = NULL;
@@ -125,8 +128,9 @@ BB_HTTP_RESPONSE* http_req(char *http_headers, BB_PARSED_URL *purl)
     }
 
     /* Set remote->sin_addr.s_addr */
-    remote = (struct sockaddr_in *)qcom_mem_alloc(sizeof(struct sockaddr_in));
-
+   // remote = (struct sockaddr_in *)qcom_mem_alloc(sizeof(struct sockaddr_in));
+    memset(&remote_sockaddr,0,sizeof(remote_sockaddr));
+    remote =  &remote_sockaddr;
     remote->sin_family      = AF_INET;
     remote->sin_addr.s_addr = htonl(_inet_addr(purl->ip));
 
@@ -157,54 +161,89 @@ BB_HTTP_RESPONSE* http_req(char *http_headers, BB_PARSED_URL *purl)
         sent += tmpres;
     }
 
-    A_PRINTF("Send http header = %s\r\n", http_headers);
+    A_PRINTF("zg Send http header = %s\r\n", http_headers);
 
     /* Recieve into response*/
-    char *response = (char *)qcom_mem_alloc(0);
-    char *pBuf     = (char *)qcom_mem_alloc(BUFSIZ);
-
+    //char *response = (char *)qcom_mem_alloc(0);
+  //  char *response     = (char *)qcom_mem_alloc(BUFSIZ);//static char response_buf[BUFSIZ];
+   // memset(response_buf,0,BUFSIZ);
+    //memset(pBuf,0,BUFSIZ);
+    //char *response     = response_buf;
     int recived_len = 0;
+    int  response_pos=0;
+    q_fd_set fdRead;
 
-    while ((recived_len = qcom_recv(sock, pBuf, BUFSIZ - 1, 0)) > 0) {
-        pBuf[recived_len] = '\0';
-        response = (char *)qcom_mem_realloc(response, strlen(response) + strlen(pBuf) + 1);
-        sprintf(response, "%s%s", response, pBuf);
+    // Define event wait time
+    struct timeval aTime;
+    aTime.tv_sec  = 5;
+    aTime.tv_usec = 0;
+
+    // Zero fdRead event
+    FD_ZERO(&fdRead);
+
+    // Set client socket read event
+    FD_SET(sock, &fdRead);
+
+    // Select, check whether there is any event happen
+    int ret = qcom_select(sock + 1, &fdRead, NULL, NULL, &aTime); 
+
+    if (ret > 0) {
+        
+        if (FD_ISSET(sock, &fdRead)) {
+
+            while ((recived_len = qcom_recv(sock, &response[response_pos], BUFSIZ - 1, 0)) > 0) {
+		response_pos+=recived_len;
+		A_PRINTF("recived_len1:%d,response_pos:%d\r\n",recived_len,response_pos);
+                
+            }
+        }
     }
-
-    if (recived_len < 0) {
-
-        qcom_mem_free(http_headers);
-        qcom_mem_free(pBuf);
-
-        qcom_close(sock);
-        A_PRINTF("Unabel to recieve\r\n");
-
-        return NULL;
+    else {
+        A_PRINTF("Timeout in qcom_select\r\n");
+        goto ERRRO_HANDLE;
+    }
+     A_PRINTF("recived_len2:%d\r\n",recived_len);
+    if(response_pos>0)
+	{
+	 response[response_pos]='\0';	
+	}
+	
+    if (recived_len < 0 || strlen(response) == 0) {
+        A_PRINTF("No data receive\r\n");
+        goto ERRRO_HANDLE;
     }
 
     A_PRINTF("Received resp = %s\r\n", response);
 
-    qcom_mem_free(pBuf);
+   // qcom_mem_free(pBuf);
+    A_PRINTF("response add1 = 0x%x\r\n", response);
 
-    /* Reallocate response */
-    response = (char *)qcom_mem_realloc(response, strlen(response) + 1);
 
     /* Close socket */
     qcom_close(sock);
-
-    /* Parse status code and text */
+     A_PRINTF("response add2 = 0x%x\r\n", response);
+if(0)
+{
+     /* Parse status code and text */
     char *status_line = get_until(response, "\r\n");
+     A_PRINTF("status_line add1 = 0x%x\r\n", status_line);
     status_line = str_replace("HTTP/1.1 ", "", status_line);
+    A_PRINTF("status_line add2 = 0x%x\r\n", status_line);
     char *status_code = str_ndup(status_line, 4);
+    A_PRINTF("status_code  add1= 0x%x\r\n", status_code );
     status_code = str_replace(" ", "", status_code);
+    A_PRINTF("status_code  add2= 0x%x\r\n", status_code );
     char *status_text = str_replace(status_code, "", status_line);
+    A_PRINTF("status_text add1 = 0x%x\r\n", status_text );
     status_text = str_replace(" ", "", status_text);
+    A_PRINTF("status_text add2 = 0x%x\r\n", status_text );
     hresp->status_code = status_code;
     hresp->status_code_int = atoi(status_code);
     hresp->status_text = status_text;
 
     /* Parse response headers */
     char *headers = get_until(response, "\r\n\r\n");
+      A_PRINTF("headers  = %s\r\n", headers );
     hresp->response_headers = headers;
 
     /* Assign request headers */
@@ -215,11 +254,21 @@ BB_HTTP_RESPONSE* http_req(char *http_headers, BB_PARSED_URL *purl)
 
     /* Parse body */
     char *body = strstr(response, "\r\n\r\n");
+    A_PRINTF("body  = %s\r\n", body );
     body = str_replace("\r\n\r\n", "", body);
     hresp->body = body;
-
+}
     /* Return response */
     return hresp;
+
+ERRRO_HANDLE:
+   // qcom_mem_free(http_headers);
+    //qcom_mem_free(pBuf);
+
+    qcom_close(sock);
+    A_PRINTF("Unabel to recieve\r\n");
+
+    return NULL; 
 }
 
 /*
@@ -235,8 +284,10 @@ BB_HTTP_RESPONSE* http_get(char *url, char *custom_headers)
     }
 
     /* Declare variable */
-    char *http_headers = (char *)qcom_mem_alloc(1024);
-
+ //   char *http_headers = (char *)qcom_mem_alloc(1024);//static char http_headers_buf[1024];
+	memset(http_headers_buf,0,1024);
+      char *http_headers = http_headers_buf;
+	
     /* Build query/headers */
     if (purl->path != NULL) {
         if (purl->query != NULL) {
@@ -255,7 +306,8 @@ BB_HTTP_RESPONSE* http_get(char *url, char *custom_headers)
     /* Handle authorisation if needed */
     if (purl->username != NULL) {
         /* Format username:password pair */
-        char *upwd = (char *)qcom_mem_alloc(1024);
+	memset(upwd_buf,0,512);
+        char *upwd = upwd_buf;//(char *)qcom_mem_alloc(1024);//char upwd_buf[512]
         sprintf(upwd, "%s:%s", purl->username, purl->password);
         upwd = (char *)qcom_mem_realloc(upwd, strlen(upwd) + 1);
 
@@ -263,12 +315,13 @@ BB_HTTP_RESPONSE* http_get(char *url, char *custom_headers)
         char *base64 = bb_base64_encode(upwd);
 
         /* Form header */
-        char *auth_header = (char *)qcom_mem_alloc(1024);
+	memset(auth_buf,0,512);
+        char *auth_header = auth_buf;//(char *)qcom_mem_alloc(1024);// char auth_buf[512]
         sprintf(auth_header, "Authorization: Basic %s\r\n", base64);
-        auth_header = (char *)qcom_mem_realloc(auth_header, strlen(auth_header) + 1);
+    //    auth_header = (char *)qcom_mem_realloc(auth_header, strlen(auth_header) + 1);
 
         /* Add to header */
-        http_headers = (char *)qcom_mem_realloc(http_headers, strlen(http_headers) + strlen(auth_header) + 2);
+      //  http_headers = (char *)qcom_mem_realloc(http_headers, strlen(http_headers) + strlen(auth_header) + 2);
         sprintf(http_headers, "%s%s", http_headers, auth_header);
     }
 
@@ -279,7 +332,7 @@ BB_HTTP_RESPONSE* http_get(char *url, char *custom_headers)
         sprintf(http_headers, "%s\r\n", http_headers);
     }
 
-    http_headers = (char *)qcom_mem_realloc(http_headers, strlen(http_headers) + 1);
+    //http_headers = (char *)qcom_mem_realloc(http_headers, strlen(http_headers) + 1);
 
     /* Make request and return response */
     BB_HTTP_RESPONSE *hresp = http_req(http_headers, purl);
