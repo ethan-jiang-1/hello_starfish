@@ -145,6 +145,7 @@ BB_HTTP_RESPONSE* http_req(char *http_headers, BB_PARSED_URL *purl)
     if (qcom_connect(sock, (struct sockaddr *)remote, sizeof(struct sockaddr)) < 0) {
         A_PRINTF("Could not connect, remote IP = %s(%08X), port = %d\r\n", 
                  purl->ip, remote->sin_addr.s_addr, remote->sin_port);
+		qcom_close(sock);
         return NULL;
     }
 
@@ -309,7 +310,7 @@ BB_HTTP_RESPONSE* http_get(char *url, char *custom_headers)
 	memset(upwd_buf,0,512);
         char *upwd = upwd_buf;//(char *)qcom_mem_alloc(1024);//char upwd_buf[512]
         sprintf(upwd, "%s:%s", purl->username, purl->password);
-        upwd = (char *)qcom_mem_realloc(upwd, strlen(upwd) + 1);
+       // upwd = (char *)qcom_mem_realloc(upwd, strlen(upwd) + 1);
 
         /* Base64 encode */
         char *base64 = bb_base64_encode(upwd);
@@ -358,7 +359,8 @@ BB_HTTP_RESPONSE* http_post(char *url, char *custom_headers, char *post_data)
     }
 
     /* Declare variable */
-    char *http_headers = (char *)qcom_mem_alloc(1024);
+		memset(http_headers_buf,0,1024);
+      char *http_headers = http_headers_buf;
 
     /* Build query/headers */
     if (purl->path != NULL) {
@@ -378,17 +380,21 @@ BB_HTTP_RESPONSE* http_post(char *url, char *custom_headers, char *post_data)
     /* Handle authorisation if needed */
     if (purl->username != NULL) {
         /* Format username:password pair */
-        char *upwd = (char *)qcom_mem_alloc(1024);
+       // char *upwd = (char *)qcom_mem_alloc(1024);
+		memset(upwd_buf,0,512);
+        char *upwd = upwd_buf;
         sprintf(upwd, "%s:%s", purl->username, purl->password);
-        upwd = (char *)qcom_mem_realloc(upwd, strlen(upwd) + 1);
+        //upwd = (char *)qcom_mem_realloc(upwd, strlen(upwd) + 1);
 
         /* Base64 encode */
         char *base64 = bb_base64_encode(upwd);
 
         /* Form header */
-        char *auth_header = (char *)qcom_mem_alloc(1024);
+       // char *auth_header = (char *)qcom_mem_alloc(1024);
+			memset(auth_buf,0,512);
+        char *auth_header = auth_buf;//(char *)qcom_mem_allo
         sprintf(auth_header, "Authorization: Basic %s\r\n", base64);
-        auth_header = (char *)qcom_mem_realloc(auth_header, strlen(auth_header) + 1);
+      //  auth_header = (char *)qcom_mem_realloc(auth_header, strlen(auth_header) + 1);
 
         /* Add to header */
         http_headers = (char *)qcom_mem_realloc(http_headers, strlen(http_headers) + strlen(auth_header) + 2);
@@ -402,11 +408,13 @@ BB_HTTP_RESPONSE* http_post(char *url, char *custom_headers, char *post_data)
         sprintf(http_headers, "%s\r\n%s", http_headers, post_data);
     }
 
-    http_headers = (char *)qcom_mem_realloc(http_headers, strlen(http_headers) + 1);
+  //  http_headers = (char *)qcom_mem_realloc(http_headers, strlen(http_headers) + 1);
 
     /* Make request and return response */
     BB_HTTP_RESPONSE *hresp = http_req(http_headers, purl);
-
+	    if (hresp == NULL) {
+        return NULL;
+    }
     /* Handle redirect */
     return handle_redirect_post(hresp, custom_headers, post_data);
 }
