@@ -359,7 +359,7 @@ A_STATUS MAIN_StartStationMode(A_CHAR *ssid, A_CHAR *passwd)
                 break;
             }
 
-            if (3 != retryCount) {
+            if (5 != retryCount) {
                 retryCount ++;
                 qcom_thread_msleep(3000);
             }
