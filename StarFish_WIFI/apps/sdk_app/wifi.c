@@ -11,9 +11,36 @@ static int socket_client_1 = 0;
 static int socket_client_2 = 0;
 static int socket_client_3 = 0;
 static int socket_client_4 = 0;
-
+extern A_INT32 uart_mcu_com ;
+extern A_INT32 uart_fd_com;
 #define MAX_CLIENTS (4)
 
+void GetImageFromCloud()
+{
+ // CLIOTA_Tftp(cli, ip_addr, file_name, partition_index,test_flag);
+
+ 
+}
+
+void PostDataToCloud()
+{
+
+}
+void WIFI_Task(A_UINT32 arg)
+{
+	//A_UINT32 len=5;
+	A_PRINTF("start wifi task\r\n");
+	 MAIN_ConfigWIFI();
+	//A_CHAR * uartstring= "hallo";
+	//A_CHAR * uartstring2="warld";
+	while(1) {
+		//qcom_uart_write(uart_mcu_com,uartstring,&len);
+		//qcom_uart_write(uart_fd_com,uartstring2,&len);
+		qcom_thread_msleep(1000);
+		}
+	
+
+}
 void WIFI_SendTask(A_UINT32 arg)
 {
     MEM_SHARE_t shareMem;

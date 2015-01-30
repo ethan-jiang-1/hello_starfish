@@ -5,8 +5,10 @@
 extern TX_QUEUE queue_share_uart2wifi;
 extern TX_QUEUE queue_share_wifi2uart;
 
-static A_INT32 uart_fd_com = -1;
-
+A_INT32 uart_fd_com = -1;
+A_INT32 uart_mcu_com = -1;
+extern void Uart_Rx_Pin_Set(int pin0,int pin1);
+extern void Uart_Tx_Pin_Set(int pin0,int pin1);
 void UART_Init(void) 
 {
     qcom_uart_para com_uart_cfg;
@@ -16,12 +18,18 @@ void UART_Init(void)
     com_uart_cfg.StopBits    = 1;
     com_uart_cfg.parity      = 0;
     com_uart_cfg.FlowControl = 0;
-
+//	Uart_Rx_Pin_Set(10,6);
+//	Uart_Tx_Pin_Set(11,7);
     qcom_uart_init();
 
-    uart_fd_com = qcom_uart_open((A_CHAR *)"UART1");
+  //  uart_fd_com = qcom_uart_open((A_CHAR *)"UART1");
+	
 
-    qcom_set_uart_config((A_CHAR *)"UART1", &com_uart_cfg);
+    //qcom_set_uart_config((A_CHAR *)"UART1", &com_uart_cfg);
+    
+    //uart_mcu_com = qcom_uart_open((A_CHAR *)"UART0");
+    //qcom_set_uart_config((A_CHAR *)"UART0", &com_uart_cfg);
+	
 }
 
 void UART_SendTask(A_UINT32 arg) 

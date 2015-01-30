@@ -2,39 +2,42 @@
 #include <qcom_cli.h>
 #include "main.h"
 
-#define APP_POOL_SIZE                 ( 8 * 512 )
+#define APP_POOL_SIZE                 ( 6 * 512 )
 
-#define WIFI_RECV_THREAD_STACK_SIZE   ( 3 * 512 )
-#define WIFI_SEND_THREAD_STACK_SIZE   ( 1 * 512 )
-#define UART_RECV_THREAD_STACK_SIZE   ( 1 * 512 )
-#define UART_SEND_THREAD_STACK_SIZE   ( 1 * 512 )
+#define WIFI_THREAD_STACK_SIZE   ( 4 * 512 )
+static TX_BYTE_POOL pool_main;
+extern void WIFI_Task(A_UINT32 arg);
+static TX_THREAD wifi_thread;
 
-#define WIFI2UART_QUEUE_SIZE  (20)
-#define UART2WIFI_QUEUE_SIZE  (20)
+//#define WIFI_SEND_THREAD_STACK_SIZE   ( 1 * 512 )
+//#define UART_RECV_THREAD_STACK_SIZE   ( 1 * 512 )
+//#define UART_SEND_THREAD_STACK_SIZE   ( 1 * 512 )
+
+//#define WIFI2UART_QUEUE_SIZE  (20)
+//#define UART2WIFI_QUEUE_SIZE  (20)
 
 extern void user_pre_init(void);
-extern void WIFI_RecvTask(A_UINT32 arg);
-extern void WIFI_SendTask(A_UINT32 arg);
+//extern void WIFI_RecvTask(A_UINT32 arg);
+//extern void WIFI_SendTask(A_UINT32 arg);
 
 extern void UART_Init(void); 
-extern void UART_RecvTask(A_UINT32 arg);
-extern void UART_SendTask(A_UINT32 arg); 
-
+//extern void UART_RecvTask(A_UINT32 arg);
+//extern void UART_SendTask(A_UINT32 arg); 
 extern A_INT32 CLICMDS_StartTelnetDaemon(void);
 
 extern TX_QUEUE queue_share;
 extern SYS_CONFIG_t sys_config;
-
+/*
 TX_QUEUE queue_share_uart2wifi;
 TX_QUEUE queue_share_wifi2uart;
 
-static TX_BYTE_POOL pool_main;
+
 
 static TX_THREAD wifi2uart_recv_thread;
 static TX_THREAD wifi2uart_send_thread;
 static TX_THREAD uart2wifi_recv_thread;
 static TX_THREAD uart2wifi_send_thread;
-
+*/
 static const A_UINT8 auchCRCHi[] =
 {
     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0,
@@ -394,7 +397,7 @@ void MAIN_ConfigWIFI()
     }
     else {
 
-        A_PRINTF("Start AP mode\n");
+        A_PRINTF("Start AP mode zga\n");
 
         status = MAIN_StartAPMode();
 
@@ -406,6 +409,29 @@ void MAIN_ConfigWIFI()
 
 void MAIN_StartAppDaemon()
 {
+  A_INT32 i;
+  A_CHAR *wifiThreadMemPtr;
+  tx_byte_pool_create(&pool_main, 
+                        "APP pool", 
+                        TX_POOL_CREATE_DYNAMIC, 
+                        APP_POOL_SIZE);
+    // Alloc the WIFI thread stack
+    tx_byte_allocate(&pool_main, 
+                     (VOID **)&wifiThreadMemPtr, 
+                     WIFI_THREAD_STACK_SIZE, 
+                     TX_NO_WAIT);
+
+    tx_thread_create(&wifi_thread, 
+                     "WIFI Thread", 
+                     (VOID (*)(ULONG))WIFI_Task,
+                     i, 
+                     wifiThreadMemPtr, 
+                     WIFI_THREAD_STACK_SIZE, 
+                     16, 
+                     16, 
+                     4, 
+                     TX_AUTO_START);
+/*
     A_INT32 i;
 
     UCHAR *qMemWifi2UartPtr;
@@ -511,6 +537,7 @@ void MAIN_StartAppDaemon()
                      16, 
                      4, 
                      TX_AUTO_START); 
+*/
 }
 
 
