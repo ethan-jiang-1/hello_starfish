@@ -17,6 +17,7 @@
 
 typedef struct 
 	{
+		uint_32	m_lAddr;
 		uint_32	m_lDataLen;
 		uint_32	m_lEndFlag;
 		uint_32	m_dwCheckSum;

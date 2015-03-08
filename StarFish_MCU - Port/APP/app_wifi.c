@@ -22,7 +22,7 @@ static uint_8  g_wifi_com_recv_buf[WIFI_RECV_BUF_SIZE];
 #define WIFI_TAG_HEADER				"%B1Q,"
 #define WIFI_IMAGE_TAG_HEADER							"%B1Q,300,"	
 #define WIFI_IMAGE_TAG_LEN								(sizeof(WIFI_IMAGE_TAG_HEADER) - 1)
-#define WIFI_IMAGE_CMD_HEADER_LEN						(sizeof("%B1Q,300,1000,1,0123456789"))
+#define WIFI_IMAGE_CMD_HEADER_LEN						(sizeof("%B1Q,300,12345678,1000,1,0123456789"))
 
 
 
@@ -69,31 +69,38 @@ static int ParseChecksum(uint_8 * pData, int dwLen)
 /**
 *--------------------------------------------------------------
   * WIFI picture cmd:
-	* %B1Q,ID,length, terminate flag, check sum,binary data.
+	* %B1Q,ID,flash start address,length, terminate flag, check sum,binary data.
 	* length means how many byte of binary data
 	*	terminate flag means it is the last frame image or not.
-	* %B1Q,IMAGE_ID(3000),1000,1,0015609326......  
+	* %B1Q,IMAGE_ID(300),12345678,1000,1,0015609326......  
   *--------------------------------------------------------------
   */
 static int  do_wifi_image_cmd(uint_8* pData)
 {
-//"%B1Q,300,1000,1,0123456789,"
+//"%B1Q,300,12345678,1000,1,0123456789,"
 	wifi_image_info info;
-	char szBuf[64] = {0};
+	char szBuf[64] = {0}; //reply message
+	char szAddr[9] = {0};
 	char szDataLen[5] = {0};
 	char szEndFlag[2] = {0};
 	char szCheckSum[11] = {0};
-	memcpy(szDataLen, pData + 9, 4);
-	memcpy(szEndFlag, pData + 14, 1);
-	memcpy(szCheckSum, pData + 16, 10);
+	memcpy(szDataLen, pData + 9, 8);
+	memcpy(szDataLen, pData + 18, 4);
+	memcpy(szEndFlag, pData + 23, 1);
+	memcpy(szCheckSum, pData + 25, 10);
+	info.m_lAddr=atoi(szAddr);
 	info.m_lDataLen = atoi(szDataLen);
 	info.m_lEndFlag = atoi(szEndFlag);
+/*disable check sum calculation 
 	info.m_dwCheckSum =ParseChecksum((uint_8*)(szCheckSum), strlen(szCheckSum));
 	if(verifyCheckSum(info.m_dwCheckSum, (uint_8 *)(pData+WIFI_IMAGE_CMD_HEADER_LEN), 
 			info.m_lDataLen))
+*/
 	{
 		
 		/*start to record spi*/
+		
+		/*end of flash write*/
 		APP_TRACE((const char*)g_wifi_com_recv_buf[WIFI_IMAGE_CMD_HEADER_LEN]);
 		snprintf(szBuf, sizeof(szBuf)-1, "%%B1P,0,0:1");
     uart0_send_string((uint8_t*)szBuf);
