@@ -1,5 +1,6 @@
 
 #include "w25x32.h"
+#include "partition.h"
 
 
 /* 宏,用于定义w25x32的片选引脚 */
@@ -9,6 +10,7 @@
 
 
 #define SPI_FLASH_CMD_SST_AAI_WORD_PROGRAM 0xAD
+
 
 /*********************************************************************************************************
 ** Function name     : ssp_init
@@ -545,6 +547,19 @@ uint8_t flash_write_word (uint32_t WAddr, uint16_t *buf, uint32_t WLength)
 	WRDI();
 	while (flash_read_status() & 0x01 != 0x00);	
 	return 1;
+
+}
+
+void EraseFile(uint32_t index)
+{
+	uint32_t StartSec=FIRSTFILESECTOR+index*IMAGESTEPSECTOR;
+	uint32_t EndSec=StartSec+IMAGESTEPSECTOR-1;
+	flash_sel_erases(StartSec,EndSec);
+}
+
+uint32_t GetFileStartAddr(uint32_t index)
+{
+	return (FIRSTFILESECTOR+index*IMAGESTEPSECTOR)*4096;
 
 }
 /*********************************************************************************************************

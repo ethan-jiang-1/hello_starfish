@@ -17,13 +17,13 @@
 
 typedef struct 
 	{
-		uint_32	m_lAddr;
+		uint_32	m_lFileIndex;
 		uint_32	m_lDataLen;
 		uint_32	m_lEndFlag;
 		uint_32	m_dwCheckSum;
 	} wifi_image_info;
 
-typedef void (*HandleFun) ();
+typedef void (*HandleFun) (uint32_t,uint32_t);
 typedef struct 
 	{
 		int	m_nID;

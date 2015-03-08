@@ -25,21 +25,23 @@ uint8_t wifi_task_stack[WIFI_TASK_STACK_SIZE];
 #define WIFI_IMAGE_TAG_LEN								(sizeof(WIFI_IMAGE_TAG_HEADER) - 1)
 #define WIFI_IMAGE_CMD_HEADER_LEN						(sizeof("%B1Q,300,12345678,1000,1,0123456789"))
 
-
+uint8_t gImgBStart=0;
+uint32_t gImgAddr=0;
 
 static void uart0_irq_handler(void* p_arg);
-void test1()
+void test1(uint32_t v1,uint32_t v2 )
 {
 	printf("test1\r\n");
 }
-void test2()
+void test2(uint32_t v1,uint32_t v2)
 {
 	printf("test2\r\n");
 }
 
-void test3()
+void test3(uint32_t v1,uint32_t v2)
 {
 	printf("test3\r\n");
+	EraseFile(v1);
 }
 
 bool verifyCheckSum( dword dwTargetCheckSum, uint_8 *pData, dword nDataLen )
@@ -70,10 +72,11 @@ static int ParseChecksum(uint_8 * pData, int dwLen)
 /**
 *--------------------------------------------------------------
   * WIFI picture cmd:
-	* %B1Q,ID,flash start address,length, terminate flag, check sum,binary data.
+	* %B1Q,ID,file index,length, terminate flag, check sum,binary data.
+	* file index: for exapmle, total 9999 image can be stored in the flash. 
 	* length means how many byte of binary data
 	*	terminate flag means it is the last frame image or not.
-	* %B1Q,IMAGE_ID(300),12345678,1000,1,0015609326......  
+	* %B1Q,IMAGE_ID(300),9999,1000,1,0015609326......  
   *--------------------------------------------------------------
   */
 static int  do_wifi_image_cmd(uint_8* pData)
@@ -81,17 +84,24 @@ static int  do_wifi_image_cmd(uint_8* pData)
 //"%B1Q,300,12345678,1000,1,0123456789,"
 	wifi_image_info info;
 	char szBuf[64] = {0}; //reply message
-	char szAddr[9] = {0};
+	char szFileIndex[5] = {0};
 	char szDataLen[5] = {0};
 	char szEndFlag[2] = {0};
 	char szCheckSum[11] = {0};
-	memcpy(szAddr, pData + 9, 8);
-	memcpy(szDataLen, pData + 18, 4);
-	memcpy(szEndFlag, pData + 23, 1);
-	memcpy(szCheckSum, pData + 25, 10);
-	info.m_lAddr=atoi(szAddr);
+	memcpy(szFileIndex, pData + 9, 4);
+	memcpy(szDataLen, pData + 14, 4);
+	memcpy(szEndFlag, pData + 19, 1);
+	memcpy(szCheckSum, pData + 21, 10);
+	info.m_lFileIndex=atoi(szFileIndex);
 	info.m_lDataLen = atoi(szDataLen);
 	info.m_lEndFlag = atoi(szEndFlag);
+/*if it is 1.img, get the start address of 1.img*/
+	if(gImgBStart==0)
+	{
+		gImgAddr=GetFileStartAddr(info.m_lFileIndex);
+		gImgBStart=1;
+	}
+	
 /*disable check sum calculation 
 	info.m_dwCheckSum =ParseChecksum((uint_8*)(szCheckSum), strlen(szCheckSum));
 	if(verifyCheckSum(info.m_dwCheckSum, (uint_8 *)(pData+WIFI_IMAGE_CMD_HEADER_LEN), 
@@ -100,13 +110,16 @@ static int  do_wifi_image_cmd(uint_8* pData)
 	{
 		
 		/*start to record spi*/
-		flash_write_data (info.m_lAddr,pData + 36 , info.m_lDataLen );
+		flash_write_data (gImgAddr,pData + 36 , info.m_lDataLen );
+		gImgAddr=gImgAddr+info.m_lDataLen;
 		APP_TRACE((const char*)g_wifi_com_recv_buf[WIFI_IMAGE_CMD_HEADER_LEN]);
 		/*end record flash*/
 		snprintf(szBuf, sizeof(szBuf)-1, "%%B1P,0,0:1");
     uart0_send_string((uint8_t*)szBuf);
 		if(info.m_lEndFlag==1)
 		{
+			gImgBStart=0;
+			gImgAddr=0;
 			/*send all data stored in flash to eink*/
 			
 		}
@@ -142,7 +155,7 @@ int HandleMessage(char* pData)
 		
 		if(funTbl[i].m_nID==id)
 		{
-			(*funTbl[i].m_pFunAddr)();
+			(*funTbl[i].m_pFunAddr)(para[1],para[2]);
 		}
 			
 	}		
@@ -193,7 +206,7 @@ void    do_cmd_wifidata(uint8_t length)
 		 }
 		 /*if it is not image related message(photo image and firmware image),
 		 * and then this message must belong to normal case:
-		 * %B1Q,ID, Parameter1, parmater2
+		 * %B1Q,ID, Parameter1, parmater2,par3.
 		 * Is it necessary to use terminate flag?
 		 */
 		 p = strstr((const char*)g_wifi_com_recv_buf, WIFI_TAG_HEADER);

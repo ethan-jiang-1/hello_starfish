@@ -21,6 +21,8 @@
 #define BLOCK_PROTECTION_LOCK_DOWN_UP_1_OF_4   0x05
 #define BLOCK_PROTECTION_LOCK_DOWN_UP_1_OF_2   0x06
 #define BLOCK_PROTECTION_LOCK_DOWN_ALL          0x07
+
+
 /*********************************************************************************************************
 ** Function name     : ssp_init
 ** Descriptions      : Inialize ssp controller
@@ -81,6 +83,9 @@ uint8_t flash_whole_erase( void );
 uint8_t flash_sector_erase (uint32_t addr);
 
 uint8_t flash_block_erase (uint32_t addr);
+
+void EraseFile(uint32_t index);
+uint32_t GetFileStartAddr(uint32_t index);
 #endif
 /*********************************************************************************************************
   End Of File
