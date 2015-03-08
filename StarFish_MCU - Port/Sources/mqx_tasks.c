@@ -37,6 +37,7 @@
 ///////////zga dma test
 #include "MKL_spi.h"
 #include "w25x32.h"
+#include "eink_display.h"
 
 LDD_TDeviceData *I2C_DeviceData = NULL;
 LDD_TDeviceData *PWMTimerRGB_DeviceData = NULL;

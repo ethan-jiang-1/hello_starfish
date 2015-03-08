@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "w25x32.h"
+#include "eink_display.h"
 
 #include "app_rgb_led.h"
 

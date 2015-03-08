@@ -1,6 +1,6 @@
 
 #include "w25x32.h"
-#include "partition.h"
+#include "eink_display.h"
 
 
 /* 宏,用于定义w25x32的片选引脚 */
