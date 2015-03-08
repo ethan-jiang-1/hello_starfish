@@ -10,6 +10,7 @@
 #include <qcom/qcom_utils.h>
 #include <qcom/qcom_nvram.h>
 #include "libcli.h"
+#include "main.h"
 
 #define QCA_PARTITION_NUM 4
 
@@ -24,6 +25,7 @@
 #define NVM_BLOCK_SZ 0x1000
 
 extern A_UINT32 _inet_addr(A_CHAR *str);
+extern SYS_CONFIG_t sys_config;
 
 typedef enum {
   QCA_OTA_PROTOCOL_TFTP = 0,
@@ -111,7 +113,7 @@ static void    CLIOTA_NvramGetActiveImagePartition(A_INT32 *partition);
 static A_INT32 CLIOTA_ParseImageHdr(A_UINT8 *buffer);
 static void    CLIOTA_CalculateImageChecksum(A_INT32 partition, A_CHAR *checksum);
 static void    CLIOTA_NvramSwapPartitionTblEntry(A_INT32 partition1, A_INT32 partition2);
-static A_INT32 CLIOTA_Tftp(struct cli_def *cli, A_INT32 ip_addr, A_CHAR *file_name, A_INT32 partition_index);
+static A_INT32 CLIOTA_Tftp(struct cli_def *cli, A_INT32 ip_addr, A_CHAR *file_name, A_INT32 partition_index,A_INT32 test_flag);
 
 /* TFTP buffer */
 static A_UINT8 *p_tftp_tx_buf = NULL;
@@ -249,6 +251,7 @@ static void CLIOTA_NvramLoadPartitionTable(void)
     /* load partition table */
     qcom_nvram_read(0, (A_UINT8 *) & qca_partition_tbl_base, 4);
     qcom_nvram_read(qca_partition_tbl_base, (A_UINT8 *) & qca_partition_entries[1], 12);
+ A_PRINTF("qca_partition_tbl_base= %d\n", qca_partition_tbl_base); 
 
     return;
 }
@@ -336,7 +339,7 @@ static void CLIOTA_CalculateImageChecksum(A_INT32 partition, A_CHAR *checksum)
 static A_INT32 CLIOTA_Tftp(struct cli_def *cli, 
                        A_INT32 ip_addr, 
                        A_CHAR *file_name, 
-                       A_INT32 partition_index)
+                       A_INT32 partition_index,A_INT32 test_flag)
 {
     A_INT32 ret = 0;
     A_INT32 fd, pkt_len, pkt_seq = 0, pkt_seq_last = 0;
@@ -360,7 +363,7 @@ static A_INT32 CLIOTA_Tftp(struct cli_def *cli,
 
     A_CHAR currentImageChecksum[MD5_CHECKSUM_LEN] = { 0 };
     A_CHAR lastImageChecksum[MD5_CHECKSUM_LEN]    = { 0 };
-
+    A_INT32 ii=0;
     /* In current design, if FLASH is 512KB, then only 2 partitions are supported.
        Partition 0 (0x0000-0010 - 0x000-3FFFF): Gloden image
        Partition 1 (0x0004-0000 - 0x000-7FFFF): User image (upgradable)
@@ -392,6 +395,8 @@ static A_INT32 CLIOTA_Tftp(struct cli_def *cli,
        |  Invalid         |  Invalid         |  Partition #0             |  Partition#1         | No                                |
        ------------------------------------------------------------------------------------
      */
+if(test_flag==0)
+{
     if (qca_partition_entries[2] == 0xFFFFFFFF) {
 
         /* Partition#2 invlaid, so it use 512KB FLASH */
@@ -425,8 +430,8 @@ static A_INT32 CLIOTA_Tftp(struct cli_def *cli,
             otaNeedSwapPartition = 1;
         }
     }
-
-    A_PRINTF("Current Partition = %d, Upgrade Partition = %d", currentPartition, upgradePartition);
+}
+	A_PRINTF("my test1\r\n");
 
     /* create UDP socket */
     fd = qcom_socket(PF_INET, SOCK_DGRAM, 0);
@@ -465,7 +470,7 @@ retry:
         /* wait for response from TFTP server */
         fd_act = 0;
         fd_act = qcom_select(fd + 1, &fd_sockSet, NULL, NULL, &tmo);
-
+	A_PRINTF("step 2.1\r\n");
         if (0 == fd_act) {
 
             /* timeout, retry */
@@ -481,14 +486,67 @@ retry:
                            sizeof (serv_addr));
             }
         }
-
         else {
+		A_PRINTF("step 2.2\r\n");
             if (FD_ISSET(fd, &fd_sockSet)) {
-
+		A_PRINTF("test_flag is:%d\r\n",test_flag);
                 from_size = sizeof (from_addr);
                 memset(p_tftp_rx_buf, 0, TFTP_RX_SIZE);
                 nRecv = qcom_recvfrom(fd, (A_CHAR *) p_tftp_rx_buf, TFTP_RX_SIZE, 0,
                                      (struct sockaddr *) &from_addr, &from_size);
+if(test_flag==1)
+{
+		A_PRINTF("yes test_flag\r\n");
+   
+	if (nRecv > 0) {
+	retry_times = 0;
+			A_PRINTF("step 1.1\r\n");
+                    /* parse for TFTP packet */
+                    OTACLI_TftpPktParse(p_tftp_rx_buf, nRecv, &pkt_seq, &tftp_state);
+                    if ((TFTP_ST_OACK == tftp_state) || (TFTP_ST_DATA == tftp_state)) {
+			A_PRINTF("step 1.2\r\n");
+                        /* acknolowdge TFTP_ DATA and TFTP_OACK */
+                        memset(p_tftp_tx_buf, 0, TFTP_TX_SIZE);
+                        OTACLI_TftpPktAck(pkt_seq, p_tftp_tx_buf, &pkt_len);
+                        serv_addr.sin_port = from_addr.sin_port;
+                        qcom_sendto(fd, (A_CHAR *) p_tftp_tx_buf, pkt_len, 0,
+                                   (struct sockaddr *) &serv_addr, sizeof (serv_addr));
+                    }
+
+                    else if (TFTP_ST_ERROR == tftp_state) {
+
+                        /* response: 0x1002 (file download fail) */
+                        ret = QCA_OTA_ERR_IMAGE_DOWNLOAD_FAIL;
+                        break;
+                    }
+	   if ((TFTP_ST_DATA == tftp_state) && (pkt_seq != pkt_seq_last)) {
+			A_PRINTF("step 1.3\r\n");
+
+			 pkt_seq_last = pkt_seq;
+
+                        /* skip TFTP header 4 bytes */
+                        data_blk_buf = (p_tftp_rx_buf + 4);
+                        data_blk_size = nRecv - 4;
+
+                        /* save data block to upgrade partition */
+                        if (data_blk_size >= 0) {
+
+                            blk_count++;
+                            total_rx_bytes += data_blk_size;
+                        }
+			for(ii=0;ii<data_blk_size;ii++)
+{
+			A_PRINTF("FTP DATA: 0x%x\r\n", (data_blk_buf+ii));
+}
+                        /* check if image reception complete */
+                        if (total_rx_bytes == ota_image_len) {
+			}
+		}
+	
+	}
+}
+if(test_flag==0)
+{
                 if (nRecv > 0) {
                     retry_times = 0;
 
@@ -613,6 +671,7 @@ retry:
                         }
                     }
                 }
+}
             }
 
             else {
@@ -627,7 +686,15 @@ retry:
     // Free rx buffer
     qcom_mem_free(p_tftp_tx_buf);
     qcom_mem_free(p_tftp_rx_buf);
+    if(test_flag==0)
+    ret = NVRAM_SaveSettings(&sys_config);
 
+            if (ret != A_OK) {
+                A_PRINTF("Save Settings Failed\n");
+            }
+	    else {
+                A_PRINTF("Save Settings ok\n");
+            }
     if (ret == QCA_OTA_OK)
         CLI_PRINTF("OTA upgrade finished!");
     else
@@ -641,7 +708,7 @@ static A_INT32 CLIOTA_Upgrade(struct cli_def *cli,
                    A_INT32 ip_addr, 
                    A_CHAR *file_name, 
                    A_INT32 protocol, 
-                   A_INT32 partition_index)
+                   A_INT32 partition_index,A_INT32 test_flag)
 {
     A_INT32 ret;
 
@@ -661,7 +728,7 @@ static A_INT32 CLIOTA_Upgrade(struct cli_def *cli,
     switch (protocol) {
     
     case QCA_OTA_PROTOCOL_TFTP:
-        ret = CLIOTA_Tftp(cli, ip_addr, file_name, partition_index);
+        ret = CLIOTA_Tftp(cli, ip_addr, file_name, partition_index,test_flag);
         break;
 
     default:
@@ -676,6 +743,7 @@ A_INT32 CLIOTA_FWUpgrade(struct cli_def *cli, const A_CHAR *command, A_CHAR *arg
 {
     A_UINT32 ota_server_ip = 0;
     A_CHAR *file_name = NULL;
+    A_INT32 test_flag=0;
 
     if (argc < 2) {
         cli_print(cli, "Usage: %s <OTA-server-ip> <image-name>", command);
@@ -685,6 +753,10 @@ A_INT32 CLIOTA_FWUpgrade(struct cli_def *cli, const A_CHAR *command, A_CHAR *arg
     ota_server_ip = _inet_addr(argv[0]);
 
     file_name = argv[1];
+    if(argc>2)
+    	test_flag=1;
+    else 
+	test_flag=0;	
 
-    return CLIOTA_Upgrade(cli, ota_server_ip, file_name, 0, -1);
+    return CLIOTA_Upgrade(cli, ota_server_ip, file_name, 0, -1,test_flag);
 }
