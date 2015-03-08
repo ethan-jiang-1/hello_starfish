@@ -151,28 +151,28 @@ void Init_Task(uint32_t task_init_data)
 	 _task_create_at(0, MMA8415_TASK, 0, mma8451_task_stack, MMA8451_TASK_STACK_SIZE);
 	
 		Lptmr_Start();
-	//--------------------For Test Only----------------------
-	//Terry SPI flash TEST
-	APP_TRACE("SPI Flash Programe Test Start\r\n");
-	for(i=0;i<10;i++)
-	{
-		BufferW[i]=i;
-		BufferR[i]=0;
-	}
-	flash_write_status(BLOCK_PROTECTION_LOCK_DOWN_NULL);
-	flash_block_erase(0x300000);
-	flash_write_word (0x300000, BufferW, 10	);
-	flash_read_data (0x300000, BufferR, 10);
-	if(BufferR[5]==5)
-	{
-		APP_TRACE("Spi Flash OK\r\n");		
-	}
-	else
-	{
-		APP_TRACE("Spi Flash error\r\n");
-	}
-	
-	APP_TRACE("-------------Done-----------\r\n");
+//	//--------------------For Test Only----------------------
+//	//Terry SPI flash TEST
+//	APP_TRACE("SPI Flash Programe Test Start\r\n");
+//	for(i=0;i<10;i++)
+//	{
+//		BufferW[i]=i;
+//		BufferR[i]=0;
+//	}
+//	flash_write_status(BLOCK_PROTECTION_LOCK_DOWN_NULL);
+//	flash_block_erase(0x300000);
+//	flash_write_word (0x300000, BufferW, 10	);
+//	flash_read_data (0x300000, BufferR, 10);
+//	if(BufferR[5]==5)
+//	{
+//		APP_TRACE("Spi Flash OK\r\n");		
+//	}
+//	else
+//	{
+//		APP_TRACE("Spi Flash error\r\n");
+//	}
+//	
+//	APP_TRACE("-------------Done-----------\r\n");
 	//--------------------Test DONE---------------------------------
 for(;;)
 	{
