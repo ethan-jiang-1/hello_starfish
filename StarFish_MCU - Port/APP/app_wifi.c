@@ -6,6 +6,7 @@
 #include "app_trace.h"
 #include <string.h>
 #include <stdlib.h>
+#include "w25x32.h"
 
 #include "app_rgb_led.h"
 
@@ -14,7 +15,7 @@
 #define WIFI_MSG_SIZE          1
 static uint_32  g_uart0_rx_queue[sizeof(LWMSGQ_STRUCT)/sizeof(uint_32) + WIFI_MSG_NUMBER* WIFI_MSG_SIZE];
 
-#define WIFI_RECV_BUF_SIZE     512  /*This is maxium buffer size*/
+#define WIFI_RECV_BUF_SIZE     1124  /*This is maxium buffer size: 1024=binary data size, 100=maxium header size*/
 static uint_8  g_wifi_com_recv_buf[WIFI_RECV_BUF_SIZE];
 
 uint8_t wifi_task_stack[WIFI_TASK_STACK_SIZE];
@@ -84,7 +85,7 @@ static int  do_wifi_image_cmd(uint_8* pData)
 	char szDataLen[5] = {0};
 	char szEndFlag[2] = {0};
 	char szCheckSum[11] = {0};
-	memcpy(szDataLen, pData + 9, 8);
+	memcpy(szAddr, pData + 9, 8);
 	memcpy(szDataLen, pData + 18, 4);
 	memcpy(szEndFlag, pData + 23, 1);
 	memcpy(szCheckSum, pData + 25, 10);
@@ -99,9 +100,9 @@ static int  do_wifi_image_cmd(uint_8* pData)
 	{
 		
 		/*start to record spi*/
-		
-		/*end of flash write*/
+		flash_write_data (info.m_lAddr,pData + 36 , info.m_lDataLen );
 		APP_TRACE((const char*)g_wifi_com_recv_buf[WIFI_IMAGE_CMD_HEADER_LEN]);
+		/*end record flash*/
 		snprintf(szBuf, sizeof(szBuf)-1, "%%B1P,0,0:1");
     uart0_send_string((uint8_t*)szBuf);
 		if(info.m_lEndFlag==1)
