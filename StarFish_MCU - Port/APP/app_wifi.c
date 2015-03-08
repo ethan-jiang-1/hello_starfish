@@ -17,7 +17,7 @@ static uint_32  g_uart0_rx_queue[sizeof(LWMSGQ_STRUCT)/sizeof(uint_32) + WIFI_MS
 #define WIFI_RECV_BUF_SIZE     512  /*This is maxium buffer size*/
 static uint_8  g_wifi_com_recv_buf[WIFI_RECV_BUF_SIZE];
 
-
+uint8_t wifi_task_stack[WIFI_TASK_STACK_SIZE];
 //////////////////////WIFI CMD
 #define WIFI_TAG_HEADER				"%B1Q,"
 #define WIFI_IMAGE_TAG_HEADER							"%B1Q,300,"	

@@ -149,6 +149,7 @@ void Init_Task(uint32_t task_init_data)
 		APP_TRACE("start 1\n\r");
 	 _task_create_at(0, SHELL_TASK, 0, shell_task_stack, SHELL_TASK_STACK_SIZE);
 	 _task_create_at(0, MMA8415_TASK, 0, mma8451_task_stack, MMA8451_TASK_STACK_SIZE);
+	  _task_create_at(0, WIFI_TASK, 0, wifi_task_stack, WIFI_TASK_STACK_SIZE);
 	
 		Lptmr_Start();
 //	//--------------------For Test Only----------------------

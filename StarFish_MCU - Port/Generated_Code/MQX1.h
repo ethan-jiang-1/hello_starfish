@@ -83,6 +83,7 @@ void _pend_svc(void);
 extern uint8_t Init_Task_task_stack[INIT_TASK_TASK_STACK_SIZE];
 extern uint8_t shell_task_stack[SHELL_TASK_STACK_SIZE];
 extern uint8_t mma8451_task_stack[MMA8451_TASK_STACK_SIZE];
+extern uint8_t wifi_task_stack[WIFI_TASK_STACK_SIZE];
 /* MQX Lite init structure and task template list */
 extern const MQXLITE_INITIALIZATION_STRUCT       MQX_init_struct;
 extern const TASK_TEMPLATE_STRUCT                MQX_template_list[];
