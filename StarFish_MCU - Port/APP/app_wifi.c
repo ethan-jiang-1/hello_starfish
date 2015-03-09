@@ -84,6 +84,7 @@ static int  do_wifi_image_cmd(uint_8* pData)
 {
 //"%B1Q,300,12345678,1000,1,0123456789,"
 	wifi_image_info info;
+	uint8_t i=0;
 	char szBuf[64] = {0}; //reply message
 	char szFileIndex[5] = {0};
 	char szDataLen[5] = {0};
@@ -111,9 +112,11 @@ static int  do_wifi_image_cmd(uint_8* pData)
 	{
 		
 		/*start to record spi*/
-		flash_write_data (gImgAddr,pData + 36 , info.m_lDataLen );
+		for(i=0;i<info.m_lDataLen;i++)
+		{
+			flash_write_data (gImgAddr+i,pData + 36+i , 1 );
+		}
 		gImgAddr=gImgAddr+info.m_lDataLen;
-		APP_TRACE((const char*)g_wifi_com_recv_buf[WIFI_IMAGE_CMD_HEADER_LEN]);
 		/*end record flash*/
 		snprintf(szBuf, sizeof(szBuf)-1, "%%B1P,0,0:1");
     uart0_send_string((uint8_t*)szBuf);
@@ -140,14 +143,14 @@ int HandleMessage(char* pData)
 		char *p_result;
 		char *buf= pData;
 		FComFunPair funTbl [] = {FCOM_FUNC_TBL};
- printf("%s\r\n",(const char*)buf);
+ APP_TRACE("%s\r\n",(const char*)buf);
 		while((p_result=strtok(buf,(char*)delims))!=NULL) {
 			
                 para[i]=atoi(p_result);
 								i++;
                  buf=NULL;
 				}
-				printf("s1:%d,s2:%d,s3:%d\r\n",para[0],para[1],para[2]);
+				APP_TRACE("s1:%d,s2:%d,s3:%d\r\n",para[0],para[1],para[2]);
 
 	id=para[0];
  nSize = sizeof(funTbl) / sizeof(funTbl[0]);			
