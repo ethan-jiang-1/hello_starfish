@@ -69,11 +69,11 @@ void    init_MMA8451_interrupt(void)
     // ALT1
     /* PORTA_PCR14: ISF=0, MUX=1, IQRC=0x0A(1010), PE=1, PS=1 */
 		/*zga: in kl25, this pin is connected from chip to mcu*/
-		/*But in our cup design, pte5 is used as interrupt pin*/
+		/*But in our cup design, pta5 is used as interrupt pin*/
    // PORTA_PCR14 = 0x000A0103;
     //GPIOA_PDDR &= ~(1<<14);
-	  PORTE_PCR5  = 0x000A0103;                                
-		GPIOE_PDDR &= ~(1<<5);
+	  PORTA_PCR5  = 0x000A0103;                                
+		GPIOA_PDDR &= ~(1<<5);
     isr = _int_install_isr(LDD_ivIndex_INT_PORTA, MMA8451_INT1_isr_service, NULL);
     ASSERT_PARAM(isr != NULL);
 
@@ -532,11 +532,11 @@ void    app_mma8451_control_task(uint32_t task_init_data)
 
 static void MMA8451_INT1_isr_service(void* p_arg)
 {
-    // PTA14
-    if (PORTA_ISFR & ((uint32_t)(1<<14)))
+    // PTA5
+    if (PORTA_ISFR & ((uint32_t)(1<<5)))
     {
         // writte 1 to the flag to clear the interrupt flag
-        PORTA_ISFR = (uint32_t)(1<<14);
+        PORTA_ISFR = (uint32_t)(1<<5);
         _lwsem_post(&g_mma8451_int_sem);
     }
 }
