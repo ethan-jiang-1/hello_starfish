@@ -23,6 +23,9 @@ extern int eink_init(void);
 extern int eink_display_full(unsigned char pixel);
 extern int eink_display_repeat(void);
 extern int eink_display(struct display_rect * rect,  unsigned char is_full, int (*get_data)(int));
+//////////////////////////
+int eink_getdata(int buflen);
+
 
 #endif
 

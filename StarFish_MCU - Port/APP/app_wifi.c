@@ -30,21 +30,37 @@ uint8_t gImgBStart=0;
 uint32_t gImgAddr=0;
 
 static void uart0_irq_handler(void* p_arg);
-void test1(uint32_t v1,uint32_t v2 )
+void ChangePicCMD(uint32_t v1,uint32_t v2 )
 {
-	printf("test1\r\n");
+	APP_TRACE("test1\r\n");
+	  eink_display_full(0xff); //全屏刷白
+  eink_display_full(0x00); //全屏刷黑
+  eink_display_full(0xff); //全屏刷白
+			
+ //在起点为（120,200）的位置刷出(120*157)大小的黑框 
+ //请注意之前必须全屏刷白才有效果
+ { 
+		  struct display_rect rect;
+		
+		  rect.x = 120;
+		  rect.y = 200;
+		  rect.w=  120;
+	  	rect.h = 157;
+		  eink_display(&rect, 0, eink_getdata); 
 }
-void test2(uint32_t v1,uint32_t v2)
+	
+}
+void GetWaterCMD(uint32_t v1,uint32_t v2)
 {
-	printf("test2\r\n");
+	APP_TRACE("test2\r\n");
 }
 
-void test3(uint32_t v1,uint32_t v2)
+void EraseFileCMD(uint32_t v1,uint32_t v2)
 {
 	printf("test3\r\n");
 	EraseFile(v1);
 }
-
+#if 0
 bool verifyCheckSum( dword dwTargetCheckSum, uint_8 *pData, dword nDataLen )
 {
 
@@ -70,6 +86,7 @@ static int ParseChecksum(uint_8 * pData, int dwLen)
 
 		return dwCheckSum;
 	}
+	#endif
 /**
 *--------------------------------------------------------------
   * WIFI picture cmd:
@@ -104,11 +121,12 @@ static int  do_wifi_image_cmd(uint_8* pData)
 		gImgBStart=1;
 	}
 	
-/*disable check sum calculation 
+/*disable check sum calculation*/
+	#if 0
 	info.m_dwCheckSum =ParseChecksum((uint_8*)(szCheckSum), strlen(szCheckSum));
 	if(verifyCheckSum(info.m_dwCheckSum, (uint_8 *)(pData+WIFI_IMAGE_CMD_HEADER_LEN), 
 			info.m_lDataLen))
-*/
+#endif
 	{
 		
 		/*start to record spi*/
@@ -163,16 +181,7 @@ int HandleMessage(char* pData)
 		}
 			
 	}		
-		switch(id){
-			case 100:
-					 
-					break;
-			case 101:
-					break;
-			default:
-					break;
-		}
-		
+
 	return 1;
 }
 bool IsImage()

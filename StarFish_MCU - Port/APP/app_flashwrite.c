@@ -9,6 +9,7 @@
 #include "partition.h"
 #include "app_trace.h"
 #include "eink_display.h"
+unsigned long ImageAddr=0;
 
 void flash_write_test()
 {
@@ -321,4 +322,38 @@ void read_spi_falsh(unsigned long  int address, unsigned char *buf, unsigned lon
 		spi_lcm_exchange(BUS_TO_LCM);	
 	
 	 //APP_TRACE("read_spi_flash is ok!  \r\n");
+}
+
+int eink_getdata(int buflen)
+{
+   unsigned long  i,len,dumplen=0;  
+	 unsigned long  startaddress = ImageAddr; //赋值你的图片写在Flash中的首地址
+	 unsigned char     buf[DATA_BUFFER_LEN]	= {0};          
+	 unsigned char     *pdata =buf ;                    
+                     len=DATA_BUFFER_LEN;              
+	 dumplen = IMAGE_LENGTH - buflen;                   //已写入缓存的数据长度
+   if(buflen>=len)                                     //如果回调传入的数据长度大于你定义的buf长度那么继续写缓存
+	{ 
+		
+			read_spi_falsh(startaddress+dumplen,buf,len);
+			
+//   		for(i=0;i<len;i++)
+//		   {  
+//					exchange_buff[i] = buf[i];
+//			}
+			memcpy(exchange_buff,buf,len);
+         return len;			                            //返回你写入数据的长度
+	}else{                                              //当剩余的最后写入数据不能写满buf时
+	
+	   
+					read_spi_falsh(startaddress+dumplen,buf,len);
+				 
+//      for(i=0;i<buflen;i++)
+//		     {
+//					exchange_buff[i] = buf[i];
+//				 }
+					memcpy(exchange_buff,buf,len);
+					 return buflen;	                            //返回你实际写入的长度
+         
+       }
 }

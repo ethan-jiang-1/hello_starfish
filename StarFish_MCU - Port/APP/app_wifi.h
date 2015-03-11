@@ -30,9 +30,9 @@ typedef struct
 		HandleFun		m_pFunAddr;
 	}FComFunPair;	
 
-	#define FCOM_FUNC_TBL		{100,				&test1},\
-                        {101,         &test2},\
-												{102,			&test3}
+	#define FCOM_FUNC_TBL		{100,				&ChangePicCMD},\
+                        {101,         &GetWaterCMD},\
+												{102,			&EraseFileCMD}
 void    app_wifi_control_task(uint32_t task_init_data);
 
 
