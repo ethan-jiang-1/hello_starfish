@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include "w25x32.h"
 #include "eink_display.h"
+#include "partition.h"
 
 #include "app_rgb_led.h"
 
@@ -28,7 +29,7 @@ uint8_t wifi_task_stack[WIFI_TASK_STACK_SIZE];
 
 uint8_t gImgBStart=0;
 uint32_t gImgAddr=0;
-
+extern unsigned long ImageAddr;
 static void uart0_irq_handler(void* p_arg);
 void ChangePicCMD(uint32_t v1,uint32_t v2 )
 {
@@ -46,6 +47,7 @@ void ChangePicCMD(uint32_t v1,uint32_t v2 )
 		  rect.y = 200;
 		  rect.w=  120;
 	  	rect.h = 157;
+			ImageAddr=IMAGE_START_ADD;
 		  eink_display(&rect, 0, eink_getdata); 
 }
 	
