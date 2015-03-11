@@ -136,7 +136,7 @@ void Init_Task(uint32_t task_init_data)
 	APP_TRACE("flash id 0x%x\r\n", spiid);
 	
 	
-	
+//	eink_init();
 	///////////////
 		//////////////zga add
 	//Set LPTMR to timeout about 5 seconds

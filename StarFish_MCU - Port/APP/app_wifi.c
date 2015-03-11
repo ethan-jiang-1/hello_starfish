@@ -24,7 +24,7 @@ uint8_t wifi_task_stack[WIFI_TASK_STACK_SIZE];
 #define WIFI_TAG_HEADER				"%B1Q,"
 #define WIFI_IMAGE_TAG_HEADER							"%B1Q,300,"	
 #define WIFI_IMAGE_TAG_LEN								(sizeof(WIFI_IMAGE_TAG_HEADER) - 1)
-#define WIFI_IMAGE_CMD_HEADER_LEN						(sizeof("%B1Q,300,12345678,1000,1,0123456789"))
+#define WIFI_IMAGE_CMD_HEADER_LEN						(sizeof("%B1Q,300,1234,1000,1,1234567890")) //32 byte.
 
 uint8_t gImgBStart=0;
 uint32_t gImgAddr=0;
@@ -73,16 +73,16 @@ static int ParseChecksum(uint_8 * pData, int dwLen)
 /**
 *--------------------------------------------------------------
   * WIFI picture cmd:
-	* %B1Q,ID,file index,length, terminate flag, check sum,binary data.
+	* %B1Q,ID,file index,length, terminate flag,checksum,binary data.
 	* file index: for exapmle, total 9999 image can be stored in the flash. 
 	* length means how many byte of binary data
 	*	terminate flag means it is the last frame image or not.
-	* %B1Q,IMAGE_ID(300),9999,1000,1,0015609326......  
+	* %B1Q,IMAGE_ID(300),9999,1000,1,1234567890,0015609326......  
   *--------------------------------------------------------------
   */
 static int  do_wifi_image_cmd(uint_8* pData)
 {
-//"%B1Q,300,12345678,1000,1,0123456789,"
+//"%B1Q,300,1234,1000,1,0123456789,"
 	wifi_image_info info;
 	uint8_t i=0;
 	char szBuf[64] = {0}; //reply message
@@ -114,7 +114,7 @@ static int  do_wifi_image_cmd(uint_8* pData)
 		/*start to record spi*/
 		for(i=0;i<info.m_lDataLen;i++)
 		{
-			flash_write_data (gImgAddr+i,pData + 36+i , 1 );
+			flash_write_data (gImgAddr+i,pData + 32+i , 1 );
 		}
 		gImgAddr=gImgAddr+info.m_lDataLen;
 		/*end record flash*/
