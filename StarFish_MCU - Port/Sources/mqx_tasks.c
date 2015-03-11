@@ -129,14 +129,15 @@ void Init_Task(uint32_t task_init_data)
 	 _mqx_uint       mqx_ret;
 	  trace_init();
 	 show_version_information();
-	////zg add for spi data flah
-	  spiInit(SPI0_BASE_PTR , Master);                                    /* init spi*/
+	////init spi flash
+	spiInit(SPI0_BASE_PTR , Master);                                    /* init spi*/
   spiid = flash_read_id();
+	flash_write_status(BLOCK_PROTECTION_LOCK_DOWN_NULL);
 	/////////////end spi flash
-	APP_TRACE("flash id 0x%x\r\n", spiid);
 	
+	/*init eink*/
 	
-//	eink_init();
+	eink_init();
 	///////////////
 		//////////////zga add
 	//Set LPTMR to timeout about 5 seconds
