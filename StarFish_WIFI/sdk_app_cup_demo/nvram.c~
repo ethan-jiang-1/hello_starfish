@@ -1,0 +1,126 @@
+#include "main.h"
+
+SYS_CONFIG_t sys_config = {0};
+
+A_STATUS NVRAM_SaveSettings(SYS_CONFIG_t *pConfig)
+{
+    A_STATUS ret = 0;
+
+    /* erase flash before write flash */
+    ret = qcom_nvram_erase(CONFIG_NVRAM_ADDR, ERASEROMRANGE);
+
+    if (A_ERROR == ret) {
+        return A_ERROR;
+    }
+
+    ret = qcom_nvram_write(CONFIG_NVRAM_ADDR,
+                           (A_UCHAR *)pConfig,
+                           sizeof(SYS_CONFIG_t));
+    if (A_ERROR == ret) {
+        return A_ERROR;
+    }
+
+    return A_OK;
+}
+
+void NVRAM_LoadDefaultSettings(SYS_CONFIG_t *pConfig)
+{
+    A_PRINTF("Load Factory Settings\n");
+
+    pConfig->mode = eAP;
+    pConfig->port = 6000;
+
+    // AP mode
+    A_STRCPY(pConfig->apSSID, "Bowhead");
+    A_STRCPY(pConfig->apKey, "123");
+
+    pConfig->authMode   = WLAN_AUTH_WPA2_PSK;
+    pConfig->encyptMode = WLAN_CRYPT_AES_CRYPT;
+
+    A_STRCPY(pConfig->ipAddressAP,      "192.168.1.1");
+    A_STRCPY(pConfig->netMaskAP,        "255.255.255.0");
+    A_STRCPY(pConfig->gatewayAddressAP, "192.168.1.1");
+
+    A_STRCPY(pConfig->dhcpPoolLow,  "192.168.1.100");
+    A_STRCPY(pConfig->dhcpPoolHigh, "192.168.1.200");
+
+    pConfig->dhcpLeastTime = 65535;
+
+    // Station Mode
+    A_STRCPY(pConfig->staSSID, "");
+    A_STRCPY(pConfig->staKey, "");
+
+    pConfig->dhcpEnable = TRUE;
+
+    A_STRCPY(pConfig->ipAddressStation,      "192.168.1.100");
+    A_STRCPY(pConfig->netMaskStation,        "255.255.255.0");
+    A_STRCPY(pConfig->gatewayAddressStation, "192.168.1.1");
+	//test mode
+       // Station Mode
+    A_STRCPY(pConfig->staSSID1, "");
+    A_STRCPY(pConfig->staKey1, "");
+
+    pConfig->dhcpEnable1 = TRUE;
+
+    A_STRCPY(pConfig->ipAddressStation1,      "192.168.1.101");
+    A_STRCPY(pConfig->netMaskStation1,        "255.255.255.0");
+    A_STRCPY(pConfig->gatewayAddressStation1, "192.168.1.1");
+	//end test mode
+
+    pConfig->crc16 = MAIN_CalcCRC16((A_UINT8 *)&sys_config,
+                                     sizeof(SYS_CONFIG_t) - sizeof(A_UINT16));
+}
+
+static void NVRAM_Dump(SYS_CONFIG_t *pConfig)
+{
+    A_PRINTF("Mode                  = %s\n", pConfig->mode == eAP?"AP":"Station");
+    A_PRINTF("port                  = %d\n", pConfig->port);
+    A_PRINTF("hostPrefix            = %s\n", pConfig->apSSID); 
+    A_PRINTF("password              = %s\n", pConfig->apKey); 
+    A_PRINTF("authMode              = %d\n", pConfig->authMode); 
+    A_PRINTF("encyptMode            = %d\n", pConfig->encyptMode); 
+    A_PRINTF("ipAddressAP           = %s\n", pConfig->ipAddressAP); 
+    A_PRINTF("netMaskAP             = %s\n", pConfig->netMaskAP); 
+    A_PRINTF("gatewayAddressAP      = %s\n", pConfig->gatewayAddressAP); 
+    A_PRINTF("dhcpPoolLow           = %s\n", pConfig->dhcpPoolLow); 
+    A_PRINTF("dhcpPoolHigh          = %s\n", pConfig->dhcpPoolHigh); 
+    A_PRINTF("dhcpLeastTime         = %d\n", pConfig->dhcpLeastTime); 
+    A_PRINTF("dhcpEnable            = %d\n", pConfig->dhcpEnable); 
+    A_PRINTF("ipAddressStation      = %s\n", pConfig->ipAddressStation1); 
+    A_PRINTF("netMaskStation        = %s\n", pConfig->netMaskStation); 
+    A_PRINTF("gatewayAddressStation = %s\n", pConfig->gatewayAddressStation); 
+    A_PRINTF("crc16                 = %d\n", pConfig->crc16); 
+}
+
+A_STATUS NVRAM_RestoreConfig()
+{
+    A_STATUS ret = qcom_nvram_read(CONFIG_NVRAM_ADDR,
+                                  (A_UCHAR *)&sys_config,
+                                  sizeof(SYS_CONFIG_t));
+
+    if (ret == A_OK) {
+
+        if (MAIN_CalcCRC16((A_UINT8 *)&sys_config, sizeof(SYS_CONFIG_t)) != 0) {
+
+            NVRAM_Dump(&sys_config);
+
+            NVRAM_LoadDefaultSettings(&sys_config);
+
+            NVRAM_Dump(&sys_config);
+
+            ret = NVRAM_SaveSettings(&sys_config);
+
+            if (ret != A_OK) {
+                A_PRINTF("Save Settings Failed\n");
+            }
+        }
+    }
+    else {
+        NVRAM_LoadDefaultSettings(&sys_config);
+        ret = NVRAM_SaveSettings(&sys_config); 
+
+        if (ret != A_OK) {
+            A_PRINTF("Save Settings Failed\n");
+        }
+    }
+}
