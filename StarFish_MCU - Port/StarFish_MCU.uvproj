@@ -861,6 +861,11 @@
               <FileType>5</FileType>
               <FilePath>.\common\drivers\eink\eink_display.h</FilePath>
             </File>
+            <File>
+              <FileName>Eink.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\common\drivers\eink\Eink.lib</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -890,6 +895,16 @@
               <FileName>app_wifi.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\app_wifi.c</FilePath>
+            </File>
+            <File>
+              <FileName>partition.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\APP\partition.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_flashwrite.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\app_flashwrite.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -324,6 +324,7 @@ void read_spi_falsh(unsigned long  int address, unsigned char *buf, unsigned lon
 	 //APP_TRACE("read_spi_flash is ok!  \r\n");
 }
 
+#if 0
 int eink_getdata(int buflen)
 {
    unsigned long  i,len,dumplen=0;  
@@ -357,3 +358,4 @@ int eink_getdata(int buflen)
          
        }
 }
+#endif

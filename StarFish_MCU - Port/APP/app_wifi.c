@@ -37,7 +37,7 @@ void ChangePicCMD(uint32_t v1,uint32_t v2 )
 	  eink_display_full(0xff); //全屏刷白
   eink_display_full(0x00); //全屏刷黑
   eink_display_full(0xff); //全屏刷白
-			
+#if 0			
  //在起点为（120,200）的位置刷出(120*157)大小的黑框 
  //请注意之前必须全屏刷白才有效果
  { 
@@ -50,7 +50,7 @@ void ChangePicCMD(uint32_t v1,uint32_t v2 )
 			ImageAddr=IMAGE_START_ADD;
 		  eink_display(&rect, 0, eink_getdata); 
 }
-	
+#endif
 }
 void GetWaterCMD(uint32_t v1,uint32_t v2)
 {

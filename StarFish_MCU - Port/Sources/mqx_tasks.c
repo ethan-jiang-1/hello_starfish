@@ -38,6 +38,7 @@
 #include "MKL_spi.h"
 #include "w25x32.h"
 #include "eink_display.h"
+#include "partition.h"
 
 LDD_TDeviceData *I2C_DeviceData = NULL;
 LDD_TDeviceData *PWMTimerRGB_DeviceData = NULL;
@@ -76,6 +77,37 @@ static void show_version_information(void)
     APP_TRACE("====================================================\r\n\r\n");
 
 }
+
+int eink_getdata(int buflen)
+{
+  unsigned long int i,len,dumplen=0;
+	unsigned long int startaddress = IMAGE5_START_ADD;
+	unsigned char buf[DATA_BUFFER_LEN]={0};
+	unsigned char *pdata = buf;
+                len = DATA_BUFFER_LEN;
+	dumplen = IMAGE5_LENGTH -buflen;
+	if(buflen > len)
+	{
+	 flash_read_data(startaddress+dumplen,buf,len);
+		for(i=0;i<len;i++)
+		{
+		 exchange_buff[i]=buf[i];
+		
+		}
+  return len;	
+	}else{
+	
+	 flash_read_data(startaddress+dumplen,buf,len);
+		for(i=0;i<buflen;i++)
+		{
+		 exchange_buff[i]=buf[i];
+		}
+		return buflen;
+	}
+	
+}
+
+
 /*
 ** ===================================================================
 **     Event       :  Init_Task (module mqx_tasks)
@@ -113,6 +145,20 @@ void SetSysStatus(uint_8 sys)
 {
 	sysStatus=sys;
 }
+int  get_rect_data( int len)
+{
+	
+	unsigned int i,j=0;
+	
+	for(i = 0; i < len; i++)
+	{  
+		  exchange_buff[i] = 0x00;	//局部刷黑
+	}
+	
+	return len;
+	
+}
+
 void Init_Task(uint32_t task_init_data)
 {
 		int tester=0;
@@ -137,7 +183,35 @@ void Init_Task(uint32_t task_init_data)
 	
 	/*init eink*/
 	
-	eink_init();
+	eink_init(); //初始化操作
+			
+
+  eink_display_full(0xff); //全屏刷白
+  eink_display_full(0x00); //全屏刷黑
+  eink_display_full(0xff); //全屏刷白
+			
+ //在起点为（120,200）的位置刷出(120*157)大小的黑框 
+ //请注意之前必须全屏刷白才有效果
+ { 
+		  struct display_rect rect;
+		
+		  rect.x = 120;
+		  rect.y = 200;
+		  rect.w=  120;
+	  	rect.h = 157;
+		  eink_display(&rect, 0, get_rect_data); 
+}
+ 
+ { 
+		  struct display_rect rect;
+		
+		  rect.x = 0;
+		  rect.y = 0;
+		  rect.w=  360;
+	  	rect.h = 600;
+		  eink_display(&rect, 0, eink_getdata); 
+}
+
 	///////////////
 		//////////////zga add
 	//Set LPTMR to timeout about 5 seconds
