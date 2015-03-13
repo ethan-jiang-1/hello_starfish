@@ -180,7 +180,8 @@ void Init_Task(uint32_t task_init_data)
   spiid = flash_read_id();
 	flash_write_status(BLOCK_PROTECTION_LOCK_DOWN_NULL);
 	/////////////end spi flash
-	
+	/*tempory disable eink lib*/
+	#if 0
 	/*init eink*/
 	
 	eink_init(); //³õÊ¼»¯²Ù×÷
@@ -211,7 +212,7 @@ void Init_Task(uint32_t task_init_data)
 	  	rect.h = 600;
 		  eink_display(&rect, 0, eink_getdata); 
 }
-
+#endif
 	///////////////
 		//////////////zga add
 	//Set LPTMR to timeout about 5 seconds
