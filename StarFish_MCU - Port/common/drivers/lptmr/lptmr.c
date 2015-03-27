@@ -27,6 +27,9 @@ void lptmr_isr(void* p_arg)
   //GPIOB_PSOR = 0x00080000;           // clear Port B 19 indicate wakeup
 //	GPIOA_PDOR ^= (1<<16);
   //APP_TRACE("\n****LPT ISR entered*****\r\n");
+	/*reset watch dog*/
+		SIM_SRVCOP = SIM_SRVCOP_SRVCOP(0x55);
+		SIM_SRVCOP = SIM_SRVCOP_SRVCOP(0xAA);
   // enable timer
   // enable interrupts
   // clear the flag

@@ -98,7 +98,11 @@ void __init_hardware(void)
   SCB_VTOR = (uint32_t)(&__vect_table); /* Set the interrupt vector table position */
   /* Disable the WDOG module */
   /* SIM_COPC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COPT=0,COPCLKS=0,COPW=0 */
-  SIM_COPC = SIM_COPC_COPT(0x00);                                   
+  /*enable watch dog: timeout is 1024ms*/
+	//SIM_COPC = SIM_COPC_COPT(0x00);
+	SIM_SRVCOP = SIM_SRVCOP_SRVCOP(0x55);
+	SIM_SRVCOP = SIM_SRVCOP_SRVCOP(0xAA);
+	SIM_COPC = SIM_COPC_COPT(3);
   /* System clock initialization */
   /* SIM_SCGC5: PORTE=1,PORTD=1,PORTB=1,PORTA=1 */
   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |

@@ -216,7 +216,7 @@ void Init_Task(uint32_t task_init_data)
 	///////////////
 		//////////////zga add
 	//Set LPTMR to timeout about 5 seconds
-		Lptmr_Init(5000, LPOCLK);	
+		Lptmr_Init(1000, LPOCLK);	
 		ADC_Init();
 		Calibrate_ADC();
 		ADC_Init();
