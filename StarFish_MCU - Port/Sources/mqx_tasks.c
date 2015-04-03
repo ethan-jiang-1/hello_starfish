@@ -78,35 +78,6 @@ static void show_version_information(void)
 
 }
 
-int eink_getdata(int buflen)
-{
-  unsigned long int i,len,dumplen=0;
-	unsigned long int startaddress = IMAGE5_START_ADD;
-	unsigned char buf[DATA_BUFFER_LEN]={0};
-	unsigned char *pdata = buf;
-                len = DATA_BUFFER_LEN;
-	dumplen = IMAGE5_LENGTH -buflen;
-	if(buflen > len)
-	{
-	 flash_read_data(startaddress+dumplen,buf,len);
-		for(i=0;i<len;i++)
-		{
-		 exchange_buff[i]=buf[i];
-		
-		}
-  return len;	
-	}else{
-	
-	 flash_read_data(startaddress+dumplen,buf,len);
-		for(i=0;i<buflen;i++)
-		{
-		 exchange_buff[i]=buf[i];
-		}
-		return buflen;
-	}
-	
-}
-
 
 /*
 ** ===================================================================
@@ -174,23 +145,27 @@ void Init_Task(uint32_t task_init_data)
 	MQX_TICK_STRUCT ttt;
 	 _mqx_uint       mqx_ret;
 	  trace_init();
+			Lptmr_Init(5000, LPOCLK);		
+		Lptmr_Start();
 	 show_version_information();
 	////init spi flash
 	spiInit(SPI0_BASE_PTR , Master);                                    /* init spi*/
   spiid = flash_read_id();
 	flash_write_status(BLOCK_PROTECTION_LOCK_DOWN_NULL);
 	/////////////end spi flash
-	/*tempory disable eink lib*/
-	#if 0
+	
 	/*init eink*/
 	
 	eink_init(); //初始化操作
 			
-
+			while(0)
+			{
+// only for the first boot up time
   eink_display_full(0xff); //全屏刷白
   eink_display_full(0x00); //全屏刷黑
   eink_display_full(0xff); //全屏刷白
-			
+//end of boot up time.
+
  //在起点为（120,200）的位置刷出(120*157)大小的黑框 
  //请注意之前必须全屏刷白才有效果
  { 
@@ -212,11 +187,13 @@ void Init_Task(uint32_t task_init_data)
 	  	rect.h = 600;
 		  eink_display(&rect, 0, eink_getdata); 
 }
-#endif
+ 
+
+}
 	///////////////
 		//////////////zga add
 	//Set LPTMR to timeout about 5 seconds
-		Lptmr_Init(1000, LPOCLK);	
+
 		ADC_Init();
 		Calibrate_ADC();
 		ADC_Init();
@@ -227,31 +204,10 @@ void Init_Task(uint32_t task_init_data)
 	 _task_create_at(0, SHELL_TASK, 0, shell_task_stack, SHELL_TASK_STACK_SIZE);
 	 _task_create_at(0, MMA8415_TASK, 0, mma8451_task_stack, MMA8451_TASK_STACK_SIZE);
 	  _task_create_at(0, WIFI_TASK, 0, wifi_task_stack, WIFI_TASK_STACK_SIZE);
+
 	
-		Lptmr_Start();
-//	//--------------------For Test Only----------------------
-//	//Terry SPI flash TEST
-//	APP_TRACE("SPI Flash Programe Test Start\r\n");
-//	for(i=0;i<10;i++)
-//	{
-//		BufferW[i]=i;
-//		BufferR[i]=0;
-//	}
-//	flash_write_status(BLOCK_PROTECTION_LOCK_DOWN_NULL);
-//	flash_block_erase(0x300000);
-//	flash_write_word (0x300000, BufferW, 10	);
-//	flash_read_data (0x300000, BufferR, 10);
-//	if(BufferR[5]==5)
-//	{
-//		APP_TRACE("Spi Flash OK\r\n");		
-//	}
-//	else
-//	{
-//		APP_TRACE("Spi Flash error\r\n");
-//	}
-//	
-//	APP_TRACE("-------------Done-----------\r\n");
-	//--------------------Test DONE---------------------------------
+	
+
 for(;;)
 	{
 		 mqx_ret = _lwsem_wait(&g_lptmr_int_sem);
@@ -338,9 +294,11 @@ void ColorTask(uint32_t task_init_data)
   signed char Color[3];
   while(1)
   {
-    Error = !ReadAccRegs(I2C_DeviceData, &DataState, OUT_X_MSB, 3 * ACC_REG_SIZE, (uint8_t*) Color);  // Read x,y,z acceleration data.
-    if (!Error) {
-      if (!BlinkFlag) {
+   // Error = !ReadAccRegs(I2C_DeviceData, &DataState, OUT_X_MSB, 3 * ACC_REG_SIZE, (uint8_t*) Color);  // Read x,y,z acceleration data.
+   // if (!Error)
+		{
+    //  if (!BlinkFlag)
+			{
         PWMTimerRGB_Enable(PWMTimerRGB_DeviceData);
         PWMTimerRGB_SetOffsetTicks(PWMTimerRGB_DeviceData, 0,1000*(1<<(abs(Color[0]/10)))); // x axis - red LED 
         PWMTimerRGB_SetOffsetTicks(PWMTimerRGB_DeviceData, 1, 1000*(1<<(abs(Color[1]/10)))); // y axis - green LED 

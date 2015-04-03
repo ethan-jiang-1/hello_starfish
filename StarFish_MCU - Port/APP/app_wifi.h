@@ -32,10 +32,13 @@ typedef struct
 
 	#define FCOM_FUNC_TBL		{100,				&ChangePicCMD},\
                         {101,         &GetWaterCMD},\
-												{102,			&EraseFileCMD}
+												{102,			&EraseFileCMD},\
+												{801,			&DataFlashEraseSector},\
+												{802,			&DataFlashEraseChip}
+												
 void    app_wifi_control_task(uint32_t task_init_data);
 
-
-
+#define RETURN_OK 1
+#define RETURN_ERROR 0
 #endif /* _APP_WIFI_H_ */
 

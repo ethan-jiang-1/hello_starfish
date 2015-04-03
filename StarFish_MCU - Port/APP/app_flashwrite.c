@@ -9,14 +9,15 @@
 #include "partition.h"
 #include "app_trace.h"
 #include "eink_display.h"
+#include "w25x32.h"
 unsigned long ImageAddr=0;
 
 void flash_write_test()
 {
 	int i;
 	int j;
-	char buf[256];
-	char rbuf[256];
+	uint8_t buf[256];
+	uint8_t rbuf[256];
 	for(i = 0; i < 256; i++)
 	{
 		buf[i] = i;
@@ -324,38 +325,37 @@ void read_spi_falsh(unsigned long  int address, unsigned char *buf, unsigned lon
 	 //APP_TRACE("read_spi_flash is ok!  \r\n");
 }
 
-#if 0
+/*
+输入参数 buflen: 假设图像total 1000 byte, buflen=900：表示已经读取了100，还剩余900没有读取.
+返回值: 表示本次从flash中读取的长度存放到全局变量exchange_buff[]中.
+*/
+#if 1
 int eink_getdata(int buflen)
 {
-   unsigned long  i,len,dumplen=0;  
-	 unsigned long  startaddress = ImageAddr; //赋值你的图片写在Flash中的首地址
-	 unsigned char     buf[DATA_BUFFER_LEN]	= {0};          
-	 unsigned char     *pdata =buf ;                    
-                     len=DATA_BUFFER_LEN;              
-	 dumplen = IMAGE_LENGTH - buflen;                   //已写入缓存的数据长度
-   if(buflen>=len)                                     //如果回调传入的数据长度大于你定义的buf长度那么继续写缓存
-	{ 
+  unsigned long int i,len,dumplen=0;
+	unsigned long int startaddress = ImageAddr; //图像在flash中的起始地址.
+	unsigned char buf[DATA_BUFFER_LEN]={0};
+	unsigned char *pdata = buf;
+                len = DATA_BUFFER_LEN;
+	dumplen = IMAGE_LENGTH -buflen;
+	if(buflen > len)
+	{
+	 flash_read_data(startaddress+dumplen,buf,len);
+		for(i=0;i<len;i++)
+		{
+		 exchange_buff[i]=buf[i];
 		
-			read_spi_falsh(startaddress+dumplen,buf,len);
-			
-//   		for(i=0;i<len;i++)
-//		   {  
-//					exchange_buff[i] = buf[i];
-//			}
-			memcpy(exchange_buff,buf,len);
-         return len;			                            //返回你写入数据的长度
-	}else{                                              //当剩余的最后写入数据不能写满buf时
+		}
+  return len;	
+	}else{
 	
-	   
-					read_spi_falsh(startaddress+dumplen,buf,len);
-				 
-//      for(i=0;i<buflen;i++)
-//		     {
-//					exchange_buff[i] = buf[i];
-//				 }
-					memcpy(exchange_buff,buf,len);
-					 return buflen;	                            //返回你实际写入的长度
-         
-       }
+	 flash_read_data(startaddress+dumplen,buf,len);
+		for(i=0;i<buflen;i++)
+		{
+		 exchange_buff[i]=buf[i];
+		}
+		return buflen;
+	}
+	
 }
 #endif

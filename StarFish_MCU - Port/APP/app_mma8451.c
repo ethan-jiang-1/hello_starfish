@@ -240,15 +240,15 @@ static void mma8451_getdata(void)
 					{
 						buffer_count=0;
 		_time_get_elapsed_ticks(&ttt);
-    APP_TRACE("high tick %d, low first st%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
+  //  APP_TRACE("high tick %d, low first st%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
 						FindFirstPeak();
 								_time_get_elapsed_ticks(&ttt);
-    APP_TRACE("high tick %d, low last end%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
+  //  APP_TRACE("high tick %d, low last end%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
 						FindLastPeak();
 								_time_get_elapsed_ticks(&ttt);
-    APP_TRACE("high tick %d, low last end%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
+ //   APP_TRACE("high tick %d, low last end%d\r\n", ttt.TICKS[1],ttt.TICKS[0]);
 					}
-					APP_TRACE("tilt %d,y=%05d,z=%05d\r\n", angle, accel_y, accel_z);
+	//				APP_TRACE("tilt %d,y=%05d,z=%05d\r\n", angle, accel_y, accel_z);
 					}
         }
     }

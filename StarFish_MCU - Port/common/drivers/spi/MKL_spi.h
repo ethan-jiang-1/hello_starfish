@@ -18,7 +18,7 @@ extern "C" {
 extern void spiInit(SPI_MemMapPtr SPI,uint_8 bMode);
 extern void spiTX(SPI_MemMapPtr SPI,uint_8 ucData);
     
-extern uint_8 Send_Byte (uint_8 ucdata);
+uint_8 Send_Byte (uint_8 ucdata);
 extern uint_8 Get_Byte (void);
 extern uint_16 Send_Short(SPI_MemMapPtr SPI,uint_16 ucdata);
 extern uint_16 Get_Short (SPI_MemMapPtr SPI);	

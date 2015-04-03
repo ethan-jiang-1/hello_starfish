@@ -2,7 +2,7 @@
 #include "w25x32.h"
 #include "eink_display.h"
 #include "partition.h"
-
+#include "MKL_spi.h"
 
 /* 宏,用于定义w25x32的片选引脚 */
 #define SPI_FLASH_CS_LOW()       FGPIOE_PCOR |= 1 << 16;                            /* 配置CS1置低 */

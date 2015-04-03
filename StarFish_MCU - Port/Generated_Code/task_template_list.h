@@ -38,6 +38,7 @@
 #define SHELL_TASK_STACK_SIZE           (sizeof(TD_STRUCT) + 768 + PSP_STACK_ALIGNMENT + 1)
 #define MMA8451_TASK_STACK_SIZE         (sizeof(TD_STRUCT) + 768 + PSP_STACK_ALIGNMENT + 1)
 #define WIFI_TASK_STACK_SIZE         (sizeof(TD_STRUCT) + 768 + PSP_STACK_ALIGNMENT + 1)
+	
 #endif /* __task_template_list_h__ */
 
 /*!
